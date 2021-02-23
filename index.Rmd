@@ -5,3 +5,14 @@ date: "Summer, 2021"
 ---
 
 Welcome to the Learning Lab for *An Introduction to Learning Analytics Using R*!
+
+## Slides
+
+- Part 1: [RMD](https://github.com/laser-institute/intro-to-learning-analytics-using-r/blob/main/slides-part-1.Rmd), [HTML](slides/slides-part-1.html), [PDF](slides/slides-part-1.pdf)
+- PArt 2: [RMD](https://github.com/laser-institute/intro-to-learning-analytics-using-r/blob/main/slides/slides-part-1.Rmd), [HTML](slides/slides-part-1.html), [PDF](slides/slides-part-1.pdf)
+
+## Activities
+
+- [Part 1 HW](https://github.com/making-data-science-count/s21-intro-to-data-sci-methods-in-ed/blob/main/activities/activity-week-1.Rmd)
+- [Part 2 HW](https://github.com/making-data-science-count/s21-intro-to-data-sci-methods-in-ed/blob/main/activities/activity-week-2.Rmd)
+  - Reading: Data Science in Education Using R (DSIEUR) chapter #3: https://datascienceineducation.com/c03.html    
