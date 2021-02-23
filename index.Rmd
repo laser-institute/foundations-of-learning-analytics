@@ -1,0 +1,7 @@
+---
+title: "Learning Lab - An Introduction to Learning Analytics Using R"
+subtitle: "LASER Institute"
+date: "Summer, 2021"
+---
+
+Welcome to the Learning Lab for *An Introduction to Learning Analytics Using R*!

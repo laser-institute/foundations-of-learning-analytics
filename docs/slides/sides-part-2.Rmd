@@ -1,0 +1,341 @@
+---
+title: "Intro. to LA Using R"
+subtitle: "Part 2: Foundational Skills"
+author: "LASER Institute"
+date: "Summer, 2021"
+output:
+  xaringan::moon_reader:
+    css: [theme.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# Welcome!
+
+Welcome to *part 2*!
+
+Great job so far.
+
+---
+
+# Foundational R skills
+
+A general framework for you to use as a foundation and as a set of concepts to help you work through the institute.
+
+The four core concepts we will use to build our framework are:
+
+1. Projects
+1. Packages
+1. Data
+1. Functions
+
+You will use each of these in most of your analyses with R.
+
+---
+
+## 1. Projects
+
+Working Directories 
+
+```{r}
+getwd() 
+```
+
+R Projects 
+
+Project options are saved in .Rproj file
+
+The here package helps you to navigate around in a project:
+
+```{r, eval = FALSE}
+library(here)
+
+# data file
+here("data", "fall=2018-data-file.csv")
+```
+
+---
+
+# 2. Packages
+
+1. What are packages? 
+  + Code bundles that add functionality to R
+  + Examples: ggplot2, dplyr, rtweet, quanteda, lme4
+1. Where do we get packages?
+  + CRAN or GitHub
+1. How do we install packages?
+  + install.packages("pkg-name")
+1. How do we know what packages to use?
+  + Searching 
+  + People and news related to R (more later - there are *tons*)
+  + CRAN task views
+1. How do we use packages?
+  + `library(pkgname)`
+
+---
+
+# 2. Installing another package
+
+Tidyverse, a collection of R packages.
+
+https://www.tidyverse.org/
+
+Install via the following (do this now):
+
+```{r, eval = FALSE}
+install.packages("tidyverse")
+```
+
+What issues have arisen?
+
+---
+
+# 3. Data
+
+So far, we have used *built-in data*. There is a lot of built-in data!
+
+Loading different types of data
+
+Comma-separated values (`.csv`)
+
+```{r, eval = FALSE}
+library(readr)
+readr::read_csv(here("data", "filename.csv"))
+```
+
+---
+
+# 3. Data 
+
+`.xlsx`
+
+```{r, eval = FALSE}
+library(readxl)
+read_excel((here("data", "schedule.xlsx")))
+```
+
+---
+
+# 3. SPSS
+
+`.sav`
+
+```{r, eval = FALSE}
+library(haven)
+read_sav((here("data:, file-name.sav")))
+```
+
+---
+
+# 3. Other data sources
+
+Google Sheets
+
+```{r, eval = FALSE}
+library(googlesheets4)
+```
+
+Web
+
+```{r, eval = FALSE}
+read_csv("https://github.com/data-edu/dataedu/raw/master/data-raw/wt01_online-science-motivation/raw/s12-course-data.csv")
+```
+
+---
+
+# 4. Functions
+
+- A function is a reusable piece of code that allows us to consistently repeat a programming task
+
+- Functions in R can be identified by a word followed by a set of parentheses, like so: `word()`. 
+
+More often than not, the word is a verb, such as `filter()`, suggesting that we’re about to perform an action. 
+
+Indeed, functions act like verbs: they tell R what to do with our data.
+
+The parentheses are where we can provide arguments.
+
+---
+
+# 4. Functions
+
+- What is the name of the *package* used below?
+- What is the name of the *data* used below?
+- What is the name of the function used below?*
+
+```{r, eval = FALSE}
+library(dplyr)
+#mtcars
+glimpse(mtcars)
+```
+
+---
+
+# 4. `select()`
+
+```{r, message = FALSE}
+library(dplyr)
+
+storms %>% 
+  select(name, year, month, day, hour, status)
+```
+
+---
+
+# 4. `filter()`
+
+```{r}
+library(dplyr)
+
+storms %>% 
+  filter(month == 8)
+```
+
+---
+
+# 4. `arrange()`
+
+```{r}
+library(dplyr)
+
+storms %>% 
+  arrange(hour)
+```
+
+---
+
+# 4. Putting it together
+
+```{r}
+library(dplyr)
+
+storms %>% 
+  select(name, year, month, day, hour, status) %>% 
+  filter(month == 8) %>% 
+  arrange(hour)
+```
+
+---
+
+# 4. Assignment operator
+
+```{r}
+storms_in_august <- storms %>% 
+  select(name, year, month, day, hour, status) %>% 
+  filter(month == 8) %>% 
+  arrange(hour)
+```
+
+What is one thing that is different between `storms_in_august` and `storms` ?
+
+---
+
+# 4. Assignment operator
+
+```{r}
+storms
+```
+
+---
+
+# 4. Assignment operator
+
+```{r}
+storms_in_august
+```
+
+---
+
+# 4. Assignment operator
+
+```{r}
+ncol(storms)
+```
+
+Tricky question: How many columns are present in `storms` after the following 
+operation?
+
+```{r, eval = FALSE}
+storms %>% 
+  select(name, year, status) 
+```
+
+---
+
+# 4. Assignment operators
+
+How many columns are in storms after running the following two lines of code?
+
+```{r, eval = FALSE}
+storms <- storms %>% 
+  select(name, year, status) 
+```
+
+---
+
+# 4. Pipe operator
+
+We've been using the pipe operator `%>%` from the magrittr package
+
+The pipe sends the results of a function (or object) from left side of pipe to next function after pipe.
+
+So instead of this:
+
+```{r, eval = FALSE}
+library(magrittr)
+library(dplyr)
+
+mtfilter <- dplyr::filter(mtcars, mpg < 20)
+mtsubset <- dplyr::select(mtfilter, mpg, cyl, disp)
+```
+
+We can do this:
+
+```{r, eval = FALSE }
+mtcars %>% 
+  dplyr::filter(mtcars, mpg < 20) %>% 
+  dplyr::select(mpg, cyl, disp)
+```
+
+
+---
+
+# 4. Basic programming operators
+
+Math
+
+```{r}
+x <- 3 * 4
+x
+y <- 2 + 3 -1
+y
+z <- 4 / 2 ** 3
+z
+```
+
+---
+
+# 4. Basic programming operators
+
+Logic
+
+```{r}
+x <- TRUE
+y <- FALSE
+# and
+x & y
+# or 
+x | y
+# not 
+!x
+```
+
+---
+
+# Discuss in groups (or, if there is insufficient time, in Slack)
+
+- What is one thing you learned from this part?
+- What questions do you still have?

@@ -1,0 +1,14 @@
+name: "Learning Lab - An Introduction to Learning Analytics Using R"
+navbar:
+  title: "LA Intro."
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Slides"
+      href: slides.html
+    - text: "Homework"
+      href: activities.html
+    - text: "GitHub Repository"
+      href: https://github.com/laser-institute/intro-to-learning-analytics-using-r
+output_dir: "docs"
+      

@@ -1,0 +1,7 @@
+---
+title: "Presentations"
+output: html_document
+---
+
+- Part 1: [RMD](https://github.com/laser-institute/intro-to-learning-analytics-using-r/blob/main/slides-part-1.Rmd), [HTML](slides/slides-part-1.html), [PDF](slides/slides-part-1.pdf)
+- PArt 2: [RMD](https://github.com/laser-institute/intro-to-learning-analytics-using-r/blob/main/slides/slides-part-1.Rmd), [HTML](slides/slides-part-1.html), [PDF](slides/slides-part-1.pdf)
