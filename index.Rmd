@@ -15,4 +15,7 @@ Welcome to the Learning Lab for *An Introduction to Learning Analytics Using R*!
 
 - [Part 1 HW](https://github.com/making-data-science-count/s21-intro-to-data-sci-methods-in-ed/blob/main/activities/activity-week-1.Rmd)
 - [Part 2 HW](https://github.com/making-data-science-count/s21-intro-to-data-sci-methods-in-ed/blob/main/activities/activity-week-2.Rmd)
-  - Reading: Data Science in Education Using R (DSIEUR) chapter #3: https://datascienceineducation.com/c03.html    
+
+## Reading
+
+Data Science in Education Using R (DSIEUR) chapter #3: https://datascienceineducation.com/c03.html    
