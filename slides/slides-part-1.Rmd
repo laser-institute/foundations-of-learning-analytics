@@ -212,25 +212,13 @@ sci_mo_processed %>%
 
 ---
 
-class: inverse, center, middle
-
-# Part 2/3: Tutorial
-
----
-
-# First tutorial: Data viz!
+# First small group tutorial: Data viz!
 
 - Navigate to https://github.com/laser-institute/intro-to-learning-analytics-using-r/find/main
 - Begin to type "tutorials"
-- Find `tutorials-week-1.Rmd`
+- Find `tutorials-learning-lab-1.Rmd`
 - Download this file by right-clicking it and then open it within RStudio
 - Walk through the steps
-
----
-
-class: inverse, center, middle
-
-# Part 3/3: Wrap-up
 
 ---
 

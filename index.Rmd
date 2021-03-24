@@ -4,18 +4,39 @@ subtitle: "LASER Institute"
 date: "Summer, 2021"
 ---
 
-Welcome to the Learning Lab for *An Introduction to Learning Analytics Using R*!
+Welcome to the *An Introduction to Learning Analytics Using R* module!
 
-## Slides
+This module is focused on building a strong foundation for the institute, especially with the
+statistical software and programming language R.
 
-- Part 1: [RMD](https://github.com/laser-institute/intro-to-learning-analytics-using-r/blob/main/slides-part-1.Rmd), [HTML](slides/slides-part-1.html), [PDF](slides/slides-part-1.pdf)
-- PArt 2: [RMD](https://github.com/laser-institute/intro-to-learning-analytics-using-r/blob/main/slides/slides-part-1.Rmd), [HTML](slides/slides-part-1.html), [PDF](slides/slides-part-1.pdf)
+Our specific goals are as follow:
 
-## Activities
+- Learning Lab 1.1: Use R to create your first output - a beautiful plot!
+- Learning Lab 1.2: The LASER cycle
+- Learning Lab 1.3: Wrangle and prepare data in the context of creating the visualization you want to create
+- Learning Lab 1.4: Begin to make statements and inferences based on your data
 
-- [Part 1 HW](https://github.com/making-data-science-count/s21-intro-to-data-sci-methods-in-ed/blob/main/activities/activity-week-1.Rmd)
-- [Part 2 HW](https://github.com/making-data-science-count/s21-intro-to-data-sci-methods-in-ed/blob/main/activities/activity-week-2.Rmd)
+## Whole Group (~10 min)
 
-## Reading
+- Learning Lab 1.1 Slides: [RMD](https://github.com/laser-institute/intro-to-learning-analytics-using-r/blob/main/slides-part-1.Rmd), [HTML](slides/slides-part-1.html), [PDF](slides/slides-part-1.pdf)
+- Learning Lab 1.2 Slides: [RMD](https://github.com/laser-institute/intro-to-learning-analytics-using-r/blob/main/slides/slides-part-1.Rmd), [HTML](slides/slides-part-1.html), [PDF](slides/slides-part-1.pdf)
+- Learning Lab 1.3 Slides:
+- Learning Lab 1.4 Slides:
 
-Data Science in Education Using R (DSIEUR) chapter #3: https://datascienceineducation.com/c03.html    
+## Small Group (~50 min)
+
+- [Learning Lab 1.1 Activity](https://github.com/making-data-science-count/s21-intro-to-data-sci-methods-in-ed/blob/main/activities/activity-week-1.Rmd)
+- [Learning Lab 1.2 Activity](https://github.com/making-data-science-count/s21-intro-to-data-sci-methods-in-ed/blob/main/activities/activity-week-2.Rmd)
+- [Learning Lab 1.3 Activity]
+- [Learning Lab 1.4 Activity]
+
+## Independent (~30 min)
+
+- [Learning Lab 1.1 Independent Practice]
+- [Learning Lab 1.2 Independent Practice] (learnr tutorial)
+- [Learning Lab 1.3 Independent Practice] 
+- [Learning Lab 1.4 Independent Practice] (learnr tutorial)
+
+## Resources
+
+- https://datascienceineducation.com
