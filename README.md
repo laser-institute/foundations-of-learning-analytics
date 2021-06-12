@@ -1,6 +1,38 @@
 # intro-to-learning-analytics-using-r
 
-- Learning Lab 1.1: Use R to create your first output - a beautiful plot!
-- Learning Lab 1.2: The LASER cycle
-- Learning Lab 1.3: Wrangle and prepare data in the context of creating the visualization you want to create
+- Learning Lab 1.1: Use R to create a beautiful plot
+   - presentation
+      - our expectations
+      - the process of completing a learning lab
+      - the console
+   - the veggies
+      - joining data from different files
+   - the cake 
+      - use ggplot2 aesthetics and geoms to create a faceted plot
+- Learning Lab 1.2: Cleaning (data) can be fun
+   - presentation
+      - getting and providing help
+      - running code in R markdown
+      - functions, arguments
+   - the veggies
+      - working with objects: the assignment operator and the pipe
+   - the cake 
+      - use select, filter, and arrange with kable to create an interactive table
+- Learning Lab 1.3: How wrangling data can improve plots and models
+    - presentation
+      - a bit more on the pipe versus non-piped code
+      - foundational skills framework: projects, functions, packages, data
+   - the veggies
+      - mutate, forcats
+   - the cake 
+      - reorder rows on a bar chart
+      - enhancing a plot: theming, color, and reordering factors
 - Learning Lab 1.4: Begin to make statements and inferences based on your data
+    - presentation
+      - R markdown docs
+    - the veggies
+      - the LASER cycle and an example of the LASER cycle
+    - the cake
+      - running a regression
+      - preparing an HTML report
+      
