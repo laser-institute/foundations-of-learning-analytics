@@ -1,9 +1,14 @@
 ---
-title: "Learning Lab 1.1"
-subtitle: "Guided Practice"
-author: ""
-date: "`r Sys.Date()`"
-output: html_notebook
+title: "Learning Analytics Foundations - Learning Lab 1"
+output:
+  html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+name: ''
+editor_options:
+  markdown:
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -12,24 +17,489 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-asdf
+In this learning lab - one of sixteen throughout the two-weeks of the
+summer LASER institute - we'll be working on two skills that in some
+ways typify a learning analytics approach to working with data. These
+two skills are:
 
-## Prepare
+1.  Joining together different data sets
+2.  Mutating a column to change the time spent variable to represent
+    hours
 
-asdf
+What makes these two things distinctive?
 
-## Explore
+First, joining together different data sets is certainly a feature of
+other research approaches. However, it can be difficult to do in some
+software programs. Learning analytics research is in many ways typified
+by the need to join together *many* different data sets, including
+demographic or institutional record data, data from a course or learning
+management system, and self-report questionnaire or survey data.
 
-asdf
+Second, faceted plots are on of the features of using R that can show
+the benefits of using a programming language. Faceted plots can reveal a
+great deal about your data in relatively short order. Learning to facet
+plots can also teach a great deal about visualizing data using R.
 
-## Model
+Without further delay, let's go!
 
-sdf
+## 1. PREPARE
 
-## Communicate
+Like in the getting started task, we often prepare by establishing the
+goals of our analysis and what techniques and data we'll need to achieve
+that goal. Before we prepare in this way, though, we have a task that
+will help us communicate throughout the institute. In particular, we'll
+first get setup using Slack, a communication platform for teams and
+groups like all of us who are involved with the LASER Institute.
 
-asef
+### Slack
 
-## fin
+*Especially* if you haven't used Slack before, please \#tryitout! Even
+if you have used Slack before, please complete these steps; if you have
+used Slack before, they probably will not take you long to complete. 
 
-To submit your
+-   First, follow this link to create an account and login to LASER
+    Institute Scholars workspace (or to use an existing account to login
+    to the workspace):
+    <https://join.slack.com/t/laser-scholars/shared_invite/zt-rg2wstp0-rSlXEQoramDWYT1ZVpV~MA>
+
+-   Consider downloading the desktop app now and logging in - it can be
+    helpful, especially when it comes to quickly navigating the app and
+    receiving notifications.
+
+-   Next, find the \#tryitout channel (this should be visible in the
+    left side of the LASER Institute Scholars workspace). Channels are
+    used to organize communication about particular topics, like project
+    meetings or presentations.
+
+-   In the \#tryitout channel, *write a short introduction*. You can use
+    this template. "Hi \#tryitout! I am [insert your first name as you
+    wish to be called] and I am a [insert position at the University].
+    One thing you might not know about me is that [insert a fact about
+    yourself here]". 
+
+-   Here's an example: "Hi \#tryitout! I am Josh and I am from the
+    University of Tennessee, Knoxville. One thing you might not know
+    about me is that I like to make pickles."
+
+-   Next, find the post from someone else in \#tryitout, and add a
+    *reaction* to their post. You can do this by hovering over their
+    post (in the desktop app) or pressing down on someone else's post
+    (in the mobile app) and then selecting a reaction, like the
+    sunglasses emoji.
+
+-   Finally, a picture to your slack account (from computer): Please go
+    to the left side of your slack account and click on your name. Then
+    select 'profile and account'. Go to the 'edit profile' (on the right
+    side of your workspace) and upload an image.
+
+We will use Slack throughout the institute as a way to ask and answer
+others' questions. We'll discuss how to most effectively solicit and
+provide help in the presentation before the next learning lab.
+
+If you've completed these steps, you're now done with \#tryitout in
+Slack! Please do not hesitate to contact us for help at any step of the
+way.
+
+### Packages 📦
+
+For this learning lab, we'll use the {tidyverse} set of packages--like
+we used in the getting started task. We'll also use one another package,
+{[janitor](https://sfirke.github.io/janitor/)}, which can help
+particularly with the wrangling part of the LASER cycle. We'll use one
+last package, {[here](https://here.r-lib.org/index.html)}, which helps
+us to specify the paths to files in a way that will work well across
+computers and even operating systems---your own and others'.
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(here)
+```
+
+### Data
+
+For this and the other three learning labs in this module, we'll be
+using the online science classes data.
+
+The online science classes we explore in this chapter were designed and
+taught by instructors through a state-wide online course provider
+designed to supplement---but not replace---students' enrollment in their
+local school. For example, students may have chosen to enroll in an
+online physics class because one was not offered at their school.
+
+The data were originally collected for a research study, which utilized
+a number of different data sources to understand students'
+course-related motivation. These data sets included:
+
+1.  *Log data*, data output from the learning management system (LMS) on
+    the time students spent logged in to the LMS
+2.  *Academic achievement* data on the number of points students earned
+    (and how many points it was possible for them to achieve)
+3.  *Self-report survey* data from a survey of students at the beginning
+    of the semester.
+
+In this Learning Analytics Foundation module, we'll be examining these
+three data sets, and how key variables (such as the time students spent
+on the LMS and the percentage of points they earned) might differ across
+subjects (physics, biology, anatomy and physiology, oceanography, and
+forensic science).
+
+The first data set---log data---is what we'll describe and present here.
+We'll describe the other data sets in the next three learning labs.
+We'll also load the one we'll be using in this learning lab, the log
+data. Recall from the Getting Started task that to run code in a code
+chunk, we can click the green arrow to the far right. We'll also discuss
+other means of running code in the presentation in advance of the next
+learning lab.
+
+### Data Source \#1: Log Data
+
+*Log-trace data* is data generated from our interactions with digital
+technologies, such as archived data from social media postings. In
+education, an increasingly common source of log-trace data is that
+generated from interactions with LMS and other digital tools.
+
+The data we will use is a summary type of log-trace data: the number of
+minutes students spent on the course. While this data type is fairly
+straightforward, there are even more complex sources of log-trace data
+out there (e.g., time stamps associated with when students started and
+stopped accessing the course). We'll name this data set time_spent, to
+help us to quickly recollect what function it serves in this analysis.
+
+```{r}
+time_spent_not_cleaned <- read_csv(here("data", "log.csv"))
+
+time_spent <- read_csv(here("data", "log.csv")) %>% 
+  clean_names()
+```
+
+What is different about log_data_not_cleaned and log_data? Type those
+two names in the console, below, to view a summary of what data two
+names point to. Then, add a thought or two below after the bullet point
+explaining what, precisely, differs about the two sets of names:
+
+-   
+
+This is the only data set we will be using in this first learning lab in
+this module.
+
+## 2. WRANGLE
+
+There are two steps that we will take to wrangle the data.
+
+In particular, we'll be:
+
+1.  Processing the `course_id` variable
+2.  Calculating the percentage of points students earned
+
+In doing these, we'll gain experience with data wrangling skills that
+we'll expand upon in the other learning labs that make up the
+Foundational Skills module---as well as in the other modules that make
+up the institute.
+
+### Processing the course_id variable
+
+Earlier, we loaded `time_spent`, which contains information on the
+number of minutes that students spent on the course, as well as other
+variables, particularly `course_id`.
+
+Information about the course subject, semester, and section are stored
+in a single variable---`course_id`. This format of data storage is not
+ideal. If we instead give each piece of information its own column,
+we'll have more opportunities for later analysis. We'll use a function
+called `separate()` to do this.
+
+First, let's practice with a small data set. We'll create it directly in
+R; run the code below to do that (and to assign the name df to the
+dataset).
+
+```{r}
+df <- tibble(course_var = c("Fall - Chemistry", 
+                            "Fall - Earth Science", 
+                            "Spring - Forensic Science",
+                            "Spring - Earth Science",
+                            "Spring - Biology"))
+```
+
+Print `df` to the console. You should see a single variable,
+`course_info`, with four rows.
+
+In this (very small) data frame, there is information about both the
+semester and the course are encoded within the same variable. The
+`separate()` function has two primary arguments, one each for:
+
+1.  the variable you want to separate
+2.  the names of the new variables to create
+
+Below, see using `course_var` for \#1, and `c("Semester", "Course")` for
+\#2, can be used to separate the semester and course data into two
+separate variable
+
+```{r}
+df %>% 
+  separate(course_var, c("Semester", "Course"))
+```
+
+Next, let's try something slightly different. Here, we have a data frame
+with a variable that encodes three pieces of information within the same
+variable: the year, semester, and subject. There are also a few other
+differences.
+
+```{r}
+df2 <- tibble(course_variable = c("19-Fall-Algebra I", 
+                                  "20-Fall-Algebra II", 
+                                  "20-Spring-Algebra I",
+                                  "20-Spring-Algebra II",
+                                  "21-Fall-Algebra I"))
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Can you separate the variable in the above data frame not into two, but
+rather three, new variables? Below is some template code.
+
+```{r}
+df2 %>% 
+  separate()
+```
+
+**Hint**: Try to modify the code from above (in which you separated
+`course_var` into two variables) based on a) the name of the variable in
+`df2` and b) adding the name for the third new variable you wish to
+create.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+You're up again! Let's return back to our `time_spent` data frame. It is
+often helpful t take a look at the data before writing code.
+
+Below, we will load `time_spent` and run the `separate()` function to
+split up the subject, semester, and section so we can use them later on.
+
+```{r}
+time_spent %>%
+  separate()
+```
+
+There is one last key step---one that is likely to be a bit disorienting
+at first---that we'll do next. Once we've processed the data how we
+would like, we have to assign, or save, the results back to the name for
+the data with which we have been working. This is done with the
+assignment operator, or the \<- symbol. Copy the code you successfully
+ran in the chunk above to follow the assignment operator in the chunk
+below. In other words, write the code you wrote above, but assign the
+output back to `time_spent`.
+
+```{r}
+time_spent <- time_spent %>%
+  separate()
+```
+
+We have made a habit of continually looking at our data after running
+code to ensure that the step worked as intended. Not in a code chunk,
+but rather in the console below, type the name of the data we have been
+working with to ensure that the course_id variable has been separated
+into three variables that correspond to the subject, semester, and
+section.
+
+If those look good, let's proceed to the next step. If something doesn't
+look right, consider re-running the code chunks above, perhaps returning
+all the way to the first code chunk that you ran (to load the data) to
+ensure that the output is as you intended for it to be.
+
+### Mutating a column to change the time spent variable to represent hours
+
+In the above code, you used separate to create new variables based on an
+existing variable. While that function serves a specific problem (when
+there are effectively multiple variables combined in one), its use
+represents a pattern that is fairly common: you use a function to solve
+a problem; figuring out how it works, checking the output, then
+assigning the output back to the name of the data frame, after which you
+can proceed to the next step.
+
+There are a lot of other functions like separate that help you to solve
+specific problems, and we'll introduce many over the two-week institute
+- and will point you to resources that describe many more.
+
+There are also functions that can serve as general purpose tools that
+can solve many problems; one of the most useful is `` mutate()` ``, a
+function to create new variables in a data set. Specifically, we'll use
+`mutate()` to create a new variable for the percentage of points each
+student earned; keep in mind as you work through these steps how so many
+parts of wrangling data involves either changing a variable or creating
+a new one. For these purposes, mutate can be very helpful.
+
+Let's begin again with a small data set with two variables, `var_a` and
+`var_b`. Run the chunk below.
+
+```{r}
+df3 <- tibble(var_a = c(30, 50, 30, 10, 30, 40, 40, 30, 20, 50),
+              var_b = c(100, 90, 60, 70, 60, 80, 70, 50, 30, 20))
+```
+
+Next, print `df3` to the console. You should see two numeric variables;
+imagine they represent points that students earned on a 50-point quiz
+and a 100-point test, respectively. There are a lot of things that you
+might wish to do with these variables. For instance, you may wish to sum
+them together. The code below does this.
+
+```{r}
+df3 %>% 
+  mutate(points_sum = var_a + var_b)
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+We can combine many `mutate()` functions together. Below, create a new
+variable (let's call it `points_proportion`) that represents the
+proportion of the total points students could, potentially, earn. To do
+this, you can divide `points_sum` by the maximum possible points---150.
+
+```{r}
+df3 %>% 
+  mutate(var_c = var_a + var_b) %>% 
+  mutate()
+```
+
+**Hint**: Just like you can use the + symbol to add variables together,
+you can use the / symbol to divide a variable by another---or by a
+value, like 150!
+
+After adding the above, you should see output that contains four
+variables, one each for `var_a` and `var_b`, `points_sum`, which
+represents the sum of the points students earned, and
+`points_proportion`, which represents the percentage of the total points
+students earned.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+When we left off with `time_spent`, we had processed the `course_id`
+variable. Let's now process the `time_spent` variable. Specifically,
+this variable currently represents the number of *minutes* that students
+spent on the course LMS. Below, add to the template of code below to
+create a new variable, `time_spent_hours`, that represents the number of
+*hours* that students spent on the course LMS.
+
+```{r}
+time_spent %>% 
+  mutate()
+```
+
+**Hint**: Refer to the code you wrote above, being clear about a) what
+the name of the new variable you are creating is and b) how you will
+create this variable using division (by the number of minutes in an
+hour).
+
+We used the above as a test bed to ensure that our code worked as
+intended. Once we are confident that we are creating the variable in the
+way we intend to, we can assign the output back to the data frame that
+`time_spent` refers to.
+
+```{r}
+time_spent <- time_spent %>% 
+  mutate()
+```
+
+Good work wrangling this dataset!
+
+## 3. EXPLORE
+
+We're now ready to create a faceted plot. Like in the getting started
+task, we'll use the ggplot2 package.
+
+The code below creates a histogram with 30 bins---the default number for
+`geom_histogram`. Change the number of bins below and note any
+differences in what you interpret about the data.
+
+```{r}
+time_spent %>% 
+  ggplot(aes(x = time_spent)) +
+  geom_histogram(bins = 30)
+```
+
+What do you think the ideal number of bins is---with what is ideal being
+the number of bins that helps you to interpret the overall distribution
+of the values for how much time students' spent (*note*: there is no one
+right or wrong answer here!)?
+
+-   
+
+We'll next be using the `facet_wrap()` function to create *small
+multiples*, or plots that are specific to subsets of your data. These
+subsets are identified based on another variable in your dataset. For
+example, the code below uses the built-in `mpg` dataset to plot the
+relationship between the displacement of a car's engine and its highway
+miles per gallon fuel efficiency.
+
+```{r}
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_point()
+```
+
+The code in the next plot creates individual plots for each
+class---think compact car or SUV.
+
+```{r}
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_point() +
+  facet_wrap(~class)
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+In the code below, create a faceted histogram based on the subject of
+the course. To do so, consider both:
+
+-   What code you used to create the histogram of the time students'
+    spent on the course
+
+-   How, in the example above, `facet_wrap` refers to the variable in
+    that data frame that represents the class of the car---but modifying
+    the code to work for your subject variable
+
+```{r}
+
+```
+
+What do you notice about this figure? And what do you wonder? Add a note
+(or a few notes!) below:
+
+-   
+
+## 5. COMMUNICATE
+
+If you've made it to this point, congratulations - you've completed the
+first learning lab! To complete your work, you can click the drop down
+arrow at the top of the file, then select "Knit top HTML". This will
+create a report in your Files pane that serves as a record of your code
+and its output you can open or share.
+
+## Reach (Optional)
+
+Each learning lab will also contain a "reach," a chance for you to do
+more if you wish to apply what you have learned to data for a project,
+or to simply do more with a technique.
+
+For this learning lab, your reach is to create a faceted plot (using
+`facet_wrap()`) for your own data). You can do this below in this file
+if you wish; you can add code chunks by clicking the green button that
+includes a plus symbol and a letter "c" in the upper-right corner of
+this window (to the left of the "Run" button).
+
+In short, please (optionally) start on this work right here, including
+reading data, preparing it, and then creating a faceted plot using data
+of your choosing.
+
+## Reflection
+
+In this learning lab, we used focused on learning about and wrangling
+data from an LMS on the time students spent on the course. Using
+`separate()` and the generally helpful `mutate()` function, we processed
+a data set such that we could then later create a plot that depicted the
+distribution of a single variable---for how much time students' spent on
+the course in hours by subject. Below, add a few notes in response to
+the following prompts.
+
+*One thing I took away from this learning lab:*
+
+*One thing I want to learn more about:*
