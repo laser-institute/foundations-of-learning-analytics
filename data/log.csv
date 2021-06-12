@@ -1,0 +1,717 @@
+student_id,course_id,gender,enrollment_reason,enrollment_status,final_grade,time_spent
+_60186,AnPhA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,86.272,2087.0501
+_66693,AnPhA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,93.7536,2309.0334
+_66811,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,91.2016,5298.8507
+_66862,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,59.8197328,1746.9667
+_67508,AnPhA-S116-01,F,Scheduling Conflict,Approved/Enrolled,83.8149328,2668.183
+_70532,AnPhA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,93.64,2938.4666
+_77010,AnPhA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,73.1706672,1533.0996
+_85249,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,86.8912,1209.8496
+_85411,AnPhA-S116-01,F,Scheduling Conflict,Approved/Enrolled,90.9157328,473.0333
+_85583,AnPhA-S116-01,F,Scheduling Conflict,Approved/Enrolled,91.6549328,5532.4164
+_85865,AnPhA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,52.1712,95.3
+_85866,AnPhA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,75.1296,3050.0831
+_85970,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,81.6224,610.8334
+_86072,AnPhA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,91.2928,608.1834
+_86119,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,71.7376,2127.0664
+_86267,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,35.0608,406.0001
+_86275,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,95.0208,7067.1498
+_86277,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,89.8133328,3856.8672
+_86286,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,96.8144,4140.4495
+_86294,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,83.4938672,4239.5495
+_86429,AnPhA-S116-01,F,Scheduling Conflict,Approved/Enrolled,89.5072,7003.0005
+_86432,AnPhA-S116-01,M,Scheduling Conflict,Approved/Enrolled,68.6629328,3715.9002
+_86446,AnPhA-S116-01,F,Scheduling Conflict,Approved/Enrolled,85.6208,2527.6997
+_86451,AnPhA-S116-01,F,Scheduling Conflict,Approved/Enrolled,93.7024,4176.8337
+_86476,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,92.1949328,1937.5168
+_86479,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,92.6074672,2712.234
+_86484,AnPhA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,80.0656,1872.0336
+_86488,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,87.4408,3599.7168
+_86492,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,25.5928,893.1332
+_86504,AnPhA-S116-01,F,Scheduling Conflict,Approved/Enrolled,75.5392,1551.3498
+_86588,AnPhA-S116-01,F,Scheduling Conflict,Approved/Enrolled,19.84,67.5167
+_86608,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,79.8506672,3109.0664
+_87043,AnPhA-S116-01,F,Other,Approved/Enrolled,91.312,1587.1833
+_87166,AnPhA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,77.3104,1471.8833
+_88050,AnPhA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,71.6757328,2130.6666
+_88068,AnPhA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,70.6074672,535.8334
+_88099,AnPhA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,81.9629328,2615.4998
+_88153,AnPhA-S116-01,F,Scheduling Conflict,Approved/Enrolled,88.7024,6954.6997
+_88641,AnPhA-S116-01,F,Scheduling Conflict,Approved/Enrolled,87.1808,1998.4998
+_89142,AnPhA-S116-01,F,Other,Approved/Enrolled,95.104,3067.4676
+_89194,AnPhA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,83.2053328,317.2168
+_89918,AnPhA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,75.6416,6009.3666
+_90305,AnPhA-S116-01,F,Scheduling Conflict,Approved/Enrolled,73.4533328,2363.6832
+_56152,AnPhA-S116-02,F,Scheduling Conflict,Approved/Enrolled,94.1248,4438.8165
+_57188,AnPhA-S116-02,M,Learning Preference of the Student,Approved/Enrolled,80.7344,5305.4334
+_65627,AnPhA-S116-02,F,Learning Preference of the Student,Approved/Enrolled,81.4872,2164.9001
+_70192,AnPhA-S116-02,F,Scheduling Conflict,Approved/Enrolled,95.96,1537.1834
+_76930,AnPhA-S116-02,F,Learning Preference of the Student,Approved/Enrolled,81.272,2804.9832
+_79220,AnPhA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,91.8208,3781.6498
+_86314,AnPhA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,81.5237328,3030.1667
+_86707,AnPhA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,85.9093344,2143.133
+_90394,AnPhA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,71.832,1886.5329
+_90395,AnPhA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,81.1226672,2300.6664
+_90396,AnPhA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,79.3941328,3544.8161
+_90397,AnPhA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,81.7482672,2394.3497
+_90398,AnPhA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,94.9274672,4264.25
+_90399,AnPhA-S116-02,M,Course Unavailable at Local School,Approved/Enrolled,88.8896,768.4833
+_90956,AnPhA-S116-02,F,Other,Approved/Enrolled,91.912,1550.4668
+_90971,AnPhA-S116-02,F,Other,Approved/Enrolled,79.84,3785.2838
+_90995,AnPhA-S116-02,F,Learning Preference of the Student,Approved/Enrolled,5.04,202.2832
+_91065,AnPhA-S116-02,M,Other,Approved/Enrolled,60.9642672,1334.7001
+_91175,AnPhA-S116-02,F,Learning Preference of the Student,Approved/Enrolled,82.1541328,1315.25
+_91319,AnPhA-S116-02,F,Other,Approved/Enrolled,84.0224,686.2998
+_91320,AnPhA-S116-02,M,Course Unavailable at Local School,Approved/Enrolled,29.6533328,584.9166
+_91574,AnPhA-S116-02,M,Scheduling Conflict,Approved/Enrolled,81.8309328,2999.75
+_91619,AnPhA-S116-02,M,Course Unavailable at Local School,Approved/Enrolled,35.832,1272.2331
+_91634,AnPhA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,84.9893328,1857.8168
+_91672,AnPhA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,92.8824,2763.0331
+_91709,AnPhA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,87.2928,4315.8839
+_91771,AnPhA-S116-02,M,Course Unavailable at Local School,Approved/Enrolled,28.48,540.5001
+_91932,AnPhA-S116-02,M,Other,Approved/Enrolled,82.6117328,1182.9667
+_92185,AnPhA-S116-02,F,Scheduling Conflict,Approved/Enrolled,91.8528,6162.1998
+_52326,AnPhA-S216-01,F,Other,Approved/Enrolled,83.5882656,1321.8164
+_58168,AnPhA-S216-01,F,Other,Approved/Enrolled,96.5216,433.3669
+_67013,AnPhA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,46.072,2297.2332
+_69743,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,85.4714656,7084.7003
+_71725,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,77.2789328,3514.5498
+_76673,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,92.2,4945.2164
+_76674,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,95.8608,2368.4997
+_76840,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,74.4392,3968.1668
+_76998,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,40.2389328,1270.0997
+_78164,AnPhA-S216-01,F,Learning Preference of the Student,Approved/Enrolled,76.104,2591.6168
+_85248,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,94.8261328,2269.8829
+_86268,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,93.5386672,1272.3172
+_86942,AnPhA-S216-01,F,Scheduling Conflict,Approved/Enrolled,83.624,3101.5166
+_88440,AnPhA-S216-01,M,Learning Preference of the Student,Approved/Enrolled,84.216,2544.4002
+_88612,AnPhA-S216-01,F,Other,Approved/Enrolled,71.6544,2258.9165
+_91313,AnPhA-S216-01,M,Scheduling Conflict,Approved/Enrolled,84.9536,3134.9666
+_91326,AnPhA-S216-01,F,Other,Approved/Enrolled,47.0544,657.1668
+_94246,AnPhA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,35.692,1351.9003
+_94691,AnPhA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,10.6608,258.35
+_94805,AnPhA-S216-01,F,Scheduling Conflict,Approved/Enrolled,87.3024,4438.7165
+_94846,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,70.4149328,764.1668
+_94872,AnPhA-S216-01,F,Other,Approved/Enrolled,69.6682672,3547.0667
+_95014,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,95.6208,2999.9832
+_95114,AnPhA-S216-01,F,Course Unavailable at Local School,Dropped,NA,546.85
+_95283,AnPhA-S216-01,F,Other,Approved/Enrolled,91.3376,2689.4502
+_95545,AnPhA-S216-01,F,Other,Approved/Enrolled,72.3008,4284.4003
+_95594,AnPhA-S216-01,M,Scheduling Conflict,Approved/Enrolled,40.4533328,1419.8
+_95601,AnPhA-S216-01,F,Other,Approved/Enrolled,84.4474672,2915.5167
+_95618,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,66.7525328,3789.3996
+_95620,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,72.888,4013.3999
+_95634,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,76.5749312,4466.367
+_95915,AnPhA-S216-01,F,Learning Preference of the Student,Approved/Enrolled,74.1874672,2670.7669
+_95957,AnPhA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,67.9248,3542.5501
+_96228,AnPhA-S216-01,M,Scheduling Conflict,Approved/Enrolled,91.064,1747.1669
+_96640,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,6.336,769.2331
+_96677,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,5.2,11.0333
+_96680,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,52.5504,1776.5166
+_96690,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,64.8128,1969.5003
+_96720,AnPhA-S216-01,F,Learning Preference of the Student,Approved/Enrolled,7.88,68.1167
+_96853,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,85.4277328,2521.2334
+_96854,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,85.1189328,2563.3833
+_96959,AnPhA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,67.6608,1727.2666
+_96994,AnPhA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,86.8074672,2676.7501
+_74552,AnPhA-S216-02,F,Other,Approved/Enrolled,96.16,6123.8832
+_88979,AnPhA-S216-02,F,Scheduling Conflict,Dropped,NA,364.5001
+_91164,AnPhA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,90.0016,4359.0996
+_94219,AnPhA-S216-02,F,Learning Preference of the Student,Dropped,NA,151.75
+_94542,AnPhA-S216-02,F,Other,Approved/Enrolled,33.28,1558.5331
+_94545,AnPhA-S216-02,F,Other,Approved/Enrolled,45.4,855.3833
+_94550,AnPhA-S216-02,F,Other,Approved/Enrolled,85.3408,2856.6166
+_94898,AnPhA-S216-02,F,Other,Approved/Enrolled,73.6608,1904.1662
+_94903,AnPhA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,69.8808,2288.5835
+_95017,AnPhA-S216-02,F,Other,Approved/Enrolled,71.52,2773.6164
+_95041,AnPhA-S216-02,F,Other,Approved/Enrolled,14.5408,322.9502
+_95160,AnPhA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,94.4208,4154.4333
+_95264,AnPhA-S216-02,M,Learning Preference of the Student,Dropped,NA,237.3
+_95377,AnPhA-S216-02,F,Learning Preference of the Student,Approved/Enrolled,76.6304,1089.9667
+_95919,AnPhA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,86.534932800000007,1937.4333
+_96826,AnPhA-S216-02,F,Learning Preference of the Student,Approved/Enrolled,88.408,1073.95
+_96871,AnPhA-S216-02,F,Other,Approved/Enrolled,81.1482656,244.3835
+_66508,AnPhA-T116-01,F,Scheduling Conflict,Dropped,NA,0.45
+_76132,AnPhA-T116-01,F,Other,Approved/Enrolled,95.3392,5037.3331
+_79859,AnPhA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,72.992,2040.7333
+_84640,AnPhA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,86.1648,2362.1
+_84641,AnPhA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,83.5525328,4614.4
+_84749,AnPhA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,82.552,4199.4169
+_84757,AnPhA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,85.3376,128.6165
+_87865,AnPhA-T116-01,F,Scheduling Conflict,Approved/Enrolled,83.1264,1304.1168
+_88995,AnPhA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,85.7936,119.3169
+_89005,AnPhA-T116-01,M,Course Unavailable at Local School,Approved/Enrolled,87.6208,2429.3997
+_90516,AnPhA-T116-01,F,Learning Preference of the Student,Approved/Enrolled,73.8816,250.4331
+_61965,BioA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,77.65698925,615.2168
+_68598,BioA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,87.24408602,3331.6169
+_69937,BioA-S116-01,F,Learning Preference of the Student,Withdrawn,NA,1.2168
+_70408,BioA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,91.50537634,6664.4499
+_70681,BioA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,90.23655914,2602.2333
+_71434,BioA-S116-01,M,Scheduling Conflict,Approved/Enrolled,83.96021505,1006.3337
+_77169,BioA-S116-01,M,Scheduling Conflict,Approved/Enrolled,93.8172043,735.0999
+_85292,BioA-S116-01,M,Scheduling Conflict,Approved/Enrolled,93.34946237,264.2002
+_85889,BioA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,7.580645161,297.5167
+_86067,BioA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,88.78494624,516.7003
+_86110,BioA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,75.11182796,3954.2997
+_86113,BioA-S116-01,F,Other,Approved/Enrolled,75.0827957,63.6837
+_86130,BioA-S116-01,F,Other,Approved/Enrolled,72.84946237,142.7337
+_86202,BioA-S116-01,M,Credit Recovery,Approved/Enrolled,45.76666667,1391.0673
+_86216,BioA-S116-01,M,Scheduling Conflict,Approved/Enrolled,92.94301075,1855.9338
+_86580,BioA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,83.16666667,1076.5339
+_87081,BioA-S116-01,M,Other,Approved/Enrolled,6.693548387,181.5999
+_87552,BioA-S116-01,F,Scheduling Conflict,Approved/Enrolled,90.08064516,1496.8001
+_88568,BioA-S116-01,M,Other,Approved/Enrolled,36.57419355,1329.3997
+_89300,BioA-S116-01,M,Scheduling Conflict,Approved/Enrolled,61.3172043,1132.1503
+_90253,BioA-S116-01,F,Other,Approved/Enrolled,64.23548387,1803.8334
+_90430,BioA-S116-01,F,Credit Recovery,Approved/Enrolled,78.86666667,2252.5
+_90466,BioA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,82.33333333,658.4165
+_90995,BioA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,0,13.9333
+_91066,BioA-S116-01,F,Other,Approved/Enrolled,36.34408602,222.9831
+_91067,BioA-S116-01,F,Other,Approved/Enrolled,99.75806452,2920.9838
+_91300,BioA-S116-01,F,Scheduling Conflict,Approved/Enrolled,96.26344086,1311.9998
+_91351,BioA-S116-01,F,Other,Approved/Enrolled,6.747311828,206.2335
+_91611,BioA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,92.90322581,616.3672
+_91624,BioA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,78.54946237,583.1167
+_92152,BioA-S116-01,F,Other,Approved/Enrolled,93.48064516,3214.3998
+_92510,BioA-S116-01,M,Other,Approved/Enrolled,91.90860215,295.5494
+_92606,BioA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,5.698924731,10.1498
+_92633,BioA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,3.010752688,571.2834
+_88568,BioA-S216-01,M,Other,Dropped,NA,NA
+_92606,BioA-S216-01,M,Other,Approved/Enrolled,0.534759358,306.2668
+_95658,BioA-S216-01,F,Scheduling Conflict,Approved/Enrolled,82.29946524,644.2667
+_95707,BioA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,88.57754011,4034.7502
+_96950,BioA-S216-01,F,Credit Recovery,Approved/Enrolled,91.81818182,2264.4834
+_97374,BioA-S216-01,F,Credit Recovery,Approved/Enrolled,12.35294118,470.8
+_97386,BioA-S216-01,M,Other,Approved/Enrolled,54.15828877,71.0166
+_84794,BioA-T116-01,M,Course Unavailable at Local School,Approved/Enrolled,73.81827957,919.5
+_87689,BioA-T116-01,M,Other,Approved/Enrolled,82.70215054,1525.0333
+_53447,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,96.11872146,1479.4166
+_55283,FrScA-S116-01,F,Other,Withdrawn,NA,3.9167
+_61941,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,94.29223744,1637.9504
+_68188,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,92.46575342,583.2498
+_69072,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,93.60730594,956.1665
+_70037,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,93.37899543,2591.1496
+_76840,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,92.46575342,2634.6832
+_77246,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,88.35616438,782.5002
+_85323,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,15.06849315,1449.7001
+_85416,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,94.74885845,846.5665
+_85431,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,92.92237443,1448.9339
+_85432,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,49.08675799,874.0172
+_85433,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,72.14611872,2575.4667
+_85443,FrScA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,86.30136986,1564.633
+_85539,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,90.1826484,2948.6174
+_85579,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,96.34703196,2822.5166
+_85649,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,86.98630137,1464.4668
+_85650,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,100,2689.1334
+_85651,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,64.98858447,565.7832
+_85659,FrScA-S116-01,M,Course Unavailable at Local School,Dropped,NA,NA
+_85662,FrScA-S116-01,F,Course Unavailable at Local School,Dropped,NA,107.8999
+_85663,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,49.31506849,191.3834
+_85665,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,96.80365297,4046.6159
+_85668,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,42.69406393,379.1335
+_85791,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,96.80365297,1461.8332
+_85792,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,89.49771689,1687.3165
+_85929,FrScA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,85.61643836,1297.9167
+_85930,FrScA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,83.78995434,1647.2669
+_86105,FrScA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,89.9543379,4075.5504
+_86271,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,97.26027397,282.7834
+_86280,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,85.61643836,2167.9669
+_86339,FrScA-S116-01,F,Scheduling Conflict,Approved/Enrolled,91.78082192,598.783
+_86340,FrScA-S116-01,F,Scheduling Conflict,Approved/Enrolled,95.43378995,1077.3504
+_86364,FrScA-S116-01,F,Other,Approved/Enrolled,81.27853881,3429.2834
+_86365,FrScA-S116-01,F,Other,Approved/Enrolled,98.17351598,1027.7002
+_86455,FrScA-S116-01,F,Other,Approved/Enrolled,91.09589041,1616.3337
+_86476,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,95.43378995,1673.8004
+_86543,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,79.45205479,1425.9832
+_86679,FrScA-S116-01,F,Other,Approved/Enrolled,95.89041096,2267.4
+_86709,FrScA-S116-01,M,Scheduling Conflict,Approved/Enrolled,95.66210046,1600.3334
+_86792,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,99.08675799,879.1998
+_86793,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,96.34703196,553.3835
+_86794,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,90.1826484,1274.8167
+_86803,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,87.55707763,3344.1504
+_86815,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,83.33333333,1666.7332
+_87010,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,88.01369863,1920.8168
+_87027,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,78.76712329,1605.0336
+_87093,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,60.2739726,486.65
+_87163,FrScA-S116-01,F,Scheduling Conflict,Approved/Enrolled,88.58447489,1365.8501
+_87484,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,92.69406393,3341.9499
+_87485,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,65.98173516,1451.8836
+_87489,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,71.00456621,1075.0999
+_87504,FrScA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,55.02283105,1330.8502
+_87579,FrScA-S116-01,M,Scheduling Conflict,Approved/Enrolled,96.11872146,1451.9169
+_87805,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,96.80365297,1388.1167
+_87905,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,93.37899543,2166.8999
+_87906,FrScA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,81.73515982,1095.6001
+_87914,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,86.07305936,1156.1668
+_87927,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,69.6347032,3934.8498
+_88261,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,98.63013699,1269.6667
+_88493,FrScA-S116-01,F,Course Unavailable at Local School,Dropped,NA,56.3166
+_88501,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,78.31050228,3315.3331
+_88527,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,92.69406393,1551.6665
+_89128,FrScA-S116-01,F,Other,Approved/Enrolled,87.67123288,362.8837
+_90095,FrScA-S116-01,F,Other,Approved/Enrolled,73.51598174,1476.0832
+_90433,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,91.09589041,2689.2001
+_91173,FrScA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,64.38356164,756.0998
+_91471,FrScA-S116-01,M,Other,Approved/Enrolled,65.98173516,946.7998
+_92143,FrScA-S116-01,F,Other,Approved/Enrolled,93.37899543,1792.1003
+_92214,FrScA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,84.64611872,1101.833
+_53475,FrScA-S116-02,F,Course Unavailable at Local School,Dropped,NA,NA
+_61357,FrScA-S116-02,F,Course Unavailable at Local School,Dropped,NA,NA
+_62157,FrScA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,70.62100457,2497.1666
+_67762,FrScA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,83.41324201,801.2336
+_68768,FrScA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,64.76027397,1966.0169
+_77298,FrScA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,75.46118721,1907.6502
+_85258,FrScA-S116-02,F,Course Unavailable at Local School,Dropped,NA,NA
+_85567,FrScA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,65.17808219,2544.3666
+_85661,FrScA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,87.19863014,1375.4834
+_85698,FrScA-S116-02,M,Course Unavailable at Local School,Approved/Enrolled,32.5913242,1070.2167
+_86627,FrScA-S116-02,M,Course Unavailable at Local School,Approved/Enrolled,61.2283105,2193.117
+_91340,FrScA-S116-02,F,Learning Preference of the Student,Approved/Enrolled,85.38356164,1182.9332
+_57224,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,87.09360731,2356.4668
+_70068,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,95.37671233,2101.933
+_73132,FrScA-S116-03,F,Other,Approved/Enrolled,87.52968037,1746.5501
+_77976,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,90.59589041,2448.4838
+_78691,FrScA-S116-03,F,Learning Preference of the Student,Approved/Enrolled,92.92237443,1559.9667
+_85573,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,71.25114155,1978.0169
+_85574,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,96.60502283,1871.1168
+_85700,FrScA-S116-03,M,Course Unavailable at Local School,Approved/Enrolled,89.84246575,787.2831
+_85701,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,91.4109589,2381.6998
+_85702,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,86.52054795,638.7338
+_85704,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,68.26484018,1376.483
+_85891,FrScA-S116-03,M,Course Unavailable at Local School,Approved/Enrolled,85.87442922,1784.2506
+_86309,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,68.65525114,1219.4837
+_86618,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,49.13013699,2393.4669
+_86882,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,80.3652968,1294.8334
+_88409,FrScA-S116-03,M,Learning Preference of the Student,Approved/Enrolled,68.03424658,2313.5495
+_88636,FrScA-S116-03,M,Course Unavailable at Local School,Approved/Enrolled,65.56392694,1284.8333
+_88835,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,81.97945205,2062.95
+_88836,FrScA-S116-03,F,Learning Preference of the Student,Approved/Enrolled,67.91780822,152.7499
+_88868,FrScA-S116-03,M,Course Unavailable at Local School,Approved/Enrolled,76.30821918,1174.3499
+_88874,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,11.15296804,700.9668
+_88886,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,75.28310502,1598.3499
+_89144,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,90.65068493,2582.4167
+_89165,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,92.46575342,2571.5334
+_89168,FrScA-S116-03,F,Course Unavailable at Local School,Dropped,NA,60.65
+_89376,FrScA-S116-03,F,Other,Approved/Enrolled,86.29452055,3780.5335
+_89388,FrScA-S116-03,F,Other,Approved/Enrolled,93.59360731,2999.8498
+_90097,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,76.97031963,1145.5167
+_90098,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,86.60045662,1692.6164
+_90274,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,94.30365297,1517.5835
+_90370,FrScA-S116-03,F,Other,Approved/Enrolled,63.85159817,3890
+_90372,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,62.73287671,1378.984
+_90589,FrScA-S116-03,F,Learning Preference of the Student,Dropped,NA,123.1833
+_90855,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,67.956621,1103.0832
+_90878,FrScA-S116-03,M,Scheduling Conflict,Approved/Enrolled,88.52054795,1178.0834
+_92604,FrScA-S116-03,F,Course Unavailable at Local School,Approved/Enrolled,7.2031963470000004,811.4334
+_88075,FrScA-S116-04,F,Learning Preference of the Student,Approved/Enrolled,83.17123288,4323.8332
+_90996,FrScA-S116-04,M,Course Unavailable at Local School,Dropped,NA,58.1833
+_91176,FrScA-S116-04,F,Course Unavailable at Local School,Approved/Enrolled,96.1803653,3868.5332
+_91326,FrScA-S116-04,F,Other,Approved/Enrolled,65.35388128,792.6166
+_91477,FrScA-S116-04,M,Other,Approved/Enrolled,90.2283105,1192.1837
+_47448,FrScA-S216-01,F,Other,Approved/Enrolled,88.48758465,860.4335
+_53475,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,81.03837472,1867.4169
+_55078,FrScA-S216-01,M,Learning Preference of the Student,Approved/Enrolled,97.74266366,2130.7497
+_57188,FrScA-S216-01,M,Learning Preference of the Student,Approved/Enrolled,76.9751693,2193.0833
+_65116,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,93.22799097,1918.6166
+_66689,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,98.64559819,1137.8334
+_67463,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,91.4221219,1359.033
+_68795,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,83.06997743,3022.5333
+_69182,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,91.19638826,444.4832
+_69397,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,94.69525959,1087.6003
+_71110,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,88.71331828,2006.4003
+_71415,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,14.4469526,408.4
+_77190,FrScA-S216-01,F,Other,Approved/Enrolled,92.43792325,763.1498
+_78000,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,91.4221219,1366.5835
+_85123,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,81.71557562,1341.7002
+_85258,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,89.05191874,2285.7836
+_85287,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,93.67945824,156.5829
+_85583,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,83.06997743,3382.9006
+_85642,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,83.74717833,1627.3499
+_85644,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,84.98871332,890.4333
+_85659,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,67.72009029,816.7002
+_85796,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,91.19638826,1024.7833
+_86229,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,84.65011287,1210.0499
+_86251,FrScA-S216-01,F,Other,Approved/Enrolled,72.91196388,1374.95
+_86349,FrScA-S216-01,F,Scheduling Conflict,Approved/Enrolled,87.81038375,847.9663
+_86490,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,93.67945824,1101.2833
+_86515,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,87.13318284,846.0835
+_86836,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,89.84198646,1422.7335
+_87020,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,73.25056433,1788.9003
+_87861,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,95.48532731,3303.3832
+_88596,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,91.87358916,1395.8998
+_88845,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,90.97065463,1075.6163
+_88854,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,69.63882619,885.9167
+_89333,FrScA-S216-01,F,Other,Approved/Enrolled,90.51918736,945.417
+_89345,FrScA-S216-01,M,Course Unavailable at Local School,Dropped,NA,48.4333
+_89374,FrScA-S216-01,F,Scheduling Conflict,Approved/Enrolled,82.39277652,2517.95
+_89465,FrScA-S216-01,M,Course Unavailable at Local School,Dropped,NA,24.65
+_90029,FrScA-S216-01,F,Other,Approved/Enrolled,68.62302483,766.5663
+_90277,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,91.4221219,1097.8003
+_90394,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,45.59819413,871.2833
+_90622,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,89.61625282,1077.1836
+_90636,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,52.37020316,849.6835
+_90989,FrScA-S216-01,F,Learning Preference of the Student,Approved/Enrolled,88.48758465,1821.6838
+_91212,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,81.6027088,906.8832
+_92124,FrScA-S216-01,M,Other,Approved/Enrolled,75.16930023,918.1832
+_94070,FrScA-S216-01,M,Other,Approved/Enrolled,93.67945824,2469.4006
+_94135,FrScA-S216-01,F,Other,Approved/Enrolled,85.89164786,706.2332
+_94156,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,95.03386005,2598.5669
+_94172,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,90.97065463,1835.5833
+_94257,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,90.29345372,1175.833
+_94288,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,91.87358916,3058.6498
+_94292,FrScA-S216-01,M,Other,Approved/Enrolled,89.05191874,3135.3167
+_94331,FrScA-S216-01,F,Learning Preference of the Student,Approved/Enrolled,21.89616253,524.7165
+_94332,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,75.84650113,1272.7337
+_94356,FrScA-S216-01,F,Scheduling Conflict,Dropped,NA,160.4166
+_94370,FrScA-S216-01,M,Learning Preference of the Student,Approved/Enrolled,94.13092551,940.3001
+_94376,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,93.67945824,1434.3999
+_94400,FrScA-S216-01,M,Learning Preference of the Student,Approved/Enrolled,85.10158014,2111.7837
+_94402,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,92.0993228,177.7168
+_94404,FrScA-S216-01,F,Learning Preference of the Student,Approved/Enrolled,83.18284424,1665.1169
+_94419,FrScA-S216-01,M,Other,Approved/Enrolled,83.74717833,1095.1999
+_94586,FrScA-S216-01,F,Learning Preference of the Student,Approved/Enrolled,75.16930023,791.0503
+_94661,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,73.13769752,1705.1165
+_94756,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,68.84875847,1122.5334
+_94824,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,96.38826185,2414.5498
+_94869,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,40.97065463,955.3
+_95005,FrScA-S216-01,F,Other,Approved/Enrolled,95.03386005,2182.8836
+_95045,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,76.74943567,2977.4502
+_95165,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,92.0993228,1113.2168
+_95360,FrScA-S216-01,F,Other,Approved/Enrolled,91.87358916,1613.3166
+_95449,FrScA-S216-01,F,Other,Approved/Enrolled,42.0993228,1232.8665
+_95485,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,36.79458239,193.0498
+_95621,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,95.48532731,1903.0337
+_95632,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,61.8510158,948.1999
+_95633,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,66.93002257,981.7835
+_95684,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,0.902934537,88.5167
+_95726,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,94.58239278,1823.8667
+_95743,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,95.93679458,3122.9167
+_95896,FrScA-S216-01,F,Learning Preference of the Student,Approved/Enrolled,75.50790068,1133.2169
+_95989,FrScA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,85.44018059,873.6171
+_95991,FrScA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,82.39277652,870.3836
+_43146,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,93.4537246,1555.1667
+_77067,FrScA-S216-02,F,Course Unavailable at Local School,Dropped,NA,40.4334
+_77141,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,82.27990971,3020.7167
+_77980,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,93.00225734,3031.3165
+_87988,FrScA-S216-02,F,Course Unavailable at Local School,Dropped,NA,7.8831
+_88048,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,93.00225734,2269.133
+_89994,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,90.74492099,2310.3333
+_91410,FrScA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,61.173814900000004,857.6167
+_91550,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,69.97742664,1722.1833
+_91607,FrScA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,70.54176072,608.0833
+_91943,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,91.64785553,3429.0336
+_95476,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,68.17155756,1038.0003
+_95919,FrScA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,94.63882619,1636.5333
+_95923,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,89.61625282,1276.7667
+_95925,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,90.74492099,2111.8333
+_96082,FrScA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,52.59593679,1250.7833
+_96134,FrScA-S216-02,F,Learning Preference of the Student,Approved/Enrolled,89.72911964,2047.7501
+_96142,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,90.85778781,1548.7666
+_96189,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,88.48758465,1268.1002
+_96280,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,81.03837472,914.8667
+_96414,FrScA-S216-02,F,Learning Preference of the Student,Approved/Enrolled,61.62528217,310.9335
+_96433,FrScA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,93.4537246,2427.9167
+_96769,FrScA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,59.59367946,510.8667
+_96841,FrScA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,92.55079007,1670.95
+_97441,FrScA-S216-02,M,Credit Recovery,Approved/Enrolled,23.13769752,208.6664
+_51943,FrScA-S216-03,M,Learning Preference of the Student,Withdrawn,NA,3.4501
+_85348,FrScA-S216-03,F,Course Unavailable at Local School,Approved/Enrolled,76.29464286,608.2501
+_94369,FrScA-S216-03,F,Course Unavailable at Local School,Approved/Enrolled,66.03794643,1753.5833
+_69544,FrScA-S216-04,F,Course Unavailable at Local School,Approved/Enrolled,93.17155756,2673.3831
+_85867,FrScA-S216-04,F,Course Unavailable at Local School,Approved/Enrolled,86.20767494,1283.4669
+_86002,FrScA-S216-04,F,Other,Approved/Enrolled,91.50564334,501.1839
+_88311,FrScA-S216-04,M,Course Unavailable at Local School,Approved/Enrolled,92.60722348,1660.9829
+_96048,FrScA-S216-04,M,Learning Preference of the Student,Approved/Enrolled,70.85327314,1665.1665
+_64930,FrScA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,83.23287671,3424.5662
+_72287,FrScA-T116-01,F,Learning Preference of the Student,Approved/Enrolled,90.86757991,3946.5666
+_87693,FrScA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,89.76484018,2479.8167
+_87866,FrScA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,94.50456621,1988.8836
+_44638,OcnA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,81.70184255,1382.7001
+_54066,OcnA-S116-01,F,Other,Approved/Enrolled,93.90452261,2625.5164
+_54346,OcnA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,51.0921273,1191.3836
+_57981,OcnA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,66.69011725,3343.3333
+_58178,OcnA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,92.68174204,3502.0004
+_66740,OcnA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,99.32998325,965.2994
+_67920,OcnA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,90.70351759,4094.9995
+_76891,OcnA-S116-01,F,Other,Approved/Enrolled,88.91624791,2334.5502
+_85355,OcnA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,17.22278057,594.6165
+_85644,OcnA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,79.09715243,1632.4
+_86349,OcnA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,90.86767169,1601.1335
+_86460,OcnA-S116-01,F,Other,Approved/Enrolled,88.72026801,1891.1999
+_86758,OcnA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,94.61474037,3742.8836
+_86836,OcnA-S116-01,F,Course Unavailable at Local School,Dropped,NA,46.6833
+_86943,OcnA-S116-01,M,Scheduling Conflict,Approved/Enrolled,73.07872697,1377.5666
+_87970,OcnA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,86.69514238,3123.3502
+_88440,OcnA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,81.06532663,2600.1334
+_88854,OcnA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,76.5879397,762.5997
+_89114,OcnA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,95.00837521,1092.3662
+_89435,OcnA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,93.83249581,6348.4492
+_89487,OcnA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,81.89782245,2151.1498
+_90562,OcnA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,77.5561139,1389.3161
+_90861,OcnA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,89.12897822,2454.3332
+_90928,OcnA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,74.90954774,3900.2504
+_91635,OcnA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,73.48743719,3797.3334
+_91818,OcnA-S116-01,M,Other,Approved/Enrolled,96.46231156,1651.5005
+_54282,OcnA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,93.40033501,2025.1672
+_54342,OcnA-S116-02,F,Learning Preference of the Student,Approved/Enrolled,64.78224456,1581.0831
+_68476,OcnA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,94.57956449,969.4666
+_85410,OcnA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,93.9279732,6771.9673
+_85482,OcnA-S116-02,M,Course Unavailable at Local School,Approved/Enrolled,79.49916248,1822.5494
+_85487,OcnA-S116-02,F,Course Unavailable at Local School,Dropped,NA,0.5833
+_86133,OcnA-S116-02,M,Course Unavailable at Local School,Approved/Enrolled,79.11222781,1581.7665
+_86689,OcnA-S116-02,M,Course Unavailable at Local School,Approved/Enrolled,60.40201005,2457.1828
+_87001,OcnA-S116-02,M,Course Unavailable at Local School,Approved/Enrolled,68.25795645,1202.6335
+_87122,OcnA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,8.040201005,546.4335
+_87209,OcnA-S116-02,F,Learning Preference of the Student,Approved/Enrolled,80.83752094,3755.1506
+_88166,OcnA-S116-02,F,Scheduling Conflict,Approved/Enrolled,84.92127303,2137.7164
+_88168,OcnA-S116-02,F,Scheduling Conflict,Approved/Enrolled,95.96314908,2885.7832
+_90090,OcnA-S116-02,F,Other,Approved/Enrolled,96.29815745,1430.217
+_92021,OcnA-S116-02,F,Course Unavailable at Local School,Approved/Enrolled,86.76716918,758.3668
+_88307,OcnA-S116-03,M,Course Unavailable at Local School,Approved/Enrolled,54.5352381,1811.9338
+_47979,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,81.85259631,1598.6166
+_62175,OcnA-S216-01,F,Learning Preference of the Student,Approved/Enrolled,73.77386935,1403.6834
+_68022,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,90.95979899,39.7504
+_76443,OcnA-S216-01,F,Course Unavailable at Local School,Withdrawn,NA,100.3334
+_80822,OcnA-S216-01,M,Learning Preference of the Student,Approved/Enrolled,90.94639866,4538.4835
+_84932,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,88.30318258,2573.4502
+_86240,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,71.80904523,1800.2174
+_86296,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,73.1038526,403.8
+_86340,OcnA-S216-01,F,Course Unavailable at Local School,Dropped,NA,111.5834
+_86455,OcnA-S216-01,F,Other,Approved/Enrolled,92.03517588,2337.4167
+_86527,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,82.71524288,2211.5331
+_87670,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,76.20435511,1995.5832
+_87825,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,93.47738693,330.7998
+_88474,OcnA-S216-01,F,Other,Approved/Enrolled,56.9681742,4112.7673
+_88504,OcnA-S216-01,F,Course Unavailable at Local School,Dropped,NA,68.6333
+_88849,OcnA-S216-01,M,Scheduling Conflict,Approved/Enrolled,90.76884422,4799.483
+_90996,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,1.800670017,44.7332
+_94319,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,56.99497487,1588.55
+_94323,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,93.96984925,4214.7332
+_94590,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,75.99497487,1428.0167
+_94630,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,3.433835846,245.2834
+_94654,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,81.50753769,3140.7669
+_94717,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,66.73366834,821.9161
+_94744,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,96.79731993,8870.8833
+_94956,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,55.77554439,1242.6
+_95091,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,61.04187605,3475.8
+_95504,OcnA-S216-01,F,Other,Approved/Enrolled,42.41541039,451.8001
+_95533,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,22.97319933,1591.2504
+_95725,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,68.44053601,1886.3334
+_95738,OcnA-S216-01,F,Course Unavailable at Local School,Dropped,NA,163.6832
+_95770,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,91.968174200000007,3003.6162
+_96121,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,81.28643216,1320.5499
+_96345,OcnA-S216-01,F,Scheduling Conflict,Approved/Enrolled,63.14572864,1540.1833
+_96373,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,80.27303183,2449.6827
+_96374,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,77.15242881,2626.9001
+_96412,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,72.41373534,943.0669
+_96671,OcnA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,32.7001675,1734.6833
+_96689,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,82.668341710000007,1858.3502
+_96756,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,91.13902848,3967.3171
+_96856,OcnA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,13.02847571,529.2335
+_97006,OcnA-S216-01,F,Scheduling Conflict,Approved/Enrolled,68.15075377,2399.5166
+_97272,OcnA-S216-01,F,Other,Approved/Enrolled,84.23953247,1638.45
+_54567,OcnA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,65.84254606,1180.2664
+_78002,OcnA-S216-02,F,Other,Approved/Enrolled,63.98324958,1290.4502
+_78241,OcnA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,57.24958124,26.9168
+_86697,OcnA-S216-02,F,Other,Approved/Enrolled,90.07705193,1133.4667
+_88642,OcnA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,83.58458961,1980.6001
+_88803,OcnA-S216-02,M,Credit Recovery,Approved/Enrolled,65.03685092,2015.5833
+_88864,OcnA-S216-02,F,Learning Preference of the Student,Approved/Enrolled,69.8040201,2231.3667
+_91163,OcnA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,97.37018425,6243.9003
+_91252,OcnA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,70.21775544,1479.8998
+_94240,OcnA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,87.09380235,2276.3169
+_94327,OcnA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,15.90954774,580.3167
+_94556,OcnA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,83.24288107,2287.2334
+_94577,OcnA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,84.79564489,1697.5829
+_94876,OcnA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,2.931323283,57.6666
+_95368,OcnA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,92.28978224,3368.0167
+_95375,OcnA-S216-02,F,Learning Preference of the Student,Approved/Enrolled,93.43048576,224.7166
+_95624,OcnA-S216-02,F,Course Unavailable at Local School,Approved/Enrolled,87.12730318,2111.0837
+_95868,OcnA-S216-02,F,Other,Approved/Enrolled,39.41038526,1929.4
+_95921,OcnA-S216-02,M,Course Unavailable at Local School,Approved/Enrolled,80.97822446,960.2998
+_79893,OcnA-T116-01,F,Learning Preference of the Student,Approved/Enrolled,94.46566164,1856.6669
+_84645,OcnA-T116-01,F,Scheduling Conflict,Approved/Enrolled,22.680067,48.0332
+_84684,OcnA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,90.80569514,3095.2494
+_84685,OcnA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,82.0318258,3073.6162
+_87955,OcnA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,83.44723618,2420.5994
+_88282,OcnA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,92.12060302,2373.7169
+_88340,OcnA-T116-01,F,Course Unavailable at Local School,Approved/Enrolled,68.93802345,444.5
+_88703,OcnA-T116-01,F,Learning Preference of the Student,Approved/Enrolled,35.74539363,1233.3832
+_48797,PhysA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,84,1481.8
+_52446,PhysA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,97.77777778,1390.2167
+_54434,PhysA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,93.0625,1231.8666
+_55140,PhysA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,73.78472222,2083.3167
+_57489,PhysA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,94.79166667,1863.5169
+_62576,PhysA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,94.44444444,793.95
+_62752,PhysA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,93.77777778,898.2998
+_62754,PhysA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,96.34027778,674.3167
+_74551,PhysA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,71.67083333,1014.5665
+_76133,PhysA-S116-01,F,Other,Approved/Enrolled,93.61805556,1276.5167
+_76426,PhysA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,95.41666667,850.7329
+_79128,PhysA-S116-01,M,Other,Approved/Enrolled,96.40972222,1910.2338
+_79352,PhysA-S116-01,M,Other,Approved/Enrolled,95.48611111,1062.8665
+_79596,PhysA-S116-01,F,Other,Approved/Enrolled,90.97222222,1546.4166
+_85390,PhysA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,3.055555556,0.7
+_85522,PhysA-S116-01,F,Other,Approved/Enrolled,98.05555556,968.3333
+_85953,PhysA-S116-01,M,Other,Approved/Enrolled,95.13888889,3255.3003
+_85962,PhysA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,85.93055556,1349.9664
+_86353,PhysA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,85.73611111,328.5168
+_87171,PhysA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,97.5,768.6994
+_88091,PhysA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,97.72222222,262.5502
+_88296,PhysA-S116-01,M,Scheduling Conflict,Approved/Enrolled,58.53472222,1190.5998
+_88381,PhysA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,96.80555556,1120.367
+_88481,PhysA-S116-01,F,Scheduling Conflict,Approved/Enrolled,26.80555556,642.0504
+_89295,PhysA-S116-01,F,Learning Preference of the Student,Approved/Enrolled,68.05555556,532.7998
+_89395,PhysA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,76.875,2432.7831
+_89425,PhysA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,92.375,2173.1333
+_89490,PhysA-S116-01,F,Course Unavailable at Local School,Approved/Enrolled,71.59722222,2046.9998
+_90326,PhysA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,77.43055556,509.5167
+_90333,PhysA-S116-01,M,Other,Approved/Enrolled,70.73611111,231.7502
+_91030,PhysA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,92.70833333,1302.8501
+_91038,PhysA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,76.13888889,1639.4498
+_91575,PhysA-S116-01,M,Course Unavailable at Local School,Approved/Enrolled,95.13888889,2219.916
+_91633,PhysA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,81.52777778,1510.7002
+_91821,PhysA-S116-01,M,Other,Approved/Enrolled,93.95833333,377.7002
+_92511,PhysA-S116-01,M,Learning Preference of the Student,Approved/Enrolled,67.49305556,125.0666
+_92724,PhysA-S116-01,M,Other,Approved/Enrolled,93.88888889,2700.6668
+_92725,PhysA-S116-01,M,Other,Approved/Enrolled,96.59722222,2058.4167
+_92726,PhysA-S116-01,M,Other,Approved/Enrolled,98.19444444,1901.9166
+_92727,PhysA-S116-01,M,Other,Approved/Enrolled,98.05555556,898
+_92729,PhysA-S116-01,M,Other,Approved/Enrolled,94.23611111,1691.5998
+_92732,PhysA-S116-01,M,Other,Approved/Enrolled,92.91666667,2199.3
+_92733,PhysA-S116-01,F,Other,Approved/Enrolled,94.16666667,1020.5828
+_92740,PhysA-S116-01,M,Other,Approved/Enrolled,98.61111111,1272.7001
+_92741,PhysA-S116-01,F,Other,Approved/Enrolled,98.19444444,5373.3502
+_92743,PhysA-S116-01,M,Other,Approved/Enrolled,92.84722222,1711.0164
+_67102,PhysA-S216-01,M,Scheduling Conflict,Approved/Enrolled,89.86111111,719.2833
+_70187,PhysA-S216-01,F,Scheduling Conflict,Approved/Enrolled,78.125,719.1165
+_78153,PhysA-S216-01,F,Learning Preference of the Student,Approved/Enrolled,99.02777778,1769.8667
+_94189,PhysA-S216-01,F,Learning Preference of the Student,Approved/Enrolled,90.44444444,2321.7998
+_94251,PhysA-S216-01,F,Scheduling Conflict,Approved/Enrolled,96.94444444,4552.0833
+_94970,PhysA-S216-01,F,Scheduling Conflict,Approved/Enrolled,95.41666667,2415.2493
+_95266,PhysA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,90.55555556,609.7999
+_95283,PhysA-S216-01,F,Other,Dropped,NA,47
+_95578,PhysA-S216-01,F,Other,Approved/Enrolled,90.55555556,2201.5503
+_96027,PhysA-S216-01,M,Other,Approved/Enrolled,74.47916667,2363.2667
+_96090,PhysA-S216-01,M,Learning Preference of the Student,Approved/Enrolled,11.02777778,112.5167
+_96472,PhysA-S216-01,M,Other,Approved/Enrolled,62.20833333,377.3498
+_96590,PhysA-S216-01,M,Other,Approved/Enrolled,15.41666667,262.1667
+_96808,PhysA-S216-01,F,Scheduling Conflict,Approved/Enrolled,93.75,2446.3169
+_96867,PhysA-S216-01,M,Scheduling Conflict,Approved/Enrolled,90.625,1841.7836
+_97150,PhysA-S216-01,F,Course Unavailable at Local School,Approved/Enrolled,62.54861111,759.3335
+_97265,PhysA-S216-01,M,Course Unavailable at Local School,Approved/Enrolled,84.56944444,817.4501
+_66508,PhysA-T116-01,F,Scheduling Conflict,Approved/Enrolled,93.88888889,2823.7501
+_84632,PhysA-T116-01,F,Scheduling Conflict,Approved/Enrolled,97.63888889,1289.1006
+_101424,FrScA-S217-01,F,Other,Approved/Enrolled,92.16,1972.5331
+_106952,FrScA-S217-01,F,Other,Approved/Enrolled,66.06,910.8335
+_104092,FrScA-S217-02,M,Other,Approved/Enrolled,92.61,6537.0172
+_112764,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,85.27,2384.4167
+_102083,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,89.08,1548.4834
+_112787,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,91.87,5907.3006
+_101941,FrScA-S217-02,M,Course Unavailable at Local School,Dropped,NA,70.6
+_101986,OcnA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,62.46,2072.3333
+_91097,OcnA-S217-01,F,Learning Preference of the Student,Approved/Enrolled,94.58,5520.3666
+_108147,AnPhA-S217-02,F,Other,Approved/Enrolled,95.42,2165.9499
+_106879,OcnA-S217-01,F,Learning Preference of the Student,Approved/Enrolled,82.69,4354.7668
+_86076,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,82.15,1404.9002
+_112845,AnPhA-S217-02,F,Scheduling Conflict,Dropped,NA,249.5
+_112869,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,92.45,1311.8501
+_112870,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,93.65,1285.3169
+_101162,AnPhA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,88.45,2622.1668
+_103130,FrScA-S217-01,F,Learning Preference of the Student,Approved/Enrolled,74.67,1844.8334
+_112924,OcnA-S217-01,M,Course Unavailable at Local School,Approved/Enrolled,88.35,1325.984
+_101301,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,89.14,2067.5328
+_104671,FrScA-S217-01,M,Course Unavailable at Local School,Approved/Enrolled,85.09,975.2335
+_112941,OcnA-S217-01,M,Course Unavailable at Local School,Approved/Enrolled,61.03,1452.3165
+_106413,FrScA-S217-02,M,Course Unavailable at Local School,Approved/Enrolled,80,1007.8825
+_102332,FrScA-S217-02,M,Learning Preference of the Student,Dropped,NA,2.4167
+_101835,FrScA-S217-01,M,Course Unavailable at Local School,Approved/Enrolled,8.58,270.55
+_104970,FrScA-S217-02,M,Other,Approved/Enrolled,79.39,1309.3503
+_87680,OcnA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,82.74,4925.5337
+_110564,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,68.22,1275.183
+_86638,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,83.1,1384.7334
+_113112,AnPhA-S217-02,M,Course Unavailable at Local School,Approved/Enrolled,90.59,2576.7168
+_107599,AnPhA-S217-01,M,Course Unavailable at Local School,Approved/Enrolled,62.99,1815.1664
+_103353,FrScA-S217-01,F,Scheduling Conflict,Approved/Enrolled,84.23,4236.1668
+_86668,FrScA-S217-01,M,Course Unavailable at Local School,Approved/Enrolled,82.08,3690.0332
+_113232,FrScA-S217-03,F,Course Unavailable at Local School,Approved/Enrolled,89.9,1714.0667
+_98000,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,64.63,1284.0002
+_101031,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,86.73,2406.4668
+_67455,FrScA-S217-01,M,Course Unavailable at Local School,Approved/Enrolled,71.88,1467.1338
+_54744,FrScA-S217-01,M,Course Unavailable at Local School,Approved/Enrolled,4.51,87.5833
+_113225,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,65.91,965.6501
+_85650,OcnA-S217-03,M,Course Unavailable at Local School,Approved/Enrolled,90.28,1875.0165
+_113249,OcnA-S217-03,F,Course Unavailable at Local School,Approved/Enrolled,84.39,1604.333
+_110487,OcnA-S217-03,F,Other,Approved/Enrolled,80.14,2442.9664
+_86763,AnPhA-S217-02,F,Other,Dropped,NA,316.6501
+_77076,FrScA-S217-02,M,Course Unavailable at Local School,Approved/Enrolled,37.59,483.9665
+_113257,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,87.48,2015.5331
+_113287,OcnA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,83.3,1061.5501
+_94274,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,64.45,2293.0832
+_113298,OcnA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,94.51,1433.7335
+_77067,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,94.95,1983.5831
+_106419,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,72.84,2300.4497
+_104258,FrScA-S217-01,M,Course Unavailable at Local School,Approved/Enrolled,80.27,1083.6833
+_113320,AnPhA-S217-01,M,Scheduling Conflict,Approved/Enrolled,94.94,2296.2831
+_113322,OcnA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,80.49,3150.3829
+_103386,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,76.73,809.4832
+_107146,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,73.76,2439.7666
+_104861,AnPhA-S217-01,F,Learning Preference of the Student,Approved/Enrolled,26.28,732.3502
+_113393,FrScA-S217-01,F,Learning Preference of the Student,Dropped,NA,37.3167
+_113424,FrScA-S217-02,F,Learning Preference of the Student,Approved/Enrolled,72.13,1038.0164
+_113438,AnPhA-S217-01,M,Learning Preference of the Student,Approved/Enrolled,90.73,7055.6667
+_113440,PhysA-S217-01,M,Learning Preference of the Student,Approved/Enrolled,97.36,998.0829
+_113448,AnPhA-S217-01,F,Scheduling Conflict,Approved/Enrolled,91.17,4481.2833
+_113458,FrScA-S217-02,M,Learning Preference of the Student,Approved/Enrolled,2.97,128.5
+_113467,FrScA-S217-02,F,Other,Approved/Enrolled,80.89,3139.5166
+_113501,FrScA-S217-02,F,Other,Approved/Enrolled,92.65,1180.1169
+_113511,AnPhA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,64.84,2556.0163
+_113513,AnPhA-S217-01,M,Course Unavailable at Local School,Approved/Enrolled,76.83,1848.7333
+_113512,AnPhA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,77.85,1864.3995
+_113524,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,75.14,1544.5165
+_103186,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,79.33,866.4333
+_113538,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,61.85,412.7834
+_86580,AnPhA-S217-01,F,Learning Preference of the Student,Approved/Enrolled,72.4,1312.6834
+_113661,AnPhA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,82.52,4870.2
+_113673,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,93.15,5317.7499
+_113674,FrScA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,96.72,2427.2833
+_113700,FrScA-S217-02,F,Learning Preference of the Student,Approved/Enrolled,42.32,1175.1334
+_104056,FrScA-S217-03,F,Learning Preference of the Student,Approved/Enrolled,79.79,1343.3832
+_110360,OcnA-S217-01,F,Learning Preference of the Student,Approved/Enrolled,20.09,662.7336
+_113839,FrScA-S217-03,F,Scheduling Conflict,Approved/Enrolled,79.87,2948.05
+_90168,FrScA-S217-03,M,Course Unavailable at Local School,Approved/Enrolled,94.41,2363.4171
+_104191,FrScA-S217-03,F,Course Unavailable at Local School,Approved/Enrolled,97.21,1843.7664
+_104172,FrScA-S217-03,F,Course Unavailable at Local School,Approved/Enrolled,82.3,1440.1002
+_103268,FrScA-S217-03,M,Course Unavailable at Local School,Approved/Enrolled,60.28,1588.2167
+_102461,OcnA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,70.16,1823.4998
+_113993,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,74.13,2320.7498
+_103409,OcnA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,96.18,4164.6997
+_108177,PhysA-S217-01,M,Scheduling Conflict,Approved/Enrolled,97.01,1659.7165
+_114107,FrScA-S217-03,F,Course Unavailable at Local School,Approved/Enrolled,88.4,2845.2001
+_85616,FrScA-S217-03,F,Course Unavailable at Local School,Approved/Enrolled,66.5,1772.6669
+_114117,AnPhA-S217-01,M,Course Unavailable at Local School,Approved/Enrolled,9.52,211.1833
+_114228,FrScA-S217-03,F,Scheduling Conflict,Approved/Enrolled,56.39,935.0331
+_108042,FrScA-S217-03,F,Course Unavailable at Local School,Approved/Enrolled,92.84,1298.5332
+_101231,OcnA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,72.38,1004.3
+_89416,FrScA-S217-03,M,Course Unavailable at Local School,Approved/Enrolled,89.1,1256
+_114387,OcnA-S217-02,F,Learning Preference of the Student,Approved/Enrolled,93.99,1860.8167
+_95736,FrScA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,88.32,1519.5333
+_114449,FrScA-S217-03,F,Course Unavailable at Local School,Approved/Enrolled,80.72,1358.6501
+_86044,FrScA-S217-03,M,Course Unavailable at Local School,Approved/Enrolled,89.6,2242.267
+_114501,FrScA-S217-03,F,Course Unavailable at Local School,Approved/Enrolled,87.61,2504.5004
+_95217,FrScA-S217-03,F,Course Unavailable at Local School,Approved/Enrolled,81.23,2445.5499
+_114673,BioA-S217-01,M,Other,Approved/Enrolled,68.21,2477.2504
+_88227,OcnA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,65.15,1246.5501
+_114768,AnPhA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,62.05,301.0501
+_114796,BioA-S217-01,M,Other,Approved/Enrolled,90.87,5747.1008
+_114961,AnPhA-S217-02,F,Course Unavailable at Local School,Approved/Enrolled,79.42,1744.7836
+_97215,FrScA-S217-01,M,Other,Approved/Enrolled,81.66,1849.4836
+_115101,AnPhA-S217-02,F,Other,Approved/Enrolled,80.56,3768.7164
+_115102,OcnA-S217-01,F,Learning Preference of the Student,Approved/Enrolled,83.29,3052.9667
+_115181,OcnA-S217-02,F,Learning Preference of the Student,Approved/Enrolled,83.6,1590.5669
+_91953,AnPhA-S217-02,F,Scheduling Conflict,Approved/Enrolled,82.59,1177.5999
+_107016,OcnA-S217-03,F,Learning Preference of the Student,Approved/Enrolled,76.06,640.2
+_107210,AnPhA-S217-02,F,Scheduling Conflict,Approved/Enrolled,93.84,1818.1667
+_115238,PhysA-S217-01,M,Learning Preference of the Student,Approved/Enrolled,95.56,2356.8835
+_115780,AnPhA-S217-02,F,Learning Preference of the Student,Approved/Enrolled,66.17,1508.0335
+_115888,OcnA-S217-01,F,Course Unavailable at Local School,Approved/Enrolled,64.24,2355.5665
