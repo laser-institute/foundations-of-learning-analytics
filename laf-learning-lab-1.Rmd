@@ -152,7 +152,7 @@ chunk, we can click the green arrow to the far right. We'll also discuss
 other means of running code in the presentation in advance of the next
 learning lab.
 
-### Data Source \#1: Log Data
+#### Data Source \#1: Log Data
 
 *Log-trace data* is data generated from our interactions with digital
 technologies, such as archived data from social media postings. In
@@ -413,7 +413,7 @@ differences in what you interpret about the data.
 
 ```{r}
 time_spent %>% 
-  ggplot(aes(x = time_spent)) +
+  ggplot(aes(x = time_spent_hours)) +
   geom_histogram(bins = 30)
 ```
 
@@ -457,6 +457,9 @@ the course. To do so, consider both:
     that data frame that represents the class of the car---but modifying
     the code to work for your subject variable
 
+You may also wish to change the color; reflect back to the getting started task for an 
+example of how to do this. 
+
 ```{r}
 
 ```
@@ -473,6 +476,15 @@ first learning lab! To complete your work, you can click the drop down
 arrow at the top of the file, then select "Knit top HTML". This will
 create a report in your Files pane that serves as a record of your code
 and its output you can open or share.
+
+If you wanted, you could save the processed data set to your data folder. The 
+`write_csv()` function is useful for this. The following code is set to not run, as we
+wanted to ensure that everyone had the data set needed to begin the second learning 
+lab, but if you're confident in your prepared data, you can save it with the following:
+
+```{r, eval = FALSE}
+write_csv()
+```
 
 ## Reach (Optional)
 
