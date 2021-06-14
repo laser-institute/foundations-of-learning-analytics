@@ -1,7 +1,6 @@
 ---
   title: "Learning Analytics Foundations Learning Lab 1"
   author: "Joshua Rosenberg and the LASER team"
-  institute: "Instituttional Affiliation"
   date: '`r format(Sys.time(), "%B %d, %Y")`'
   output:
     xaringan::moon_reader:
@@ -61,11 +60,12 @@ xaringanExtra::use_tile_view()
 ### `r format(Sys.time(), "%B %d, %Y")`
 
 ---
-# Outline for this learning lab
+# Outline for this presentation
 
 1. Setting the stage for the learning labs
 2. A quick look at RStudio Cloud
 3. A framework for thinking about your work with R
+4. Looking ahead to the learning lab
 
 ---
 
@@ -124,7 +124,7 @@ using R and doing learning analytics
 
 ---
 
-# In conclusion
+# 4. Looking ahead to the learning lab
 
 Learning R is very hard! We all create figures like this:
 
@@ -138,6 +138,17 @@ https://twitter.com/ivelasq3/status/1235219699639566342
 
 ---
 
+# 4. Looking ahead to the learning lab
+
+The **Learning Analytics Foundations** module will help scholars to become familiar with the process of doing learning analytics in the statistical software and programming language R. This learning lab will focus on the foundational skills undergirding all work in R. We'll also emphasize effective visualization and a soup-to-nuts analysis of digital and other sources of data in the context of a study of online science classes.
+
+---
+
+# 4. Looking ahead to the learning lab
+
+In this lab, **Learning Lab 1**, we'll wrangle a complex source of digital data exported from a course learning management system (LMS). We do this in service of creating a faceted plot of the time students spent on the course. 
+
+---
 class: clear, inverse, middle, center
 
 **R you ready for R?**
@@ -146,6 +157,6 @@ class: clear, inverse, middle, center
 
 Let's proceed to running, modifying, and running R code in RStudio Cloud!
 
-We'll start with a refresher of the **Getting Started** task, then will proceed to **Learning Analytics Foundations Learning Labs 1 and 2**
-
 Head over to the LASER Learning Lab space to get started: https://rstudio.cloud/projects
+
+**Click Learning Analytics Foundations** then *laf-learning-lab-1.Rmd* to begin**
