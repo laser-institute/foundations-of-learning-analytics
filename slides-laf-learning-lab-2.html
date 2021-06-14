@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Learning Analytics Foundations Learning Lab 1</title>
+    <title>Learning Analytics Foundations Learning Lab 2</title>
     <meta charset="utf-8" />
     <meta name="author" content="Joshua Rosenberg and the LASER team" />
     <meta name="date" content="2021-06-14" />
@@ -35,118 +35,138 @@ class: clear, title-slide, inverse, center, top, middle
 
 
 
-# Learning Analytics Foundations Learning Lab 1
+# Learning Analytics Foundations Learning Lab 2
 ----
 ### Joshua Rosenberg and the LASER team
 ### June 14, 2021
 
 ---
+
 # Outline for this presentation
 
-1. Setting the stage for the learning labs
-2. A quick look at RStudio Cloud
-3. A framework for thinking about your work with R
+1. Running code efficiently
+2. Squashing bugs (via Slack)
+3. More on the *LASER cycle*
 4. Looking ahead to the learning lab
 
 ---
 
-#  1. Setting the stage for the learning labs
+#  1. Running code efficiently
 
-You'll be doing three primary things during the learning labs:
+By now, you've run a lot of R code - good work!
 
-- _Running_ R code that we wrote
-- _Modifying_ that R code to achieve your goal
-- _Writing R code_ from scratch to solve a particular problem
+There are a number of ways to run R code
 
----
-
-#  1. Setting the stage for the learning labs
-
-These learning labs have a few features:
-
-- **Situated** in STEM education contexts
-- **Scaffolded** to provide you opportunities to learn about the R code and why you might use or write R code how you are 
-- **Allow multiple paths** to completing: in a more _guided_ (with a LASER team member) mode or peer groups
-- Are associated with _reach_ **opportunities to do more**, chances for you to apply what you have learned
-with your own data (or to your own context)
-- Are accompanied by **just-in-time support** from peers and us as you need it
+We'll briefly review a few of them in the context of the upcoming learning lab:
+https://rstudio.cloud/spaces/140883/project/2635100
 
 ---
 
-# 2. A quick look at RStudio Cloud
+#  2. Squashing bugs (via Slack)
 
-Let's take a peak at the Getting Started activty as the context for this: 
+In this learning lab, you'll have one task not directly related to running, modifying, and writing R code: Creating a Slack account
 
-https://rstudio.cloud/spaces/140883/project/2564884
+We will use Slack as a platform through which you can ask _and answer_ questions related to R
 
----
-
-# 3. A framework for thinking about your work with R
-
-- As STEM education researchers, it is important to us to consider _how_ we make sense of 
-using R and doing learning analytics
-
-   - frameworks and mental models are a big part of how we do this "sense-making"
-   
-- Here, we'll focus on the **foundational skills framework**
-  - this framework is for the key technical components of your use of R 
-  - this complements the _process_ of the *LASER cycle* 
+There is a specific channel (more on these in the learning lab!) for questions
 
 ---
 
-# 3. A framework for thinking about your work with R
+# 2. Squashing bugs (via Slack)
 
-- The **foundational skills framework** has four parts
+There are many ways to ask questions and _all are very welcome_
 
-  - *R Studio Projects*: How you organize your analyses that are a part of the same over-arching research project or analysis
-  - *Functions*: How you take steps to work with your data; functions have names and arguments: `my_function(the_argument)`
-  - *Packages*: What you install and load to extend the functionality of R; packages provide you with new functions
-  - *Data and your environment*: Data is the main object on which functions operate; data is loaded into your environment and you often have multiple data frames loaded at once
+It is very likely others have the same question; you asking it serves everyone (and it helps us, too)
+
+---
+
+# 2. Squashing bugs (via Slack)
+
+**Tips on posing questions in Slack**:
+
+1. Provide as much information as you can: what are you trying to do and what is happening?
+2. What file are you working in and on what lines/what section?
+3. Screen shots can be helpful, too
+
+**Other tips**:
+
+1. You can _always_ answer your peers' questions
+2. Consider checking to see whether your question has been asked before
+
+---
+
+# 3. The LASER cycle
+
+&lt;img src="img/laser-cycle.png" width="1981" /&gt;
+
+---
+
+# 3. The LASER cycle
+
+**Prepare**
+
+- Developing a question or purpose for the analysis 
+- This part of the process also involves developing an understanding of the data and what you may need to analyze the data
+- This often involves looking at the data and its documentation
+
+---
+
+# 3. The LASER cycle
+
+**Wrangle**
+
+- Cleaning and processing data, and, in cases, merging (or joining) data from multiple sources
+- Often, this part of the process is very (surprisingly) time-intensive
+- Wrangling your data into shape can itself be an important accomplishment
+
+---
+
+# 3. The LASER cycle
+
+**Explore**
+
+- Describing your data such as by calculating the means and standard deviations of numeric variables
+- Also, often, visualizing your data to understand the distribution of variables and their relations with others
+
+---
+
+# 3. The LASER cycle
+
+**Model**
+
+- Simplifying and summarizing our data
+- Models can take many forms, from relatively straightforward (calculating a _mean_) to
+complex (multi-level and machine learning models)
+
+---
+
+# 3. The LASER cycle
+
+**Communicate**
+
+- Sharing what we have done or found internally (with collaborators) or externally (with others, including the public)
+- We can communicate both _our code_ and _its output_ (and our _interpretation of it_)
+- Communication often leads to either new analyses or changing one's understanding of something
 
 ---
 
 # 4. Looking ahead to the learning lab
 
-Learning R is very hard! We all create figures like this:
-
-&lt;img src="img/accidental-art.png" width="50%" /&gt;
-
-https://accidental-art.tumblr.com/
+This lab focuses on the common challenge of working with two files in the same analysis. Such a challenge typically requires joining together these data sets. We join data on the time students spent on the course LMS with data on students' academic achievement. We then create plots of the relations between these two key measures. 
 
 ---
 
-# 4. Looking ahead to the learning lab
-
-But, using R, we can also create figures like this:
-
-&lt;img src="img/ivelasq.png" width="50%" /&gt;
-
-(One of many plots from [Isabella Velásquez](https://ivelasq.rbind.io/), a guest speaker)
-
----
-
-# 4. Looking ahead to the learning lab
-
-The **Learning Analytics Foundations** module will help scholars to become familiar with the process of doing learning analytics in the statistical software and programming language R. This learning lab will focus on the foundational skills undergirding all work in R. We'll also emphasize effective visualization and a soup-to-nuts analysis of digital and other sources of data in the context of a study of online science classes.
-
----
-
-# 4. Looking ahead to the learning lab
-
-In this lab, **Learning Lab 1**, we'll wrangle a complex source of digital data exported from a course learning management system (LMS). We do this in service of creating a faceted plot of the time students spent on the course. 
-
----
 class: clear, inverse, middle, center
 
 **R you ready for R?**
 
 ----
 
-Let's proceed to running, modifying, and running R code in RStudio Cloud!
+Let's go!
+
+We'll again be organized around **guided** and **self-directed** groups. 
 
 Head over to the LASER Learning Lab space to get started: https://rstudio.cloud/projects
-
-**Click Learning Analytics Foundations** then *laf-learning-lab-1.Rmd* to begin**
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

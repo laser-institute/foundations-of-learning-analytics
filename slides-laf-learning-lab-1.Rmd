@@ -128,13 +128,23 @@ using R and doing learning analytics
 
 Learning R is very hard! We all create figures like this:
 
+```{r, echo = FALSE, out.width = "50%"}
+knitr::include_graphics("img/accidental-art.png")
+```
+
 https://accidental-art.tumblr.com/
+
+---
+
+# 4. Looking ahead to the learning lab
 
 But, using R, we can also create figures like this:
 
-https://twitter.com/ivelasq3/status/1235219699639566342
+```{r, echo = FALSE, out.width = "50%"}
+knitr::include_graphics("img/ivelasq.png")
+```
 
-(One of many plots from [Isabella Velásquez](https://ivelasq.rbind.io/), one of our guest speakers)
+(One of many plots from [Isabella Velásquez](https://ivelasq.rbind.io/), a guest speaker)
 
 ---
 
