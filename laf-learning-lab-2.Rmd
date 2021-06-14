@@ -1,9 +1,14 @@
 ---
-title: "Learning Lab 1.2"
-subtitle: "Guided Practice"
-author: ""
-date: "`r Sys.Date()`"
-output: html_notebook
+title: "Learning Analytics Foundations Learning Lab 2"
+output:
+  html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+name: ''
+editor_options:
+  markdown:
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -12,24 +17,576 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-asdf
+Building on the last learning lab in which we accessed data on the time
+students spent on the LMS across courses in five different subjects, in
+this learning lab, we'll add a second data set to the mix. This data set
+is on the points students earned in the course.
 
-## Prepare
+In addition to joining together the two datasets (based on a common
+*key*), we'll examine the relations between these two variables - time
+spent on the course and points earned.
 
-asdf
+## 1. PREPARE
 
-## Explore
+### Packages 📦
 
-asdf
+We will load the same three data sets we loaded in the first learning
+lab: {tidyverse}, {janitor}, and {here}.
 
-## Model
+```{r}
+library(tidyverse)
+library(janitor)
+library(here)
+```
 
-sdf
+### Data
 
-## Communicate
+#### Data Source \#2: Academic Achievement Data
 
-asef
+In addition to the `time_spent` data we loaded We'll explain a bit more
+about the second data set - on academic achievement data.
 
-## fin
+Academic achievement data is (obviously) is a very common form of data
+in education. In this learning lab, we'll use both the sum of the points
+students earned as well as the number of points possible to compute the
+percentage of points they earned in the course---a measure comparable
+(but likely a little different based on teachers' grading policies) to
+their final grade. We'll use this in the second learning lab.
 
-To submit your
+We'll load the data in the same way as earlier:
+
+```{r}
+gradebook <- read_csv(here("data", "gradebook-summary.csv")) %>% 
+  clean_names()
+```
+
+You may choose to type the name of the gradebook into the console window
+and to then (like earlier) type enter/return to view a summary of what
+data this name points to.
+
+We'll also add the *wrangled* version of the data set we used in
+learning lab \#1. This file should be saved in the data directory and is
+named "log-wrangled.csv".
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Your turn! Using the code in the code chunk above as a starting point,
+modify `read_csv()` to read in the file "log-wrangled.csv".
+
+```{r}
+log_wrangled <- read_csv()
+```
+
+In the environment tab of your RStudio Cloud window, you should now see
+the two data sets (gradebook and log_wrangled) loaded. If so, let's
+proceed to the next steps. If you need any help, then reach out to us
+via Slack.
+
+## 2. WRANGLE
+
+If our goal is to join together these data sets to explore how the time
+spent on the course is related to the final grades achieved by students,
+then we need to take a few steps, first, to ensure that the files are
+ready to be joined. In particular, we'll be:
+
+1.  Cleaning up the student ID variable in the log data
+
+2.  Processing the gradebook data
+
+3.  Joining the two data frame together into one data frame
+
+Let's take these in turn.
+
+### Cleaning up the ID variable in the log data
+
+To join two datasets, it is important that the *key* (or *keys*) on
+which you are joining the data is formatted identically. The key
+represents an identifier that is present in both of the data sets you
+are joining. For instance, you may have data collected from (or created
+about) the same students that are from two very different sources, such
+as a self-report survey of students and their teacher-assigned grades in
+class.
+
+In the present case, we have gradebook data and data from the LMS on the
+time students spent on the course, but in one case---for the log
+data---the student identifier is formatted a bit differently. This is
+often the case, and to ensure that we can join together the two datasets
+into one, we'll have to clean up the student_id variable, first. Let's
+take a look at the log data by running the code in the chunk below.
+
+```{r}
+log_data
+```
+
+You may notice something is a bit different with this variable compared
+to the gradebook data - the student_id is prefaced with an underscore
+that the LMS happened to include.
+
+We can remove these underscores using a technique in R for working with
+text - techniques we'll explore in greater depth in a later module. For
+now, we'll be using the str_sub function (that is a part of the
+tidyverse). This function takes as input a string, or a word---or a
+variable with a string---and returns a subset of the word based on the
+position of the letters. There are lots of big ideas here, so let's walk
+through an example.
+
+Run the code below, in which we specify that we want the output to begin
+with the first letter of the string, and to end with the tenth letter.
+In other words, we want to return the entire word - something that is
+not useful just yet.
+
+```{r}
+str_sub("Task 1 %54", start = 1, end = 10)
+```
+
+Now, let's imagine that our data erroneously included the characters
+"%54", and that we wanted to remove those from our string so that what
+was returned was only the task and the number.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Can you modify the code below so that the output returned is only the
+task and the number?
+
+**Hint**: Try changing the values entered for the start and end
+arguments to the function.
+
+```{r}
+str_sub("Task 1 %54", start = 1, end = 10)
+```
+
+A feature of str_sub is that it not only works for a single string, but
+also a collection of strings. Run the code below with the start and end
+values you entered above to clean up a collection--- technically a
+vector created with the combine, or c(), function---of strings next.
+
+```{r}
+str_sub(c("Task 1 %54",
+          "Task 2 %54",
+          "Task 3 %54",
+          "Task 4 %54",
+          "Task 5 %54",
+          "Task 6 %54",
+          "Task 7 %54",
+          "Task 8 %54",
+          "Task 9 %54",
+          "Task 10 %54"),
+        start = 1, end = 10)
+```
+
+Detour complete! Let's now consider how we can use what we did above to
+clean the student_id variable in the log_data file.
+
+In the code below, a template that returns the entire student ID is
+provided.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+How can you modify this code to remove the leading underscore? Note that
+in addition to using mutate to create a new version of our student_id
+variable, in the next line, we change the student_id variable to be an
+integer. This is because our ID variable in the other data set is an
+integer, and variables not only need to be named identically but also
+need to be the same data type in order to be joined together.
+
+**Hint**: Like above, consider changing the start and end values.
+
+```{r}
+log_wrangled %>% 
+  mutate(student_id = str_sub(student_id, start = 1, end = 7)) %>% 
+  mutate(student_id = as.integer(student_id))
+```
+
+Note that a bit different from in the example above, here we are using
+str_sub() *within* a mutate function. In other words, whereas earlier we
+cleaned a vector of strings (consisting of ten strings for Tasks 1-10),
+in the code above, we're still using str_sub() with a vector, but it is
+a vector representing *all* of the student_id variables in our log_data.
+
+Whereas the above code printed the output for you to view, the code
+below assigns---saves--- the output to log_data, such that when you use
+that data file in subsequent steps, the changes you made will be
+reflected. In other words, the student_id variable will be cleaned and
+ready to go for the next steps.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Below, make the same change to the start and/or end values you made in
+the previous chunk and then run the chunk.
+
+```{r}
+log_wrangled <- log_wrangled %>% 
+  mutate(student_id = str_sub(student_id, start = 1, end = 7)) %>% 
+  # change the type of the student_id variable from a string to an integer
+  mutate(student_id = as.integer(student_id))
+```
+
+### Processing the gradebook data
+
+In the previous step, we further processed the log data. In this step,
+we'll process the gradebook data. In particular, we'll separate the
+`course_id` variable in the same way we separated that variable in the
+log data, and we'll also calculate a new variable representing the
+proportion of points students earned (out of the points possible to
+earn).
+
+Let's start with separating the `course_id` variable. Run the code in
+the next chunk to do this. If you named the three parts of the course ID
+differently than they're named below (and saved the data you processed
+to use in this learning lab), be sure that these three variables are
+named identically; this is the *key* (pun intended!) to these variables
+joining correctly.
+
+```{r}
+gradebook <- gradebook %>% 
+  separate(course_id,
+           c("Subject", "Course", "Section"))
+```
+
+Next, we'll mutate our data set to create a new column, one representing
+the proportion of points students earned. Let's consider a data frame
+with example data, `df4` .
+
+```{r}
+df4 <- tibble(var_a = c(8, 8, 7, 8, 9, 6, 8, 8, 7, 8),
+              var_b = 9)
+```
+
+*Note*: To create `df4`, for `var_a`, we passed a *vector* that we
+created with the function `c()` that contains 10 values. Consider these
+to be the number of times that learners participated in an
+outside-of-school STEM club. Instead of passing another vector for
+`var_b`, we simply used the value 9, which represents the number of
+opportunities students had to participate in the outside-of--school STEM
+club . In this case, the value 9 is repeated for however many rows there
+are in the data frame. Thus, in the context of creating a data frame,
+`var_b = 9` is the same as `var_b = c(9, 9, 9, 9, 9, 9, 9, 9, 9, 9)`.
+
+Since interpreting proportions when the denominator is nine can be
+difficult, we may which to create a variable for the proportion.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+After running the chunk above, print `df4` to the console to get a sense
+of what the data frame consists of. To create a third variable that
+represents the proportion of STEM club activities students participated
+in, divide `var_a` by `var_b`.
+
+```{r}
+df4 <- df4 %>% 
+  mutate()
+```
+
+**Hint**: Take a peak at your work on the last learning lab as an
+example.
+
+What happens if the output is different than you intended? That's no
+problem! Re-run the code-chunk *above* (in which we create `df`) to have
+a blank slate with which to try again.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Your turn once more. This time, create a new variable---here, let's name
+it `proportion_earned`---using the `gradebook` data. This will involve
+using the mutate function with the `gradebook` data, creating a new
+variable (`proportion_earned`) on the basis of the values of two
+existing variables:
+
+-   `total_points_possible`
+
+-   `total_points_earned`
+
+Also, once your code is ready, you'll need to assign the results back to
+`gradebook`. This is challenging as you're starting from scratch with
+the code. However, good R programmers use other code (that they or
+others wrote!) often, so feel free to copy and paste code from other,
+similar problems to give yourself a head start.
+
+```{r}
+
+```
+
+Once the above step is complete, take another look at `gradebook` by
+printing it to the console. There should now be seven columns, the six
+originally in the data and a new, seventh variable you've mutated.
+
+### Joining the data
+
+We're now ready to join! At their core, joins involve operations on two
+data frames at the same time. This may seem useful only in certain
+cases, but consider the following data analysis tasks:
+
+-   You have collected data from *students* from one of ten classrooms;
+    at the same time, you have data on the *teachers* of those ten
+    classes (five of which tried out a new curriculum, and five who
+    taught a "business-as-usual" curriculum
+
+-   You are studying the posts on *Twitter* and *Pinterest* of one of
+    around 100 mathematics teachers
+
+-   After working with a local school district, you collected survey
+    responses from 100s of *teachers* who teach in one of approximately
+    25 elementary, middle, and high *schools*; you received data from
+    the district on the characteristics of the schools, including how
+    many students they serve and how many teachers work in them
+
+In each of these cases---and many others like them---your single
+analysis involves multiple data files. While in some cases it is
+possible to analyze each data set individually, it is often useful (or
+necessary, depending upon your goal) to join these sources of data
+together. This is especially the case for learning analytics research,
+in which researchers and analysts often are interested in understanding
+teaching and learning through the lens of multiple data sources,
+including digital data, institutional records, and survey data, among
+other sources. In all of these cases, knowing how to promptly join
+together files---even files with tens of thousands of hundreds of
+thousands of rows---can be empowering.
+
+Enough on the magic and beauty of joins; let's try a few out!
+
+Consider two example data frames. `df5` contains a variable with four
+student names, `name` and a variable for the number of STEM-related
+classes they have taken, `n_stem_classes`.
+
+`df6` contains a variable with three student names, `name` (like in
+`df5`), as well as another, different variable, for students'
+self-reported interest in STEM topics, `interest_in_stem`, measured on a
+one-seven scale, with seven indicating higher levels of interest.
+
+Run the code below and then type `df5` and `df6` in the console.
+
+```{r}
+df5 <- tibble(name = c("Sheila", "Tayla", "Marcus"),
+              n_stem_classes = c(4, 5, 6))
+
+df6 <- tibble(name = c("Tayla", "Marcus", "Sheila", "Vin"),
+              interest_in_stem = c(4, 7, 6, 6))
+```
+
+A key (there's that pun, again) with joins is to consider what
+variable(s) will serve as the *key*. This is the variable to join by. A
+key must have two characteristics; it is:
+
+-   a character string--- a word (thus, you cannot join on a number
+    unless you "coerce" or change it to be a character string, first)
+
+-   present in both of the data frames you are joining.
+
+While some of the time it takes some thought to determine what the key
+is (or what the keys are---you can join on multiple keys!), in the above
+case, there is just one variable that meets both of the above
+characteristics.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+In the code below, enter the name of the variable that is the key within
+the quotation marks following `by =`. Then run the code chunk and note
+the output.
+
+```{r}
+full_join(df5, df6, by = "")
+```
+
+What do you notice about the output of the `full_join()`? All
+observations are valid; consider how the output is similar to and
+different from `df5` and `df6`, particularly in one or more notes
+following the bullet point.
+
+-   
+
+`full_join()` is one of a number of joins from which we can choose.
+`full_join()` is distinguished from the other joins by how it returns
+*all* of the rows in both of the data frames being joined. If a
+particular key is present in one of the data frames but not the other,
+the values for the variable in the data set for which the key is not
+present are simply recorded as missing (like in the above, where there
+is no value for the number of STEM classes Vin has taken).
+
+There is one other join on which we'll focus for now. That is
+`left_join()`, which differs from `full_join()` in that it returns all
+of the rows in the "left" data frame, the data frame named first in the
+function, but not all of the rows in the "right" data frame: it retains
+only the rows in the "right" data frame, the data frame named second in
+the function, that have a matching key. An example is necessary. Before
+running the code below, add the same key you added above.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+```{r}
+left_join(df5, df6, by = "")
+```
+
+Different from the above, `left_join()` did not return all of the rows
+from both data frames, instead returning *all* of the rows in the "left"
+data frame (and those in the "right" data frame with a match).
+
+For now, we're going to use a single join function, `full_join()`. In
+the code below, join `gradebook` and `log_wrangled`; type the names of
+those two data frames as arguments to the `full_join()` function in a
+similar manner as in the `full_join()` code above, and then run this
+code chunk. For now, don't specify anything for the `by =` part of the
+function.
+
+```{r}
+# join together the gradebook and log_wrangled
+joined_data <- full_join()
+
+joined_data
+```
+
+You may notice a red message that says
+`Joining, by = c("student_id", "Course", "Subject", "Section")`. This is
+telling us that these files are being joined on the basis of all four of
+these variables matching in both data sets; in other words, for rows to
+be joined, they must match identically on all four of these variables.
+
+This is related to not specifying anything for the `by =` part of the
+function; by default, `full_join()` (and `left_join()`) will consider
+any character strings with identical names that are present in both data
+sets to be keys. But, it's generally better practice to specify the
+variables on which we are joining.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+In the code below, write your join like above, but add the
+`by = c("student_id", "Course", "Subject", "Section")` part to your
+code. You may notice the red message you may have noticed does not
+appear. This is generally a better practice because you know precisely
+on which variables you data sets are joining.
+
+```{r}
+# join together the gradebook and log_wrangled
+joined_data <- full_join()
+
+joined_data
+```
+
+**Hint:** If you're curious about how to format the use of the `by =`
+part of your code, look up above at how you used this argument to the
+`full_join()` function.
+
+What do you notice about the result---the data you joined? In
+particular, how does it differ from the two data sets from which it was
+created? Add one or more notes below.
+
+-   
+
+## 3. EXPLORE
+
+Having prepared both of the data sets we joined together, and worked
+hard to join those data sets, we're now ready to use this joined data
+set in our exploration of how the time students spent on the course LMS
+relate to the number of points they earned throughout the course.
+
+We'll be using the {ggplot2} package again, but, this time, will be
+creating a different type of plot.
+
+Run the code below to create a scatter plot of the proportion of points
+students earned and the number of hours they spent on the course LMS.
+
+```{r}
+ggplot(joined_data, aes(x = time_spent_hours, y = proportion_earned)) +
+  geom_point()
+```
+
+What do you notice about this graph? And what do you wonder? How about
+the code---what do you notice about it (and what do you wonder)? Add one
+or more of what you see as the most important elements.
+
+-   
+
+Using {ggplot2} makes it efficient to iterate through different versions
+of similar plots. For instance, we can color the points by a third
+variable, such as the reason for which students enrolled in the course,
+to begin to explore what was going on for students who spent very little
+time on the course:
+
+```{r}
+ggplot(joined_data, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point()
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+We can also additionally create faceted plots, like the one you created
+in the last learning lab. In the code below, facet the plot by
+`Subject`.
+
+```{r}
+ggplot(joined_data, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point()
+```
+
+**Hint**: Take a peak at the code you wrote for the first learning lab
+in which you created a faceted plot.
+
+You may wish to style your plot. A few ways you can do that are as
+follows; we'll discuss more throughout the institute. For each of the
+following, add them to your plot by adding a plus symbol to the line
+prior to the line you are adding. For instance, the following code
+styles the x-axis label of a plot:
+
+```{r}
+ggplot(joined_data, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point() +
+  xlab("Time Spent (Hours)")
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Try adding (and modifying, if you'd like) any of the following to the
+faceted plot you created in the code chunk below:
+
+-   `xlab("Time Spent (Hours)")`
+
+-   `ylab("Proportion of Points Earned")`
+
+-   `scale_color_brewer("Enrollment Status", type = "qual", palette = 3)`
+
+-   `ggtitle("How Time Spent on Course LMS is Related to Points Earned in the Course")`
+
+-   `theme(legend.position = "bottom")`
+
+```{r}
+
+```
+
+Once you have settled on a plot you are happy with (for now!), add a
+sentence or two interpreting your graph (like you were describing it
+within a manuscript):
+
+-   
+
+## 5. COMMUNICATE
+
+In this learning lab, we covered a lot of ground, from extensively
+wrangling our data (further), joining together two data sets, and
+creating plots that depicted the relations between two variables. We
+also built on the ggplot'ting we began in the first learning lab, going
+deeper in terms of the the type of plot we created as well as how we
+styled it.
+
+Like for the first learning lab, below, add a few notes in response to
+the prompts:
+
+*One thing I took away from this learning lab*:
+
+*One thing I want to learn more about*:
+
+## Reach
+
+For this learning lab, your reach is to join together two of your own
+data sets. Even if you don't expand on this code here, gaining
+experience joining data sets with which you're familiar can be handy. If
+you do this, re-knit your document when complete or at a stopping point
+so you have a record of your work!
+
+If you do not have data you wish to join at this time, consider reading
+one of these resources on joining or that involve joining:
+
+Relational Data from the excellent R for Data Science book:
+<https://r4ds.had.co.nz/relational-data.html>
+
+Walkthrough 1: The Education Data Science Pipeline With Online Science
+Class Data from Data Science in Education Using
+R<https://datascienceineducation.com/c07.html>

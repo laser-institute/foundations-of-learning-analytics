@@ -22,9 +22,9 @@ summer LASER institute - we'll be working on two skills that in some
 ways typify a learning analytics approach to working with data. These
 two skills are:
 
-1.  Joining together different data sets
-2.  Mutating a column to change the time spent variable to represent
-    hours
+1.  Wrangling data to be in the form we need to create a visualization
+2.  Creating and beginning to style a complex plot - namely, a a faceted
+    plot
 
 What makes these two things distinctive?
 
@@ -167,9 +167,9 @@ stopped accessing the course). We'll name this data set time_spent, to
 help us to quickly recollect what function it serves in this analysis.
 
 ```{r}
-time_spent_not_cleaned <- read_csv(here("data", "log.csv"))
+time_spent_not_cleaned <- read_csv(here("data", "log-data.csv"))
 
-time_spent <- read_csv(here("data", "log.csv")) %>% 
+time_spent <- read_csv(here("data", "log-data.csv")) %>% 
   clean_names()
 ```
 
@@ -457,8 +457,8 @@ the course. To do so, consider both:
     that data frame that represents the class of the car---but modifying
     the code to work for your subject variable
 
-You may also wish to change the color; reflect back to the getting started task for an 
-example of how to do this. 
+You may also wish to change the color; reflect back to the getting
+started task for an example of how to do this.
 
 ```{r}
 
@@ -471,16 +471,29 @@ What do you notice about this figure? And what do you wonder? Add a note
 
 ## 5. COMMUNICATE
 
+In this learning lab, we used focused on learning about and wrangling
+data from an LMS on the time students spent on the course. Using
+`separate()` and the generally helpful `mutate()` function, we processed
+a data set such that we could then later create a plot that depicted the
+distribution of a single variable---for how much time students' spent on
+the course in hours by subject. Below, add a few notes in response to
+the following prompts.
+
+*One thing I took away from this learning lab:*
+
+*One thing I want to learn more about:*
+
 If you've made it to this point, congratulations - you've completed the
 first learning lab! To complete your work, you can click the drop down
 arrow at the top of the file, then select "Knit top HTML". This will
 create a report in your Files pane that serves as a record of your code
 and its output you can open or share.
 
-If you wanted, you could save the processed data set to your data folder. The 
-`write_csv()` function is useful for this. The following code is set to not run, as we
-wanted to ensure that everyone had the data set needed to begin the second learning 
-lab, but if you're confident in your prepared data, you can save it with the following:
+If you wanted, you could save the processed data set to your data
+folder. The `write_csv()` function is useful for this. The following
+code is set to not run, as we wanted to ensure that everyone had the
+data set needed to begin the second learning lab, but if you're
+confident in your prepared data, you can save it with the following:
 
 ```{r, eval = FALSE}
 write_csv()
@@ -502,16 +515,5 @@ In short, please (optionally) start on this work right here, including
 reading data, preparing it, and then creating a faceted plot using data
 of your choosing.
 
-## Reflection
-
-In this learning lab, we used focused on learning about and wrangling
-data from an LMS on the time students spent on the course. Using
-`separate()` and the generally helpful `mutate()` function, we processed
-a data set such that we could then later create a plot that depicted the
-distribution of a single variable---for how much time students' spent on
-the course in hours by subject. Below, add a few notes in response to
-the following prompts.
-
-*One thing I took away from this learning lab:*
-
-*One thing I want to learn more about:*
+If you do this, re-knit your document when complete or at a stopping
+point so you have a record of your work!
