@@ -1,9 +1,14 @@
 ---
-title: "Learning Lab 1.4"
-subtitle: "Guided Practice"
-author: ""
-date: "`r Sys.Date()`"
-output: html_notebook
+title: "Learning Analytics Foundations Learning Lab 4"
+output:
+  html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+name: ''
+editor_options:
+  markdown:
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -12,24 +17,32 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-asdf
+- Learning Lab 1.4: Begin to make statements and inferences based on your data
+    - the veggies
+      - the LASER cycle
+    - the cake
+      - enhancing a plot: theming, color, and reordering factors
 
-## Prepare
+## 1. PREPARE
 
-asdf
+### Packages 📦
 
-## Explore
+```{r}
+library(tidyverse)
+```
 
-asdf
+## 2. WRANGLE
 
-## Model
+#### [**Your Turn**]{style="color: green;"} **⤵**
 
-sdf
+## 3. EXPLORE
 
-## Communicate
+#### [**Your Turn**]{style="color: green;"} **⤵**
 
-asef
+## 4. MODEL
 
-## fin
+#### [**Your Turn**]{style="color: green;"} **⤵**
 
-To submit your
+## 5. COMMUNICATE
+
+#### [**Your Turn**]{style="color: green;"} **⤵**

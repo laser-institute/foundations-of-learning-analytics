@@ -1,9 +1,14 @@
 ---
-title: "Learning Lab 1.3"
-subtitle: "Guided Practice"
-author: ""
-date: "`r Sys.Date()`"
-output: html_notebook
+title: "Learning Analytics Foundations Learning Lab 3"
+output:
+  html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+name: ''
+editor_options:
+  markdown:
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -12,24 +17,43 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-asdf
+In this learning lab, we'll build on the visualizations we created (and the wrangling we had
+to do to be in the position to create our visualizations!) by creating and
+sharing a report of our work. In that report, we'll include interactive tables - 
+tables that can help us and others to _explore_ our data.
 
-## Prepare
+## 1. PREPARE
 
-asdf
+### Packages 📦
 
-## Explore
+We'll load the same packages we've loaded in the past two learning labs. This time, though,
+it's your turn to the code to load the three packages we have loaded and used: {tidyverse}, {janitor},
+and {here} in the code chunk below.
 
-asdf
+```{r}
 
-## Model
+```
 
-sdf
+### Data
 
-## Communicate
+We'll also load one additional data source.
 
-asef
+#### Data Source #3: Self-Report Survey
 
-## fin
+The third data source is a self-report survey. This was data collected before the start of the course. The survey included ten items, each corresponding to one of three motivation measures: interest, utility value, and perceived competence. These were chosen for their alignment with one way to think about students' motivation, to what extent they expect to do well (corresponding to their perceived competence) and their value for what they are learning (corresponding to their interest and utility value). We'll use this in the third learning lab.
 
-To submit your
+## 2. WRANGLE
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+## 3. EXPLORE
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+## 4. MODEL
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+## 5. COMMUNICATE
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
