@@ -263,7 +263,8 @@ rather three, new variables? Below is some template code.
 
 ```{r}
 df2 %>% 
-  separate()
+  separate(course_variable,
+           c("Year", "Semester", "Sibject"))
 ```
 
 **Hint**: Try to modify the code from above (in which you separated
@@ -280,13 +281,12 @@ Below, we will load `time_spent` and run the `separate()` function with
 the `course_id` variable to split up the subject, semester, and section
 so we can use them later on. In other words, whereas above we separated
 the variable `course_variable`, in the data set we'll use here, we'll
-separate the `course_id` variable. Also, instead of splitting
-`course_variable` into two new variables, we'll split `course_id` into
-three variables.
+separate the `course_id` variable.
 
 ```{r}
 time_spent %>%
-  separate()
+  separate(course_id,
+           c("Subject", "Semester", "Section"))
 ```
 
 There is one last key step---one that is likely to be a bit disorienting
@@ -300,7 +300,8 @@ output back to `time_spent`.
 
 ```{r}
 time_spent <- time_spent %>%
-  separate()
+  separate(course_id,
+           c("Subject", "Semester", "Section"))
 ```
 
 We have made a habit of continually looking at our data after running
@@ -365,8 +366,8 @@ this, you can divide `points_sum` by the maximum possible points---150.
 
 ```{r}
 df3 %>% 
-  mutate(ponts_sum = var_a + var_b) %>% 
-  mutate()
+  mutate(points_sum = var_a + var_b) %>% 
+  mutate(points_proportion = points_sum / 150)
 ```
 
 **Hint**: Just like you can use the + symbol to add variables together,
@@ -390,7 +391,7 @@ create a new variable, `time_spent_hours`, that represents the number of
 
 ```{r}
 time_spent %>% 
-  mutate()
+  mutate(time_spent_hours = time_spent_minutes / 60)
 ```
 
 **Hint**: Refer to the code you wrote above, being clear about a) what
@@ -405,7 +406,7 @@ way we intend to, we can assign the output back to the data frame that
 
 ```{r}
 time_spent <- time_spent %>% 
-  mutate()
+  mutate(time_spent_hours = time_spent_minutes / 60)
 ```
 
 Good work wrangling this dataset!
@@ -469,7 +470,9 @@ You may also wish to change the color; reflect back to the getting
 started task for an example of how to do this.
 
 ```{r}
-
+ggplot(time_spent, aes(x = time_spent_hours)) + 
+  geom_point() +
+  facet_wrap(~Subject)
 ```
 
 What do you notice about this figure? And what do you wonder? Add a note

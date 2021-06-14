@@ -116,10 +116,11 @@ It is very likely others have the same question; you asking it serves everyone (
 
 # 3. The LASER cycle
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, out.width="75%"}
 knitr::include_graphics("img/laser-cycle.png")
 ```
 
+From *Learning Analytics Goes to School*; see `
 ---
 
 # 3. The LASER cycle
