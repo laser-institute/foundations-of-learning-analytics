@@ -35,13 +35,19 @@ This time, though, it's your turn to the code to load the three packages
 we have loaded and used: {tidyverse}, {janitor}, and {here} in the code
 chunk below.
 
-In addition please load two additional packages that we have not used
-*yet*, but will use in this lab. These packages are {skimr} and {corrr},
-and both are already installed. In sum, you'll be loading five packages
-- more than we've used so far, but not atypical for a complex analysis.
+In addition please load three additional packages that we have not used
+*yet*, but will use in this lab. These packages are {skimr}, {corrr},
+and {apaTables}. All three are already installed. In sum, you'll be
+loading six packages - more than we've used so far, but not atypical for
+a complex analysis.
 
 ```{r}
-
+library(tidyverse)
+library(janitor)
+library(here)
+library(skimr)
+library(corrr)
+library(apaTables)
 ```
 
 ### Data
@@ -77,7 +83,7 @@ above as a template. Assign the output from the `read_csv()` function
 the name `survey`.
 
 ```{r}
-
+survey <- read_csv(here("data", "survey.csv"))
 ```
 
 **Hint**: By asking you to "assign the output from the `read_csv()`
@@ -203,7 +209,7 @@ Below, make two modifications to the above code:
     their science class.
 
 ```{r}
-
+my_survey_questions <- select(student_id:percomp)
 ```
 
 After you've run the code above, take a quick peak at the data one more
@@ -329,7 +335,7 @@ join together `joined_data` and `survey_to_join` using `full_join()`,
 assigning the name `data_to_explore` to the output.
 
 ```{r}
-
+data_to_explore <- full_join(joined_data, survey_to_join)
 ```
 
 ## 3. EXPLORE
@@ -375,7 +381,7 @@ se, but will be comprehending the terminology. In the code chunk below:
     statistics
 
 ```{r}
-
+skim(data_to_explore)
 ```
 
 **Hint:** For help, consider running `?skim()` in the console to view
@@ -405,7 +411,7 @@ summary; can you do this by modifying the code below? Consider using the
 
 ```{r}
 data_to_explore %>% 
-  select() %>% 
+  select(proportion_earned, time_spent, int, val, percomp) %>% 
   skim()
 ```
 
@@ -443,7 +449,7 @@ sensible to correlate!
 
 ```{r}
 data_to_explore %>% 
-  select() %>% 
+  select(proportion_earned, time_spent, int, val, percomp) %>% 
   correlate()
 ```
 
@@ -482,7 +488,10 @@ the variables you wish to correlate, then create a correlation table
 using `apa.cor.table()`.
 
 ```{r}
+data_to_explore_subset <- data_to_explore %>% 
+  select(int, val, percomp)
 
+apa.cor.table(data_to_explore)
 ```
 
 This may look nice, but how to actually add this into a manuscript? Here
@@ -494,7 +503,7 @@ file with the formatted correlation table, and then run the code to do
 that with your subset of the `data_to_explore` data frame.
 
 ```{r}
-
+apa.cor.table(data_to_explore, filename = "survey-cor-table.doc")
 ```
 
 **Hint**: Consider the `filename` argument to the `apa.cor.table()`

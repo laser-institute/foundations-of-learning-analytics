@@ -1,9 +1,9 @@
 ---
 title: "Learning Analytics Foundations Learning Lab 2"
 output:
-  html_notebook: default
   html_document:
     df_print: paged
+  html_notebook: default
   pdf_document: default
 name: ''
 editor_options:
@@ -240,7 +240,7 @@ joining correctly.
 ```{r}
 gradebook <- gradebook %>% 
   separate(course_id,
-           c("Subject", "Course", "Section"))
+           c("Subject", "Semester", "Section"))
 ```
 
 Next, we'll mutate our data set to create a new column, one representing
@@ -436,7 +436,7 @@ joined_data
 ```
 
 You may notice a red message that says
-`Joining, by = c("student_id", "Course", "Subject", "Section")`. This is
+`Joining, by = c("student_id", "Course", "Semester", "Section")`. This is
 telling us that these files are being joined on the basis of all four of
 these variables matching in both data sets; in other words, for rows to
 be joined, they must match identically on all four of these variables.
@@ -450,14 +450,14 @@ variables on which we are joining.
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
 In the code below, write your join like above, but add the
-`by = c("student_id", "Course", "Subject", "Section")` part to your
+`by = c("student_id", "Semester", "Subject", "Section")` part to your
 code. You may notice the red message you may have noticed does not
 appear. This is generally a better practice because you know precisely
 on which variables you data sets are joining.
 
 ```{r}
 # join together the gradebook and log_wrangled
-joined_data <- full_join(gradebook, log_wrangled, by = c("student_id", "Subject", "Course", "Section"))
+joined_data <- full_join(gradebook, log_wrangled, by = c("student_id", "Subject", "Semester", "Section"))
 
 joined_data
 ```

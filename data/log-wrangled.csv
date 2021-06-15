@@ -1,4 +1,4 @@
-student_id,Subject,Course,Section,gender,enrollment_reason,enrollment_status,time_spent,time_spent_hours
+student_id,Subject,Semester,Section,gender,enrollment_reason,enrollment_status,time_spent,time_spent_hours
 _60186,AnPhA,S116,01,M,Course Unavailable at Local School,Approved/Enrolled,2087.0501,34.784168333333334
 _66693,AnPhA,S116,01,M,Course Unavailable at Local School,Approved/Enrolled,2309.0334,38.483889999999995
 _66811,AnPhA,S116,01,F,Course Unavailable at Local School,Approved/Enrolled,5298.8507,88.31417833333333

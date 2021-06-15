@@ -272,9 +272,9 @@ library(here)</code></pre>
 <pre class="r"><code>gradebook &lt;- read_csv(here(&quot;data&quot;, &quot;gradebook-summary.csv&quot;)) %&gt;% 
   clean_names()</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICBzdHVkZW50X2lkID0gY29sX2RvdWJsZSgpLFxuICBjb3Vyc2VfaWQgPSBjb2xfY2hhcmFjdGVyKCksXG4gIHRvdGFsX3BvaW50c19wb3NzaWJsZSA9IGNvbF9kb3VibGUoKSxcbiAgdG90YWxfcG9pbnRzX2Vhcm5lZCA9IGNvbF9kb3VibGUoKVxuKVxuIn0= -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICBzdHVkZW50X2lkID0gY29sX2RvdWJsZSgpLFxuICBjb3Vyc2VfaWQgPSBjb2xfY2hhcmFjdGVyKCksXG4gIHRvdGFsX3BvaW50c19wb3NzaWJsZSA9IGNvbF9kb3VibGUoKSxcbiAgdG90YWxfcG9pbnRzX2Vhcm5lZCA9IGNvbF9kb3VibGUoKVxuKVxuIn0= -->
 <pre><code>
-── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────
 cols(
   student_id = col_double(),
   course_id = col_character(),
@@ -320,9 +320,6 @@ cols(
 <p>In the present case, we have gradebook data and data from the LMS on the time students spent on the course, but in one case—for the log data—the student identifier is formatted a bit differently. This is often the case, and to ensure that we can join together the two datasets into one, we’ll have to clean up the student_id variable, first. Let’s take a look at the log data by running the code in the chunk below.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9nX2RhdGFcbmBgYCJ9 -->
-<pre class="r"><code>log_data</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>You may notice something is a bit different with this variable compared to the gradebook data - the student_id is prefaced with an underscore that the LMS happened to include.</p>
@@ -330,9 +327,6 @@ cols(
 <p>Run the code below, in which we specify that we want the output to begin with the first letter of the string, and to end with the tenth letter. In other words, we want to return the entire word - something that is not useful just yet.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX3N1YihcIlRhc2sgMSAlNTRcIiwgc3RhcnQgPSAxLCBlbmQgPSAxMClcbmBgYCJ9 -->
-<pre class="r"><code>str_sub(&quot;Task 1 %54&quot;, start = 1, end = 10)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Now, let’s imagine that our data erroneously included the characters “%54”, and that we wanted to remove those from our string so that what was returned was only the task and the number.</p>
@@ -342,27 +336,11 @@ cols(
 <p><strong>Hint</strong>: Try changing the values entered for the start and end arguments to the function.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX3N1YihcIlRhc2sgMSAlNTRcIiwgc3RhcnQgPSAxLCBlbmQgPSAxMClcbmBgYCJ9 -->
-<pre class="r"><code>str_sub(&quot;Task 1 %54&quot;, start = 1, end = 10)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>A feature of str_sub is that it not only works for a single string, but also a collection of strings. Run the code below with the start and end values you entered above to clean up a collection— technically a vector created with the combine, or c(), function—of strings next.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX3N1YihjKFwiVGFzayAxICU1NFwiLFxuICAgICAgICAgIFwiVGFzayAyICU1NFwiLFxuICAgICAgICAgIFwiVGFzayAzICU1NFwiLFxuICAgICAgICAgIFwiVGFzayA0ICU1NFwiLFxuICAgICAgICAgIFwiVGFzayA1ICU1NFwiLFxuICAgICAgICAgIFwiVGFzayA2ICU1NFwiLFxuICAgICAgICAgIFwiVGFzayA3ICU1NFwiLFxuICAgICAgICAgIFwiVGFzayA4ICU1NFwiLFxuICAgICAgICAgIFwiVGFzayA5ICU1NFwiLFxuICAgICAgICAgIFwiVGFzayAxMCAlNTRcIiksXG4gICAgICAgIHN0YXJ0ID0gMSwgZW5kID0gMTApXG5gYGAifQ== -->
-<pre class="r"><code>str_sub(c(&quot;Task 1 %54&quot;,
-          &quot;Task 2 %54&quot;,
-          &quot;Task 3 %54&quot;,
-          &quot;Task 4 %54&quot;,
-          &quot;Task 5 %54&quot;,
-          &quot;Task 6 %54&quot;,
-          &quot;Task 7 %54&quot;,
-          &quot;Task 8 %54&quot;,
-          &quot;Task 9 %54&quot;,
-          &quot;Task 10 %54&quot;),
-        start = 1, end = 10)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Detour complete! Let’s now consider how we can use what we did above to clean the student_id variable in the log_data file.</p>
@@ -417,6 +395,10 @@ cols(
   separate(course_id,
            c(&quot;Subject&quot;, &quot;Course&quot;, &quot;Section&quot;))</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IG9iamVjdCAnY291cnNlX2lkJyBub3QgZm91bmRcblJ1biBgcmxhbmc6Omxhc3RfZXJyb3IoKWAgdG8gc2VlIHdoZXJlIHRoZSBlcnJvciBvY2N1cnJlZC5cbiJ9 -->
+<pre><code>Error: object &#39;course_id&#39; not found
+Run `rlang::last_error()` to see where the error occurred.</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Next, we’ll mutate our data set to create a new column, one representing the proportion of points students earned. Let’s consider a data frame with example data, <code>df4</code> .</p>

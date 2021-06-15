@@ -241,60 +241,269 @@ summary {
 <!-- rnb-text-begin -->
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<ul>
-<li>Learning Lab 1.4: Begin to make statements and inferences based on your data
-<ul>
-<li>the veggies
-<ul>
-<li>the LASER cycle</li>
-</ul></li>
-<li>the cake
-<ul>
-<li>enhancing a plot: theming, color, and reordering factors</li>
-</ul></li>
-</ul></li>
-</ul>
+<p>The culmination of this module involves using data from all three data sets—on the time students spent on the course LMS, their academic achievement, and their self reports—in a model, particularly, a linear (regression) model to understand differences in students’ academic achievement. In addition to considering how to fit and interpret such a model in R, we create and tailor a report that we can share with collaborators and others. Let’s begin!</p>
 </div>
 <div id="prepare" class="section level2">
 <h2>1. PREPARE</h2>
 <div id="packages" class="section level3">
 <h3>Packages 📦</h3>
+<div id="your-turn" class="section level4">
+<h4><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>Below, load the {tidyverse} package.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
 </div>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>We’ll load the <code>data-to-explore</code> data we worked with in the prior learning lab.</p>
+<p>Below, read that file, saved in the <code>/data</code> directory, and assign it the name <code>data_to_explore</code>.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Hint</strong>: Refer to how we read data files in the last few learning labs for a template or starting point for your code.</p>
+<p>Before we proceed, let’s take a step we so often take: taking a look at our data. We haven’t emphasized this function very much because it takes you as the R programmer out of your environment—it opens a new window. Nevertheless, it is good to have the <code>View()</code> function as a part of your toolkit. To view the data frame you loaded, run <code>View(data_to_explore)</code> in the console. Yes, the “V” is capitalized—very unusual for an R function. Because this function is a bit atypical in more ways than one, we have two recommendations concerning its use:</p>
+<ul>
+<li><p>Use it strictly in the console. Because it opens a new viewing window, including it in an R Markdown script can cause issues when rendering an HTML (or PDF) report.</p></li>
+<li><p>Close the viewer window that opens once you have viewed the data. Keeping it open can clutter your work space a bit and can lead to confusion about what data frame it was you viewed.</p></li>
+</ul>
+</div>
+</div>
 <div id="wrangle" class="section level2">
 <h2>2. WRANGLE</h2>
-<div id="your-turn" class="section level4">
-<h4><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
-</div>
-</div>
-<div id="explore" class="section level2">
-<h2>3. EXPLORE</h2>
-<div id="your-turn-1" class="section level4">
-<h4><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
-</div>
+<p>We often think of wrangling as a step <em>prior to</em> exploring and modeling data. However, we often carry out a cycle involving wrangling, exploring, and modeling. For instance, we may explore our data to find that a variable is not prepared or cleaned how it needs to be to achieve our aim. Or, we may estimate a model, but find that the levels of the qualitative (or categorical) variables are not encoded in such a way to allow us to estimate the things we wish to (such as which levels differ from a reference group).</p>
+<p>If some of this modeling jargon is new, then you’re still in the right spot! Let’s proceed to some concrete examples of how wrangling and modeling, particularly, are related to one another.</p>
 </div>
 <div id="model" class="section level2">
 <h2>4. MODEL</h2>
-<div id="your-turn-2" class="section level4">
+<p><code>data_to_explore</code> is a fairly large data frame, consisting of around 1,000 observations and around 15 columns. For the purpose of this learning lab, let’s consider the <code>proportion_earned</code> variable to be our dependent, or the outcome, variable.</p>
+<p>You may be new to linear regression models, or you may have a lot of experience. In brief, a linear regression model involves estimating the relationships between one or more <em>independent variables</em> with one dependent variable. Mathematically, it can be written like the following.</p>
+<p><span class="math display">\[
+\operatorname{dependentvar} = \beta_{0} + \beta_{1}(\operatorname{independentvar}) + \epsilon
+\]</span></p>
+<p>Here, the <code>dependentvar</code> is predicted by two <em>coefficients</em>, or things that help to explain the dependent variable. The first coefficient, <span class="math inline">\(\beta_0\)</span>, is the intercept. This coefficient tells us what the estimated value of the dependent variable is when the independent variable (<code>independentvar</code>) is equal to 0. The other coefficient, <span class="math inline">\(\beta_1\)</span>, or the slope, represents the association of a one-unit change in the independent variable in the value of the dependent variable.</p>
+<p>Let’s consider a concrete example. We’ll use the <code>lm()</code> function in R to estimate a linear regression model.</p>
+<p>The following code estimates a model in which <code>proportion_earned</code>, the proportion of points students earned, is the dependent variable. It is predicted by one independent variable, <code>int</code>, students’ self-reported interest in science.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG0ocHJvcG9ydGlvbl9lYXJuZWQgfiBpbnQsIGRhdGEgPSBkYXRhX3RvX2V4cGxvcmUpXG5gYGAifQ== -->
+<pre class="r"><code>lm(proportion_earned ~ int, data = data_to_explore)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IHByb3BvcnRpb25fZWFybmVkIH4gaW50LCBkYXRhID0gZGF0YV90b19leHBsb3JlKVxuXG5Db2VmZmljaWVudHM6XG4oSW50ZXJjZXB0KSAgICAgICAgICBpbnQgIFxuICAgIDAuNTM1ODUgICAgICAwLjA1NTY1ICBcbiJ9 -->
+<pre><code>
+Call:
+lm(formula = proportion_earned ~ int, data = data_to_explore)
+
+Coefficients:
+(Intercept)          int  
+    0.53585      0.05565  </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Let’s take a look at the output.</p>
+<p>We can see that the intercept is estimated at 0.53. This tells us that when students’ interest is equal to zero, their predicted proportion of points earned is 0.53—not such a great grade! But, for every one-unit increase in students’ interest in science, their estimate proportion of points earned was 0.055. Let’s consider what the mean value is for students’ interest.</p>
+<p>The following is some new code, but we’ll elaborate on the use of <code>summarize()</code> later. For now, know that it’s a way to create summary statistics such as the mean, but also the standard deviation, or the minimum or maximum of a value. At its core, think of <code>summarize()</code> as a function that returns a single value (whether it’s a mean, median, standard deviation—whichever!) that summarizes a single column.</p>
+<p>The argument <code>na.rm = TRUE</code> tells R that it can ignore missing, or <code>NA</code> values, and to calculate the summary statistic using the non-missing values.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIHggMSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVF3UXJDTUF6TjVqWng0Sno0SFJ1SUh2VG1RVHg2RUlYZHBKdFZoN09WcnFKSHYzd3pIUzJNRnRJa3IzbXZTUTdiYkJGbUlRQU13RU1iK0JpQ2Z6cnVraFdBNTJMaTRNTkkrUzhXelRvQUlGSitNMTJ1c3pqZlc0VStJMDlhWXhEM3dQR1RFbll1bWFTQzF0SmlqQVQvcElZMVJuTi9lTFY0Yk9taUlyVXRIVjZJSk9sVklCK3p4cUlNK1V1V25DSEpWYzBIaXFDSGNDd2hSMWpBNU0xVVY1ZWt1TC9aSTVuM3VLQTdOVHE5V0gzdnRsb3EwRkllTGU1Y3h3Rmx0NUpSTTFORmNscnBKTUpOZEl0SVh3S1haU1pFdEU0bGw4VFVoUVd2RE5MTkRNMGZXakZ4cDhzQkFBQT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["mean_interest"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"4.301"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>The mean value for interest is quite high. If we multiple the estimate relationship between interest and proportion of points earned—0.055—by this, the mean interest across all of the students—we can determine that students’ estimate final grade was 0.055 X 4.3, or 0.236, which we can add to the intercept, 0.535, which equals 0.771. In other words, the student with average interest in science earned 0.771 of possible points in the group—not associated with a great grade, but not bad!</p>
+<p>A linear regression model builds on this intuition by allowing us to add variables other than students’ interest to understand and explain the points they earned in the course.</p>
+<p>We can add additional predictor variables by separating variables with a plus symbol.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG0ocHJvcG9ydGlvbl9lYXJuZWQgfiBpbnQgKyB0aW1lX3NwZW50X2hvdXJzLCBkYXRhID0gZGF0YV90b19leHBsb3JlKVxuXG5gYGAifQ== -->
+<pre class="r"><code>lm(proportion_earned ~ int + time_spent_hours, data = data_to_explore)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IHByb3BvcnRpb25fZWFybmVkIH4gaW50ICsgdGltZV9zcGVudF9ob3VycywgZGF0YSA9IGRhdGFfdG9fZXhwbG9yZSlcblxuQ29lZmZpY2llbnRzOlxuICAgICAoSW50ZXJjZXB0KSAgICAgICAgICAgICAgIGludCAgdGltZV9zcGVudF9ob3VycyAgXG4gICAgICAgIDAuNDQ5NjU3ICAgICAgICAgIDAuMDQ2MjgzICAgICAgICAgIDAuMDA0MjU1ICBcbiJ9 -->
+<pre><code>
+Call:
+lm(formula = proportion_earned ~ int + time_spent_hours, data = data_to_explore)
+
+Coefficients:
+     (Intercept)               int  time_spent_hours  
+        0.449657          0.046283          0.004255  </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Let’s add a third variable, this time a categorical variable, one for students’ gender as recorded in the LMS. We note that this is a course variable, one inferior to one that we would have had had we asked students to report their gender.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG0ocHJvcG9ydGlvbl9lYXJuZWQgfiBpbnQgKyB0aW1lX3NwZW50X2hvdXJzICsgZ2VuZGVyLCBkYXRhID0gZGF0YV90b19leHBsb3JlKVxuXG5gYGAifQ== -->
+<pre class="r"><code>lm(proportion_earned ~ int + time_spent_hours + gender, data = data_to_explore)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IHByb3BvcnRpb25fZWFybmVkIH4gaW50ICsgdGltZV9zcGVudF9ob3VycyArIGdlbmRlciwgXG4gICAgZGF0YSA9IGRhdGFfdG9fZXhwbG9yZSlcblxuQ29lZmZpY2llbnRzOlxuICAgICAoSW50ZXJjZXB0KSAgICAgICAgICAgICAgIGludCAgdGltZV9zcGVudF9ob3VycyAgICAgICAgICAgZ2VuZGVyTSAgXG4gICAgICAgIDAuNDU3Nzg3ICAgICAgICAgIDAuMDQ1MjA4ICAgICAgICAgIDAuMDA0MjMxICAgICAgICAgLTAuMDA5MTUwICBcbiJ9 -->
+<pre><code>
+Call:
+lm(formula = proportion_earned ~ int + time_spent_hours + gender, 
+    data = data_to_explore)
+
+Coefficients:
+     (Intercept)               int  time_spent_hours           genderM  
+        0.457787          0.045208          0.004231         -0.009150  </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>In the output, we can see that there is now a fourth coefficient, <code>genderM</code>. This variable indicates the estimate difference between male and female students. Thus, this effect of -0.009 can be considered to be the “male effect” in comparison to females: Males earn an estimate (nearly) a 0.01 proportion points fewer than females. Imagine we want to consider, instead, the “female” effect.</p>
+<p>The following code treats <code>gender</code> as a factor, but makes <code>M</code>, for males, to be the reference group.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YV90b19leHBsb3JlICU+JSBcbiAgbXV0YXRlKGdlbmRlciA9IGFzLmZhY3RvcihnZW5kZXIpLFxuICAgICAgICAgZ2VuZGVyID0gZmN0X3JlbGV2ZWwoZ2VuZGVyLCBcIkZcIikpICU+JSBcbiAgcHVsbChnZW5kZXIpXG5cbmBgYCJ9 -->
+<pre class="r"><code>data_to_explore %&gt;% 
+  mutate(gender = as.factor(gender),
+         gender = fct_relevel(gender, &quot;F&quot;)) %&gt;% 
+  pull(gender)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBbMV0gRiAgICBNICAgIEYgICAgTSAgICBNICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgTSAgICBGICAgIEYgICAgTSAgICBNICAgIEYgICAgTSAgICBGICAgIEYgICBcbiBbMjhdIE0gICAgTSAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgTSAgICBNICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgXG4gWzU1XSBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIE0gICAgTSAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgIFxuIFs4Ml0gRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIEYgICBcblsxMDldIE0gICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgXG5bMTM2XSBGICAgIEYgICAgRiAgICBNICAgIE0gICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgTSAgICBNICAgIEYgICAgTSAgICBNICAgIE0gICAgTSAgICBGICAgIEYgICAgRiAgIFxuWzE2M10gRiAgICBGICAgIE0gICAgTSAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgTSAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgTSAgICBGICAgIEYgICBcblsxOTBdIEYgICAgTSAgICBNICAgIE0gICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgXG5bMjE3XSBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIEYgICAgTSAgICBGICAgIEYgICAgTSAgIFxuWzI0NF0gRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgRiAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgTSAgICBNICAgIEYgICBcblsyNzFdIEYgICAgTSAgICBGICAgIE0gICAgRiAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgXG5bMjk4XSBGICAgIE0gICAgTSAgICBNICAgIEYgICAgTSAgICBNICAgIE0gICAgTSAgICBGICAgIEYgICAgRiAgICBNICAgIEYgICAgRiAgICBNICAgIE0gICAgRiAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgIFxuWzMyNV0gTSAgICBNICAgIE0gICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgTSAgICBNICAgIEYgICBcblszNTJdIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIE0gICAgRiAgICBNICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIE0gICAgRiAgICBNICAgXG5bMzc5XSBGICAgIEYgICAgTSAgICBGICAgIEYgICAgTSAgICBGICAgIE0gICAgTSAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgTSAgICBNICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgIFxuWzQwNl0gRiAgICBNICAgIEYgICAgTSAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgTSAgICBGICAgIE0gICAgTSAgICBNICAgIEYgICAgTSAgICBNICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICBcbls0MzNdIE0gICAgTSAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgTSAgICBGICAgIE0gICAgTSAgICBNICAgIE0gICAgTSAgICBNICAgIE0gICAgTSAgICBNICAgIEYgICAgTSAgICBGICAgIE0gICAgTSAgICBGICAgXG5bNDYwXSBGICAgIEYgICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgTSAgICBNICAgIEYgICAgRiAgICBNICAgIEYgICAgTSAgICBGICAgIEYgICAgTSAgICBGICAgIE0gICAgTSAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgIFxuWzQ4N10gTSAgICBGICAgIE0gICAgRiAgICBNICAgIEYgICAgTSAgICBNICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIEYgICBcbls1MTRdIEYgICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgICBGICAgIE0gICAgRiAgICBNICAgIEYgICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgRiAgICBGICAgXG5bNTQxXSBNICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIE0gICAgTSAgICBNICAgIEYgICAgRiAgICBNICAgIE0gICAgRiAgICBNICAgIE0gICAgTSAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgTSAgIFxuWzU2OF0gRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIE0gICAgRiAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICBcbls1OTVdIE0gICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgTSAgICBNICAgIDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+XG5bNjIyXSA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPlxuWzY0OV0gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT5cbls2NzZdIDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+XG5bNzAzXSA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiBGICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgIFxuWzczMF0gRiAgICBGICAgIEYgICAgRiAgICBGICAgIE0gICAgRiAgICBNICAgIE0gICAgTSAgICBNICAgIE0gICAgTSAgICBGICAgIEYgICAgRiAgICBNICAgIE0gICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIE0gICAgTSAgICBGICAgIE0gICBcbls3NTddIEYgICAgRiAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgTSAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIE0gICAgTSAgICBGICAgIE0gICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgXG5bNzg0XSBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgTSAgICBGICAgIEYgICAgRiAgICBNICAgIEYgICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIE0gICAgRiAgIFxuWzgxMV0gRiAgICBGICAgIE0gICAgRiAgICBGICAgIE0gICAgRiAgICBGICAgIE0gICAgRiAgICBNICAgIEYgICAgRiAgICBGICAgIEYgICAgRiAgICBGICAgIE0gICAgRiAgICBGICAgIDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT5cbls4MzhdIDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+XG5bODY1XSA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPlxuWzg5Ml0gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT5cbls5MTldIDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT4gPE5BPiA8TkE+IDxOQT5cbkxldmVsczogRiBNXG4ifQ== -->
+<pre><code>  [1] F    M    F    M    M    M    F    F    F    F    F    F    F    F    F    F    M    M    M    F    F    M    M    F    M    F    F   
+ [28] M    M    F    F    M    F    F    M    M    M    F    F    F    F    F    F    M    F    F    F    M    M    F    F    F    M    F   
+ [55] M    F    F    F    F    F    F    F    F    F    F    F    F    F    F    F    F    F    F    M    M    F    F    F    F    F    F   
+ [82] F    F    F    F    F    F    F    F    F    F    F    F    F    M    F    F    F    F    F    M    F    F    F    F    F    M    F   
+[109] M    F    F    F    M    F    F    F    F    F    F    F    F    M    F    F    F    F    F    F    F    M    F    F    F    F    F   
+[136] F    F    F    M    M    F    M    F    F    F    F    F    F    F    F    F    F    M    M    F    M    M    M    M    F    F    F   
+[163] F    F    M    M    F    F    F    F    F    F    F    F    F    M    M    M    F    M    F    F    F    F    M    M    M    F    F   
+[190] F    M    M    M    F    M    F    F    F    F    F    F    F    F    F    F    F    F    F    F    F    F    F    M    F    F    F   
+[217] M    F    F    F    F    F    F    F    F    M    F    F    F    F    M    F    F    F    F    F    F    M    F    M    F    F    M   
+[244] F    F    F    M    F    F    F    F    F    F    M    M    F    F    F    F    M    M    F    F    M    F    F    F    M    M    F   
+[271] F    M    F    M    F    F    M    F    F    F    F    F    F    F    F    F    F    F    F    F    F    M    F    F    F    F    F   
+[298] F    M    M    M    F    M    M    M    M    F    F    F    M    F    F    M    M    F    F    M    F    F    F    M    F    F    F   
+[325] M    M    M    F    M    F    F    F    F    M    F    F    F    F    F    F    F    F    M    F    M    F    F    F    M    M    F   
+[352] M    F    F    F    F    F    F    F    F    F    F    F    M    F    M    M    F    F    F    F    F    F    F    F    M    F    M   
+[379] F    F    M    F    F    M    F    M    M    M    F    F    F    F    F    M    M    M    M    M    F    F    F    F    F    F    F   
+[406] F    M    F    M    F    M    F    F    F    F    M    M    M    F    M    M    M    F    M    M    M    F    F    F    F    M    M   
+[433] M    M    F    F    M    F    F    F    M    M    M    F    M    M    M    M    M    M    M    M    M    F    M    F    M    M    F   
+[460] F    F    F    F    F    M    F    F    M    M    F    F    M    F    M    F    F    M    F    M    M    F    M    F    F    F    F   
+[487] M    F    M    F    M    F    M    M    M    F    F    F    F    F    F    F    F    F    F    F    F    F    F    F    F    M    F   
+[514] F    F    M    F    F    F    F    M    F    F    F    F    M    F    M    F    F    M    F    F    F    F    F    M    M    F    F   
+[541] M    F    M    F    F    F    F    F    F    F    M    M    M    F    F    M    M    F    M    M    M    M    F    F    F    F    M   
+[568] F    F    F    F    F    F    F    M    M    F    M    F    F    F    F    F    F    M    F    F    M    F    F    F    M    F    F   
+[595] M    F    F    F    M    F    F    M    M    &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
+[622] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
+[649] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
+[676] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
+[703] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; F    F    M    F    F    F    M    F    F    F    F    F   
+[730] F    F    F    F    F    M    F    M    M    M    M    M    M    F    F    F    M    M    F    M    F    F    F    M    M    F    M   
+[757] F    F    F    M    F    F    F    F    F    F    M    M    F    F    F    F    F    F    M    M    F    M    F    F    F    M    F   
+[784] F    F    F    F    F    F    F    F    F    F    F    M    F    F    M    F    F    F    M    F    F    M    F    F    F    M    F   
+[811] F    F    M    F    F    M    F    F    M    F    M    F    F    F    F    F    F    M    F    F    &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
+[838] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
+[865] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
+[892] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
+[919] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
+Levels: F M</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Then, when we estimate the model, we can see now that the estimate effect is <code>genderF</code>, telling us the estimated proportion of points female students earned relative to males. Since there were only two groups for gender (again, because of the way the LMS only reported students’ genders as male or female, a serious limitation of the data that we would want to take care to report), the sign of the effect simply flipped, but if we had multiple groups, carefully choosing the reference group can make a difference in the interpretability of the model.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG0ocHJvcG9ydGlvbl9lYXJuZWQgfiBpbnQgKyB0aW1lX3NwZW50X2hvdXJzICsgZ2VuZGVyLCBkYXRhID0gZGF0YV90b19leHBsb3JlKVxuYGBgIn0= -->
+<pre class="r"><code>lm(proportion_earned ~ int + time_spent_hours + gender, data = data_to_explore)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IHByb3BvcnRpb25fZWFybmVkIH4gaW50ICsgdGltZV9zcGVudF9ob3VycyArIGdlbmRlciwgXG4gICAgZGF0YSA9IGRhdGFfdG9fZXhwbG9yZSlcblxuQ29lZmZpY2llbnRzOlxuICAgICAoSW50ZXJjZXB0KSAgICAgICAgICAgICAgIGludCAgdGltZV9zcGVudF9ob3VycyAgICAgICAgICAgZ2VuZGVyRiAgXG4gICAgICAgIDAuNDQ4NjM4ICAgICAgICAgIDAuMDQ1MjA4ICAgICAgICAgIDAuMDA0MjMxICAgICAgICAgIDAuMDA5MTUwICBcbiJ9 -->
+<pre><code>
+Call:
+lm(formula = proportion_earned ~ int + time_spent_hours + gender, 
+    data = data_to_explore)
+
+Coefficients:
+     (Intercept)               int  time_spent_hours           genderF  
+        0.448638          0.045208          0.004231          0.009150  </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>One last step. We can save the output of the function to an object—let’s say <code>m1</code>, standing for model 1. We can then use the summary function to view a much more feature-rich summary of the estimated model.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTEgPC0gbG0ocHJvcG9ydGlvbl9lYXJuZWQgfiBpbnQgKyB0aW1lX3NwZW50X2hvdXJzICsgZ2VuZGVyLCBkYXRhID0gZGF0YV90b19leHBsb3JlKVxuc3VtbWFyeShtMSlcbmBgYCJ9 -->
+<pre class="r"><code>m1 &lt;- lm(proportion_earned ~ int + time_spent_hours + gender, data = data_to_explore)
+summary(m1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IHByb3BvcnRpb25fZWFybmVkIH4gaW50ICsgdGltZV9zcGVudF9ob3VycyArIGdlbmRlciwgXG4gICAgZGF0YSA9IGRhdGFfdG9fZXhwbG9yZSlcblxuUmVzaWR1YWxzOlxuICAgICBNaW4gICAgICAgMVEgICBNZWRpYW4gICAgICAgM1EgICAgICBNYXggXG4tMC42Njk5NiAtMC4wNzU2NiAgMC4wNTE2OSAgMC4xNTA2MSAgMC4zNjEzNiBcblxuQ29lZmZpY2llbnRzOlxuICAgICAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB0IHZhbHVlIFByKD58dHwpICAgIFxuKEludGVyY2VwdCkgICAgICAwLjQ0ODYzNzkgIDAuMDY2NTc2MyAgIDYuNzM5IDQuMTRlLTExICoqKlxuaW50ICAgICAgICAgICAgICAwLjA0NTIwNzggIDAuMDE1NTYyMiAgIDIuOTA1ICAwLjAwMzgyICoqIFxudGltZV9zcGVudF9ob3VycyAwLjAwNDIzMTAgIDAuMDAwNDEzOCAgMTAuMjI1ICA8IDJlLTE2ICoqKlxuZ2VuZGVyRiAgICAgICAgICAwLjAwOTE0OTYgIDAuMDIwNDQ4OCAgIDAuNDQ3ICAwLjY1NDc0ICAgIFxuLS0tXG5TaWduaWYuIGNvZGVzOiAgMCDigJgqKirigJkgMC4wMDEg4oCYKirigJkgMC4wMSDigJgq4oCZIDAuMDUg4oCYLuKAmSAwLjEg4oCYIOKAmSAxXG5cblJlc2lkdWFsIHN0YW5kYXJkIGVycm9yOiAwLjIxNDQgb24gNTM1IGRlZ3JlZXMgb2YgZnJlZWRvbVxuICAoNDA0IG9ic2VydmF0aW9ucyBkZWxldGVkIGR1ZSB0byBtaXNzaW5nbmVzcylcbk11bHRpcGxlIFItc3F1YXJlZDogIDAuMTg2MixcdEFkanVzdGVkIFItc3F1YXJlZDogIDAuMTgxNiBcbkYtc3RhdGlzdGljOiAgNDAuOCBvbiAzIGFuZCA1MzUgREYsICBwLXZhbHVlOiA8IDIuMmUtMTZcbiJ9 -->
+<pre><code>
+Call:
+lm(formula = proportion_earned ~ int + time_spent_hours + gender, 
+    data = data_to_explore)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.66996 -0.07566  0.05169  0.15061  0.36136 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)      0.4486379  0.0665763   6.739 4.14e-11 ***
+int              0.0452078  0.0155622   2.905  0.00382 ** 
+time_spent_hours 0.0042310  0.0004138  10.225  &lt; 2e-16 ***
+genderF          0.0091496  0.0204488   0.447  0.65474    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2144 on 535 degrees of freedom
+  (404 observations deleted due to missingness)
+Multiple R-squared:  0.1862,    Adjusted R-squared:  0.1816 
+F-statistic:  40.8 on 3 and 535 DF,  p-value: &lt; 2.2e-16</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="your-turn-1" class="section level4">
 <h4><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>Below, estimate at least two different regression models, viewing and interpreting the model results. You’ll have to fill a lot in to estimate these models! Consider any and all of the variables, and whether you need to wrangle them into shape to meaningfully interpret them.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTIgPC0gbG0oKVxuc3VtbWFyeShtMilcbmBgYCJ9 -->
+<pre class="r"><code>m2 &lt;- lm()
+summary(m2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Add a note or two interpreting the above model (<code>m2</code>) next:</p>
+<ul>
+<li></li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTMgPC0gbG0oKVxuc3VtbWFyeShtMylcbmBgYCJ9 -->
+<pre class="r"><code>m3 &lt;- lm()
+summary(m3)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Add another or note or two interpreting the above model (<code>m3</code>) next:</p>
+<ul>
+<li></li>
+</ul>
 </div>
 </div>
 <div id="communicate" class="section level2">
 <h2>5. COMMUNICATE</h2>
-<div id="your-turn-3" class="section level4">
-<h4><span style="color: green;"><strong>Your Turn</strong></span> <strong>⤵</strong></h4>
+<p>In this learning lab, we focused on modeling our data. We also discussed how to interpret a linear regression model, and how to interpret the output of one estimated within R. For some, this may be brand new, for others, a refresher of a topic in which you have substantial expertise. This is a seriously deep topic, with many future directions you may wish to take. You may be interested in multi-level models; estimating them in R is very similar to estimating a linear model; a brief tutorial in which you may be interested is here: <a href="https://datascienceineducation.com/c13.html" class="uri">https://datascienceineducation.com/c13.html</a></p>
+<p>To complete this learning lab, “knit” the document to HTML. View the file; may may notice there is now a table of contents! This is from the <code>toc: true</code> argument added to the very top of this file. Consider making other modifications to the front matter based on the options detailed here: <a href="https://bookdown.org/yihui/rmarkdown/html-document.html" class="uri">https://bookdown.org/yihui/rmarkdown/html-document.html</a></p>
+<p>Good work! Below, add a few notes in response to the prompts:</p>
+<p><em>One thing I took away from this learning lab</em>:</p>
+<p><em>One thing I want to learn more about</em>:</p>
+</div>
+<div id="reach" class="section level2">
+<h2>Reach</h2>
+<p>As a reach, consider whether you can estimate a model using your own data.</p>
+<p>If interested, follow the link above to a resource on estimating a multi-level model, and read about and/or explore estimating one with your own data.</p>
 <!-- rnb-text-end -->
 </div>
-</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTGVhcm5pbmcgQW5hbHl0aWNzIEZvdW5kYXRpb25zIExlYXJuaW5nIExhYiA0IgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazogZGVmYXVsdAogIGh0bWxfZG9jdW1lbnQ6CiAgICBkZl9wcmludDogcGFnZWQKICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQKbmFtZTogJycKZWRpdG9yX29wdGlvbnM6CiAgbWFya2Rvd246CiAgICB3cmFwOiA3MgotLS0KCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFRSVUUpCmBgYAoKIyMgSW50cm9kdWN0aW9uCgotIExlYXJuaW5nIExhYiAxLjQ6IEJlZ2luIHRvIG1ha2Ugc3RhdGVtZW50cyBhbmQgaW5mZXJlbmNlcyBiYXNlZCBvbiB5b3VyIGRhdGEKICAgIC0gdGhlIHZlZ2dpZXMKICAgICAgLSB0aGUgTEFTRVIgY3ljbGUKICAgIC0gdGhlIGNha2UKICAgICAgLSBlbmhhbmNpbmcgYSBwbG90OiB0aGVtaW5nLCBjb2xvciwgYW5kIHJlb3JkZXJpbmcgZmFjdG9ycwoKIyMgMS4gUFJFUEFSRQoKIyMjIFBhY2thZ2VzIPCfk6YKCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKYGBgCgojIyAyLiBXUkFOR0xFCgojIyMjIFsqKllvdXIgVHVybioqXXtzdHlsZT0iY29sb3I6IGdyZWVuOyJ9ICoq4qS1KioKCiMjIDMuIEVYUExPUkUKCiMjIyMgWyoqWW91ciBUdXJuKipde3N0eWxlPSJjb2xvcjogZ3JlZW47In0gKiripLUqKgoKIyMgNC4gTU9ERUwKCiMjIyMgWyoqWW91ciBUdXJuKipde3N0eWxlPSJjb2xvcjogZ3JlZW47In0gKiripLUqKgoKIyMgNS4gQ09NTVVOSUNBVEUKCiMjIyMgWyoqWW91ciBUdXJuKipde3N0eWxlPSJjb2xvcjogZ3JlZW47In0gKiripLUqKg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTGVhcm5pbmcgQW5hbHl0aWNzIEZvdW5kYXRpb25zIExlYXJuaW5nIExhYiA0IgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazogZGVmYXVsdAogIGh0bWxfZG9jdW1lbnQ6CiAgICBkZl9wcmludDogcGFnZWQKICAgIHRvYzogdHJ1ZQogIHBkZl9kb2N1bWVudDogZGVmYXVsdApuYW1lOiAnJwplZGl0b3Jfb3B0aW9uczoKICBtYXJrZG93bjoKICAgIHdyYXA6IDcyCi0tLQoKYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9CmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkKYGBgCgojIyBJbnRyb2R1Y3Rpb24KClRoZSBjdWxtaW5hdGlvbiBvZiB0aGlzIG1vZHVsZSBpbnZvbHZlcyB1c2luZyBkYXRhIGZyb20gYWxsIHRocmVlIGRhdGEKc2V0cy0tLW9uIHRoZSB0aW1lIHN0dWRlbnRzIHNwZW50IG9uIHRoZSBjb3Vyc2UgTE1TLCB0aGVpciBhY2FkZW1pYwphY2hpZXZlbWVudCwgYW5kIHRoZWlyIHNlbGYgcmVwb3J0cy0tLWluIGEgbW9kZWwsIHBhcnRpY3VsYXJseSwgYSBsaW5lYXIKKHJlZ3Jlc3Npb24pIG1vZGVsIHRvIHVuZGVyc3RhbmQgZGlmZmVyZW5jZXMgaW4gc3R1ZGVudHMnIGFjYWRlbWljCmFjaGlldmVtZW50LiBJbiBhZGRpdGlvbiB0byBjb25zaWRlcmluZyBob3cgdG8gZml0IGFuZCBpbnRlcnByZXQgc3VjaCBhCm1vZGVsIGluIFIsIHdlIGNyZWF0ZSBhbmQgdGFpbG9yIGEgcmVwb3J0IHRoYXQgd2UgY2FuIHNoYXJlIHdpdGgKY29sbGFib3JhdG9ycyBhbmQgb3RoZXJzLiBMZXQncyBiZWdpbiEKCiMjIDEuIFBSRVBBUkUKCiMjIyBQYWNrYWdlcyDwn5OmCgojIyMjIFsqKllvdXIgVHVybioqXXtzdHlsZT0iY29sb3I6IGdyZWVuOyJ9ICoq4qS1KioKCkJlbG93LCBsb2FkIHRoZSB7dGlkeXZlcnNlfSBwYWNrYWdlLgoKYGBge3J9CgpgYGAKCiMjIyBEYXRhCgpXZSdsbCBsb2FkIHRoZSBgZGF0YS10by1leHBsb3JlYCBkYXRhIHdlIHdvcmtlZCB3aXRoIGluIHRoZSBwcmlvcgpsZWFybmluZyBsYWIuCgpCZWxvdywgcmVhZCB0aGF0IGZpbGUsIHNhdmVkIGluIHRoZSBgL2RhdGFgIGRpcmVjdG9yeSwgYW5kIGFzc2lnbiBpdCB0aGUKbmFtZSBgZGF0YV90b19leHBsb3JlYC4KCmBgYHtyfQoKYGBgCgoqKkhpbnQqKjogUmVmZXIgdG8gaG93IHdlIHJlYWQgZGF0YSBmaWxlcyBpbiB0aGUgbGFzdCBmZXcgbGVhcm5pbmcgbGFicwpmb3IgYSB0ZW1wbGF0ZSBvciBzdGFydGluZyBwb2ludCBmb3IgeW91ciBjb2RlLgoKQmVmb3JlIHdlIHByb2NlZWQsIGxldCdzIHRha2UgYSBzdGVwIHdlIHNvIG9mdGVuIHRha2U6IHRha2luZyBhIGxvb2sgYXQKb3VyIGRhdGEuIFdlIGhhdmVuJ3QgZW1waGFzaXplZCB0aGlzIGZ1bmN0aW9uIHZlcnkgbXVjaCBiZWNhdXNlIGl0IHRha2VzCnlvdSBhcyB0aGUgUiBwcm9ncmFtbWVyIG91dCBvZiB5b3VyIGVudmlyb25tZW50LS0taXQgb3BlbnMgYSBuZXcgd2luZG93LgpOZXZlcnRoZWxlc3MsIGl0IGlzIGdvb2QgdG8gaGF2ZSB0aGUgYFZpZXcoKWAgZnVuY3Rpb24gYXMgYSBwYXJ0IG9mIHlvdXIKdG9vbGtpdC4gVG8gdmlldyB0aGUgZGF0YSBmcmFtZSB5b3UgbG9hZGVkLCBydW4gYFZpZXcoZGF0YV90b19leHBsb3JlKWAKaW4gdGhlIGNvbnNvbGUuIFllcywgdGhlICJWIiBpcyBjYXBpdGFsaXplZC0tLXZlcnkgdW51c3VhbCBmb3IgYW4gUgpmdW5jdGlvbi4gQmVjYXVzZSB0aGlzIGZ1bmN0aW9uIGlzIGEgYml0IGF0eXBpY2FsIGluIG1vcmUgd2F5cyB0aGFuIG9uZSwKd2UgaGF2ZSB0d28gcmVjb21tZW5kYXRpb25zIGNvbmNlcm5pbmcgaXRzIHVzZToKCi0gICBVc2UgaXQgc3RyaWN0bHkgaW4gdGhlIGNvbnNvbGUuIEJlY2F1c2UgaXQgb3BlbnMgYSBuZXcgdmlld2luZwogICAgd2luZG93LCBpbmNsdWRpbmcgaXQgaW4gYW4gUiBNYXJrZG93biBzY3JpcHQgY2FuIGNhdXNlIGlzc3VlcyB3aGVuCiAgICByZW5kZXJpbmcgYW4gSFRNTCAob3IgUERGKSByZXBvcnQuCgotICAgQ2xvc2UgdGhlIHZpZXdlciB3aW5kb3cgdGhhdCBvcGVucyBvbmNlIHlvdSBoYXZlIHZpZXdlZCB0aGUgZGF0YS4KICAgIEtlZXBpbmcgaXQgb3BlbiBjYW4gY2x1dHRlciB5b3VyIHdvcmsgc3BhY2UgYSBiaXQgYW5kIGNhbiBsZWFkIHRvCiAgICBjb25mdXNpb24gYWJvdXQgd2hhdCBkYXRhIGZyYW1lIGl0IHdhcyB5b3Ugdmlld2VkLgoKIyMgMi4gV1JBTkdMRQoKV2Ugb2Z0ZW4gdGhpbmsgb2Ygd3JhbmdsaW5nIGFzIGEgc3RlcCAqcHJpb3IgdG8qIGV4cGxvcmluZyBhbmQgbW9kZWxpbmcKZGF0YS4gSG93ZXZlciwgd2Ugb2Z0ZW4gY2Fycnkgb3V0IGEgY3ljbGUgaW52b2x2aW5nIHdyYW5nbGluZywKZXhwbG9yaW5nLCBhbmQgbW9kZWxpbmcuIEZvciBpbnN0YW5jZSwgd2UgbWF5IGV4cGxvcmUgb3VyIGRhdGEgdG8gZmluZAp0aGF0IGEgdmFyaWFibGUgaXMgbm90IHByZXBhcmVkIG9yIGNsZWFuZWQgaG93IGl0IG5lZWRzIHRvIGJlIHRvIGFjaGlldmUKb3VyIGFpbS4gT3IsIHdlIG1heSBlc3RpbWF0ZSBhIG1vZGVsLCBidXQgZmluZCB0aGF0IHRoZSBsZXZlbHMgb2YgdGhlCnF1YWxpdGF0aXZlIChvciBjYXRlZ29yaWNhbCkgdmFyaWFibGVzIGFyZSBub3QgZW5jb2RlZCBpbiBzdWNoIGEgd2F5IHRvCmFsbG93IHVzIHRvIGVzdGltYXRlIHRoZSB0aGluZ3Mgd2Ugd2lzaCB0byAoc3VjaCBhcyB3aGljaCBsZXZlbHMgZGlmZmVyCmZyb20gYSByZWZlcmVuY2UgZ3JvdXApLgoKSWYgc29tZSBvZiB0aGlzIG1vZGVsaW5nIGphcmdvbiBpcyBuZXcsIHRoZW4geW91J3JlIHN0aWxsIGluIHRoZSByaWdodApzcG90ISBMZXQncyBwcm9jZWVkIHRvIHNvbWUgY29uY3JldGUgZXhhbXBsZXMgb2YgaG93IHdyYW5nbGluZyBhbmQKbW9kZWxpbmcsIHBhcnRpY3VsYXJseSwgYXJlIHJlbGF0ZWQgdG8gb25lIGFub3RoZXIuCgojIyA0LiBNT0RFTAoKYGRhdGFfdG9fZXhwbG9yZWAgaXMgYSBmYWlybHkgbGFyZ2UgZGF0YSBmcmFtZSwgY29uc2lzdGluZyBvZiBhcm91bmQKMSwwMDAgb2JzZXJ2YXRpb25zIGFuZCBhcm91bmQgMTUgY29sdW1ucy4gRm9yIHRoZSBwdXJwb3NlIG9mIHRoaXMKbGVhcm5pbmcgbGFiLCBsZXQncyBjb25zaWRlciB0aGUgYHByb3BvcnRpb25fZWFybmVkYCB2YXJpYWJsZSB0byBiZSBvdXIKZGVwZW5kZW50LCBvciB0aGUgb3V0Y29tZSwgdmFyaWFibGUuCgpZb3UgbWF5IGJlIG5ldyB0byBsaW5lYXIgcmVncmVzc2lvbiBtb2RlbHMsIG9yIHlvdSBtYXkgaGF2ZSBhIGxvdCBvZgpleHBlcmllbmNlLiBJbiBicmllZiwgYSBsaW5lYXIgcmVncmVzc2lvbiBtb2RlbCBpbnZvbHZlcyBlc3RpbWF0aW5nIHRoZQpyZWxhdGlvbnNoaXBzIGJldHdlZW4gb25lIG9yIG1vcmUgKmluZGVwZW5kZW50IHZhcmlhYmxlcyogd2l0aCBvbmUKZGVwZW5kZW50IHZhcmlhYmxlLiBNYXRoZW1hdGljYWxseSwgaXQgY2FuIGJlIHdyaXR0ZW4gbGlrZSB0aGUKZm9sbG93aW5nLgoKJCQKXG9wZXJhdG9ybmFtZXtkZXBlbmRlbnR2YXJ9ID0gXGJldGFfezB9ICsgXGJldGFfezF9KFxvcGVyYXRvcm5hbWV7aW5kZXBlbmRlbnR2YXJ9KSArIFxlcHNpbG9uCiQkCgpIZXJlLCB0aGUgYGRlcGVuZGVudHZhcmAgaXMgcHJlZGljdGVkIGJ5IHR3byAqY29lZmZpY2llbnRzKiwgb3IgdGhpbmdzCnRoYXQgaGVscCB0byBleHBsYWluIHRoZSBkZXBlbmRlbnQgdmFyaWFibGUuIFRoZSBmaXJzdCBjb2VmZmljaWVudCwKJFxiZXRhXzAkLCBpcyB0aGUgaW50ZXJjZXB0LiBUaGlzIGNvZWZmaWNpZW50IHRlbGxzIHVzIHdoYXQgdGhlCmVzdGltYXRlZCB2YWx1ZSBvZiB0aGUgZGVwZW5kZW50IHZhcmlhYmxlIGlzIHdoZW4gdGhlIGluZGVwZW5kZW50CnZhcmlhYmxlIChgaW5kZXBlbmRlbnR2YXJgKSBpcyBlcXVhbCB0byAwLiBUaGUgb3RoZXIgY29lZmZpY2llbnQsCiRcYmV0YV8xJCwgb3IgdGhlIHNsb3BlLCByZXByZXNlbnRzIHRoZSBhc3NvY2lhdGlvbiBvZiBhIG9uZS11bml0IGNoYW5nZQppbiB0aGUgaW5kZXBlbmRlbnQgdmFyaWFibGUgaW4gdGhlIHZhbHVlIG9mIHRoZSBkZXBlbmRlbnQgdmFyaWFibGUuCgpMZXQncyBjb25zaWRlciBhIGNvbmNyZXRlIGV4YW1wbGUuIFdlJ2xsIHVzZSB0aGUgYGxtKClgIGZ1bmN0aW9uIGluIFIgdG8KZXN0aW1hdGUgYSBsaW5lYXIgcmVncmVzc2lvbiBtb2RlbC4KClRoZSBmb2xsb3dpbmcgY29kZSBlc3RpbWF0ZXMgYSBtb2RlbCBpbiB3aGljaCBgcHJvcG9ydGlvbl9lYXJuZWRgLCB0aGUKcHJvcG9ydGlvbiBvZiBwb2ludHMgc3R1ZGVudHMgZWFybmVkLCBpcyB0aGUgZGVwZW5kZW50IHZhcmlhYmxlLiBJdCBpcwpwcmVkaWN0ZWQgYnkgb25lIGluZGVwZW5kZW50IHZhcmlhYmxlLCBgaW50YCwgc3R1ZGVudHMnIHNlbGYtcmVwb3J0ZWQKaW50ZXJlc3QgaW4gc2NpZW5jZS4KCmBgYHtyfQpsbShwcm9wb3J0aW9uX2Vhcm5lZCB+IGludCwgZGF0YSA9IGRhdGFfdG9fZXhwbG9yZSkKYGBgCgpMZXQncyB0YWtlIGEgbG9vayBhdCB0aGUgb3V0cHV0LgoKV2UgY2FuIHNlZSB0aGF0IHRoZSBpbnRlcmNlcHQgaXMgZXN0aW1hdGVkIGF0IDAuNTMuIFRoaXMgdGVsbHMgdXMgdGhhdAp3aGVuIHN0dWRlbnRzJyBpbnRlcmVzdCBpcyBlcXVhbCB0byB6ZXJvLCB0aGVpciBwcmVkaWN0ZWQgcHJvcG9ydGlvbiBvZgpwb2ludHMgZWFybmVkIGlzIDAuNTMtLS1ub3Qgc3VjaCBhIGdyZWF0IGdyYWRlISBCdXQsIGZvciBldmVyeSBvbmUtdW5pdAppbmNyZWFzZSBpbiBzdHVkZW50cycgaW50ZXJlc3QgaW4gc2NpZW5jZSwgdGhlaXIgZXN0aW1hdGUgcHJvcG9ydGlvbiBvZgpwb2ludHMgZWFybmVkIHdhcyAwLjA1NS4gTGV0J3MgY29uc2lkZXIgd2hhdCB0aGUgbWVhbiB2YWx1ZSBpcyBmb3IKc3R1ZGVudHMnIGludGVyZXN0LgoKVGhlIGZvbGxvd2luZyBpcyBzb21lIG5ldyBjb2RlLCBidXQgd2UnbGwgZWxhYm9yYXRlIG9uIHRoZSB1c2Ugb2YKYHN1bW1hcml6ZSgpYCBsYXRlci4gRm9yIG5vdywga25vdyB0aGF0IGl0J3MgYSB3YXkgdG8gY3JlYXRlIHN1bW1hcnkKc3RhdGlzdGljcyBzdWNoIGFzIHRoZSBtZWFuLCBidXQgYWxzbyB0aGUgc3RhbmRhcmQgZGV2aWF0aW9uLCBvciB0aGUKbWluaW11bSBvciBtYXhpbXVtIG9mIGEgdmFsdWUuIEF0IGl0cyBjb3JlLCB0aGluayBvZiBgc3VtbWFyaXplKClgIGFzIGEKZnVuY3Rpb24gdGhhdCByZXR1cm5zIGEgc2luZ2xlIHZhbHVlICh3aGV0aGVyIGl0J3MgYSBtZWFuLCBtZWRpYW4sCnN0YW5kYXJkIGRldmlhdGlvbi0tLXdoaWNoZXZlciEpIHRoYXQgc3VtbWFyaXplcyBhIHNpbmdsZSBjb2x1bW4uCgpUaGUgYXJndW1lbnQgYG5hLnJtID0gVFJVRWAgdGVsbHMgUiB0aGF0IGl0IGNhbiBpZ25vcmUgbWlzc2luZywgb3IgYE5BYAp2YWx1ZXMsIGFuZCB0byBjYWxjdWxhdGUgdGhlIHN1bW1hcnkgc3RhdGlzdGljIHVzaW5nIHRoZSBub24tbWlzc2luZwp2YWx1ZXMuCgpgYGB7cn0KZGF0YV90b19leHBsb3JlICU+JSAKICBzdW1tYXJpemUobWVhbl9pbnRlcmVzdCA9IG1lYW4oaW50LCBuYS5ybSA9IFRSVUUpKQpgYGAKClRoZSBtZWFuIHZhbHVlIGZvciBpbnRlcmVzdCBpcyBxdWl0ZSBoaWdoLiBJZiB3ZSBtdWx0aXBsZSB0aGUgZXN0aW1hdGUKcmVsYXRpb25zaGlwIGJldHdlZW4gaW50ZXJlc3QgYW5kIHByb3BvcnRpb24gb2YgcG9pbnRzCmVhcm5lZC0tLTAuMDU1LS0tYnkgdGhpcywgdGhlIG1lYW4gaW50ZXJlc3QgYWNyb3NzIGFsbCBvZiB0aGUKc3R1ZGVudHMtLS13ZSBjYW4gZGV0ZXJtaW5lIHRoYXQgc3R1ZGVudHMnIGVzdGltYXRlIGZpbmFsIGdyYWRlIHdhcwowLjA1NSBYIDQuMywgb3IgMC4yMzYsIHdoaWNoIHdlIGNhbiBhZGQgdG8gdGhlIGludGVyY2VwdCwgMC41MzUsIHdoaWNoCmVxdWFscyAwLjc3MS4gSW4gb3RoZXIgd29yZHMsIHRoZSBzdHVkZW50IHdpdGggYXZlcmFnZSBpbnRlcmVzdCBpbgpzY2llbmNlIGVhcm5lZCAwLjc3MSBvZiBwb3NzaWJsZSBwb2ludHMgaW4gdGhlIGdyb3VwLS0tbm90IGFzc29jaWF0ZWQKd2l0aCBhIGdyZWF0IGdyYWRlLCBidXQgbm90IGJhZCEKCkEgbGluZWFyIHJlZ3Jlc3Npb24gbW9kZWwgYnVpbGRzIG9uIHRoaXMgaW50dWl0aW9uIGJ5IGFsbG93aW5nIHVzIHRvIGFkZAp2YXJpYWJsZXMgb3RoZXIgdGhhbiBzdHVkZW50cycgaW50ZXJlc3QgdG8gdW5kZXJzdGFuZCBhbmQgZXhwbGFpbiB0aGUKcG9pbnRzIHRoZXkgZWFybmVkIGluIHRoZSBjb3Vyc2UuCgpXZSBjYW4gYWRkIGFkZGl0aW9uYWwgcHJlZGljdG9yIHZhcmlhYmxlcyBieSBzZXBhcmF0aW5nIHZhcmlhYmxlcyB3aXRoIGEKcGx1cyBzeW1ib2wuCgpgYGB7cn0KbG0ocHJvcG9ydGlvbl9lYXJuZWQgfiBpbnQgKyB0aW1lX3NwZW50X2hvdXJzLCBkYXRhID0gZGF0YV90b19leHBsb3JlKQpgYGAKCkxldCdzIGFkZCBhIHRoaXJkIHZhcmlhYmxlLCB0aGlzIHRpbWUgYSBjYXRlZ29yaWNhbCB2YXJpYWJsZSwgb25lIGZvcgpzdHVkZW50cycgZ2VuZGVyIGFzIHJlY29yZGVkIGluIHRoZSBMTVMuIFdlIG5vdGUgdGhhdCB0aGlzIGlzIGEgY291cnNlCnZhcmlhYmxlLCBvbmUgaW5mZXJpb3IgdG8gb25lIHRoYXQgd2Ugd291bGQgaGF2ZSBoYWQgaGFkIHdlIGFza2VkCnN0dWRlbnRzIHRvIHJlcG9ydCB0aGVpciBnZW5kZXIuCgpgYGB7cn0KbG0ocHJvcG9ydGlvbl9lYXJuZWQgfiBpbnQgKyB0aW1lX3NwZW50X2hvdXJzICsgZ2VuZGVyLCBkYXRhID0gZGF0YV90b19leHBsb3JlKQpgYGAKCkluIHRoZSBvdXRwdXQsIHdlIGNhbiBzZWUgdGhhdCB0aGVyZSBpcyBub3cgYSBmb3VydGggY29lZmZpY2llbnQsCmBnZW5kZXJNYC4gVGhpcyB2YXJpYWJsZSBpbmRpY2F0ZXMgdGhlIGVzdGltYXRlIGRpZmZlcmVuY2UgYmV0d2VlbiBtYWxlCmFuZCBmZW1hbGUgc3R1ZGVudHMuIFRodXMsIHRoaXMgZWZmZWN0IG9mIC0wLjAwOSBjYW4gYmUgY29uc2lkZXJlZCB0byBiZQp0aGUgIm1hbGUgZWZmZWN0IiBpbiBjb21wYXJpc29uIHRvIGZlbWFsZXM6IE1hbGVzIGVhcm4gYW4gZXN0aW1hdGUKKG5lYXJseSkgYSAwLjAxIHByb3BvcnRpb24gcG9pbnRzIGZld2VyIHRoYW4gZmVtYWxlcy4gSW1hZ2luZSB3ZSB3YW50IHRvCmNvbnNpZGVyLCBpbnN0ZWFkLCB0aGUgImZlbWFsZSIgZWZmZWN0LgoKVGhlIGZvbGxvd2luZyBjb2RlIHRyZWF0cyBgZ2VuZGVyYCBhcyBhIGZhY3RvciwgYnV0IG1ha2VzIGBNYCwgZm9yCm1hbGVzLCB0byBiZSB0aGUgcmVmZXJlbmNlIGdyb3VwLgoKYGBge3J9CmRhdGFfdG9fZXhwbG9yZSA8LSBkYXRhX3RvX2V4cGxvcmUgJT4lIAogIG11dGF0ZShnZW5kZXIgPSBhcy5mYWN0b3IoZ2VuZGVyKSwKICAgICAgICAgZ2VuZGVyID0gZmN0X3JlbGV2ZWwoZ2VuZGVyLCAiTSIpKQpgYGAKClRoZW4sIHdoZW4gd2UgZXN0aW1hdGUgdGhlIG1vZGVsLCB3ZSBjYW4gc2VlIG5vdyB0aGF0IHRoZSBlc3RpbWF0ZQplZmZlY3QgaXMgYGdlbmRlckZgLCB0ZWxsaW5nIHVzIHRoZSBlc3RpbWF0ZWQgcHJvcG9ydGlvbiBvZiBwb2ludHMKZmVtYWxlIHN0dWRlbnRzIGVhcm5lZCByZWxhdGl2ZSB0byBtYWxlcy4gU2luY2UgdGhlcmUgd2VyZSBvbmx5IHR3bwpncm91cHMgZm9yIGdlbmRlciAoYWdhaW4sIGJlY2F1c2Ugb2YgdGhlIHdheSB0aGUgTE1TIG9ubHkgcmVwb3J0ZWQKc3R1ZGVudHMnIGdlbmRlcnMgYXMgbWFsZSBvciBmZW1hbGUsIGEgc2VyaW91cyBsaW1pdGF0aW9uIG9mIHRoZSBkYXRhCnRoYXQgd2Ugd291bGQgd2FudCB0byB0YWtlIGNhcmUgdG8gcmVwb3J0KSwgdGhlIHNpZ24gb2YgdGhlIGVmZmVjdApzaW1wbHkgZmxpcHBlZCwgYnV0IGlmIHdlIGhhZCBtdWx0aXBsZSBncm91cHMsIGNhcmVmdWxseSBjaG9vc2luZyB0aGUKcmVmZXJlbmNlIGdyb3VwIGNhbiBtYWtlIGEgZGlmZmVyZW5jZSBpbiB0aGUgaW50ZXJwcmV0YWJpbGl0eSBvZiB0aGUKbW9kZWwuCgpgYGB7cn0KbG0ocHJvcG9ydGlvbl9lYXJuZWQgfiBpbnQgKyB0aW1lX3NwZW50X2hvdXJzICsgZ2VuZGVyLCBkYXRhID0gZGF0YV90b19leHBsb3JlKQpgYGAKCk9uZSBsYXN0IHN0ZXAuIFdlIGNhbiBzYXZlIHRoZSBvdXRwdXQgb2YgdGhlIGZ1bmN0aW9uIHRvIGFuCm9iamVjdC0tLWxldCdzIHNheSBgbTFgLCBzdGFuZGluZyBmb3IgbW9kZWwgMS4gV2UgY2FuIHRoZW4gdXNlIHRoZQpzdW1tYXJ5IGZ1bmN0aW9uIHRvIHZpZXcgYSBtdWNoIG1vcmUgZmVhdHVyZS1yaWNoIHN1bW1hcnkgb2YgdGhlCmVzdGltYXRlZCBtb2RlbC4KCmBgYHtyfQptMSA8LSBsbShwcm9wb3J0aW9uX2Vhcm5lZCB+IGludCArIHRpbWVfc3BlbnRfaG91cnMgKyBnZW5kZXIsIGRhdGEgPSBkYXRhX3RvX2V4cGxvcmUpCnN1bW1hcnkobTEpCmBgYAoKIyMjIyBbKipZb3VyIFR1cm4qKl17c3R5bGU9ImNvbG9yOiBncmVlbjsifSAqKuKktSoqCgpCZWxvdywgZXN0aW1hdGUgYXQgbGVhc3QgdHdvIGRpZmZlcmVudCByZWdyZXNzaW9uIG1vZGVscywgdmlld2luZyBhbmQKaW50ZXJwcmV0aW5nIHRoZSBtb2RlbCByZXN1bHRzLiBZb3UnbGwgaGF2ZSB0byBmaWxsIGEgbG90IGluIHRvIGVzdGltYXRlCnRoZXNlIG1vZGVscyEgQ29uc2lkZXIgYW55IGFuZCBhbGwgb2YgdGhlIHZhcmlhYmxlcywgYW5kIHdoZXRoZXIgeW91Cm5lZWQgdG8gd3JhbmdsZSB0aGVtIGludG8gc2hhcGUgdG8gbWVhbmluZ2Z1bGx5IGludGVycHJldCB0aGVtLgoKYGBge3J9Cm0yIDwtIGxtKCkKc3VtbWFyeShtMikKYGBgCgpBZGQgYSBub3RlIG9yIHR3byBpbnRlcnByZXRpbmcgdGhlIGFib3ZlIG1vZGVsIChgbTJgKSBuZXh0OgoKLSAgIAoKYGBge3J9Cm0zIDwtIGxtKCkKc3VtbWFyeShtMykKYGBgCgpBZGQgYW5vdGhlciBvciBub3RlIG9yIHR3byBpbnRlcnByZXRpbmcgdGhlIGFib3ZlIG1vZGVsIChgbTNgKSBuZXh0OgoKLSAgIAoKIyMgNS4gQ09NTVVOSUNBVEUKCkluIHRoaXMgbGVhcm5pbmcgbGFiLCB3ZSBmb2N1c2VkIG9uIG1vZGVsaW5nIG91ciBkYXRhLiBXZSBhbHNvIGRpc2N1c3NlZApob3cgdG8gaW50ZXJwcmV0IGEgbGluZWFyIHJlZ3Jlc3Npb24gbW9kZWwsIGFuZCBob3cgdG8gaW50ZXJwcmV0IHRoZQpvdXRwdXQgb2Ygb25lIGVzdGltYXRlZCB3aXRoaW4gUi4gRm9yIHNvbWUsIHRoaXMgbWF5IGJlIGJyYW5kIG5ldywgZm9yCm90aGVycywgYSByZWZyZXNoZXIgb2YgYSB0b3BpYyBpbiB3aGljaCB5b3UgaGF2ZSBzdWJzdGFudGlhbCBleHBlcnRpc2UuClRoaXMgaXMgYSBzZXJpb3VzbHkgZGVlcCB0b3BpYywgd2l0aCBtYW55IGZ1dHVyZSBkaXJlY3Rpb25zIHlvdSBtYXkgd2lzaAp0byB0YWtlLiBZb3UgbWF5IGJlIGludGVyZXN0ZWQgaW4gbXVsdGktbGV2ZWwgbW9kZWxzOyBlc3RpbWF0aW5nIHRoZW0gaW4KUiBpcyB2ZXJ5IHNpbWlsYXIgdG8gZXN0aW1hdGluZyBhIGxpbmVhciBtb2RlbDsgYSBicmllZiB0dXRvcmlhbCBpbgp3aGljaCB5b3UgbWF5IGJlIGludGVyZXN0ZWQgaXMgaGVyZToKPGh0dHBzOi8vZGF0YXNjaWVuY2VpbmVkdWNhdGlvbi5jb20vYzEzLmh0bWw+CgpUbyBjb21wbGV0ZSB0aGlzIGxlYXJuaW5nIGxhYiwgImtuaXQiIHRoZSBkb2N1bWVudCB0byBIVE1MLiBWaWV3IHRoZQpmaWxlOyBtYXkgbWF5IG5vdGljZSB0aGVyZSBpcyBub3cgYSB0YWJsZSBvZiBjb250ZW50cyEgVGhpcyBpcyBmcm9tIHRoZQpgdG9jOiB0cnVlYCBhcmd1bWVudCBhZGRlZCB0byB0aGUgdmVyeSB0b3Agb2YgdGhpcyBmaWxlLiBDb25zaWRlciBtYWtpbmcKb3RoZXIgbW9kaWZpY2F0aW9ucyB0byB0aGUgZnJvbnQgbWF0dGVyIGJhc2VkIG9uIHRoZSBvcHRpb25zIGRldGFpbGVkCmhlcmU6IDxodHRwczovL2Jvb2tkb3duLm9yZy95aWh1aS9ybWFya2Rvd24vaHRtbC1kb2N1bWVudC5odG1sPgoKR29vZCB3b3JrISBCZWxvdywgYWRkIGEgZmV3IG5vdGVzIGluIHJlc3BvbnNlIHRvIHRoZSBwcm9tcHRzOgoKKk9uZSB0aGluZyBJIHRvb2sgYXdheSBmcm9tIHRoaXMgbGVhcm5pbmcgbGFiKjoKCipPbmUgdGhpbmcgSSB3YW50IHRvIGxlYXJuIG1vcmUgYWJvdXQqOgoKIyMgUmVhY2gKCkFzIGEgcmVhY2gsIGNvbnNpZGVyIHdoZXRoZXIgeW91IGNhbiBlc3RpbWF0ZSBhIG1vZGVsIHVzaW5nIHlvdXIgb3duCmRhdGEuIAoKSWYgaW50ZXJlc3RlZCwgZm9sbG93IHRoZSBsaW5rIGFib3ZlIHRvIGEgcmVzb3VyY2Ugb24gZXN0aW1hdGluZyBhIG11bHRpLWxldmVsIG1vZGVsLCBhbmQgcmVhZCBhYm91dCBhbmQvb3IgZXhwbG9yZSBlc3RpbWF0aW5nIG9uZSB3aXRoIHlvdXIgb3duIGRhdGEuCg==</div>
 
 
 

@@ -1,4 +1,4 @@
-student_id,Subject,Course,Section,total_points_possible,total_points_earned,proportion_earned,gender,enrollment_reason,enrollment_status,time_spent,time_spent_hours
+student_id,Subject,Semester,Section,total_points_possible,total_points_earned,proportion_earned,gender,enrollment_reason,enrollment_status,time_spent,time_spent_hours
 43146,FrScA,S216,02,1217,1150,0.9449465899753492,F,Course Unavailable at Local School,Approved/Enrolled,1555.1667,25.919445
 44638,OcnA,S116,01,1676,1384.23,0.8259128878281623,M,Course Unavailable at Local School,Approved/Enrolled,1382.7001,23.045001666666668
 47448,FrScA,S216,01,1232,1116,0.9058441558441559,F,Other,Approved/Enrolled,860.4335,14.340558333333332
