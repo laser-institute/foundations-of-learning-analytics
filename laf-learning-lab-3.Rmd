@@ -17,18 +17,28 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-In this learning lab, we'll build on the visualizations we created (and the wrangling we had
-to do to be in the position to create our visualizations!) by creating and
-sharing a report of our work. In that report, we'll include interactive tables - 
-tables that can help us and others to _explore_ our data.
+In this learning lab, we'll build on the visualizations we created (and
+the wrangling we had to do to be in the position to create our
+visualizations!) by creating and sharing a report of our work. In that
+report, we'll include interactive tables - tables that can help us and
+others to *explore* our data.
 
 ## 1. PREPARE
 
 ### Packages 📦
 
-We'll load the same packages we've loaded in the past two learning labs. This time, though,
-it's your turn to the code to load the three packages we have loaded and used: {tidyverse}, {janitor},
-and {here} in the code chunk below.
+We'll load the same packages we've loaded in the past two learning labs.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+This time, though, it's your turn to the code to load the three packages
+we have loaded and used: {tidyverse}, {janitor}, and {here} in the code
+chunk below.
+
+In addition please load two additional packages that we have not used
+*yet*, but will use in this lab. These packages are {skimr} and {corrr},
+and both are already installed. In sum, you'll be loading five packages
+- more than we've used so far, but not atypical for a complex analysis.
 
 ```{r}
 
@@ -36,24 +46,325 @@ and {here} in the code chunk below.
 
 ### Data
 
-We'll also load one additional data source.
+We'll load the `joined_data` data frame we created in the last learning
+lab. If you saved it, great. We also prepared a copy and saved it in the
+`/data` directory.
 
-#### Data Source #3: Self-Report Survey
+We can load, or read, that file with the following code:
 
-The third data source is a self-report survey. This was data collected before the start of the course. The survey included ten items, each corresponding to one of three motivation measures: interest, utility value, and perceived competence. These were chosen for their alignment with one way to think about students' motivation, to what extent they expect to do well (corresponding to their perceived competence) and their value for what they are learning (corresponding to their interest and utility value). We'll use this in the third learning lab.
+```{r}
+joined_data <- read_csv(here("data", "joined-data.csv"))
+```
+
+#### Data Source \#3: Self-Report Survey
+
+The third data source is a self-report survey. This was data collected
+before the start of the course. The survey included ten items, each
+corresponding to one of three motivation measures: interest, utility
+value, and perceived competence. These were chosen for their alignment
+with one way to think about students' motivation, to what extent they
+expect to do well (corresponding to their perceived competence) and
+their value for what they are learning (corresponding to their interest
+and utility value). We'll use this in the third learning lab.
+
+We'll read this file, named `survey.csv`, which is---like our other data
+files---stored in the `/data` directory.
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+In the code below, read the `survey.csv` file. You can use the code
+above as a template. Assign the output from the `read_csv()` function
+the name `survey`.
+
+```{r}
+
+```
+
+**Hint**: By asking you to "assign the output from the `read_csv()`
+function the name `survey`", consider how in the code chunk above this
+"Your Turn" code chunk, we assigned the output from the `read_csv()`
+function to the name `joined_data`.
+
+After reading the data, let's continue the practice of looking at our
+data. Type `survey` into the console to take a look at the data: Does it
+appear to be the correct file? What do the variables seem to be about?
+What wrangling steps do we need to take? Taking a quick peak at the data
+helps us to begin to formulate answers to these and is an important step
+in any data analysis, especially as we *prepare* for what we are going
+to do.
+
+Add one or more of the things you notice or wonder about the data here:
+
+-   
+
+We'll take one more step with this data frame. We could this in the code
+above or after; they're different means of reaching the same end,
+cleaning up these names a bit.
+
+```{r}
+survey <- clean_names(survey)
+```
+
+Let's take one more look at the data by typing its name into the console
+to check that the above function appeared to work; if it did, the names
+should be lower-case, and any symbols or spaces should now be replaced
+by an underscore (`_`). If so, let's proceed onward!
 
 ## 2. WRANGLE
 
+You may have noticed there is something fishy in three columns in the
+data that contain "date" in their names. The suffix `_x` and `_y` (or
+`.x` and `.y` if we do not use `clean_names()`) typically suggest that
+there was an issue at some point when data files were joined; if a
+column is present in both of the files we are joining, then they will be
+identified in the file output by the join by these suffixes.
+
+In short, these variables are fishy. Moreover, since this this data
+represents students' responses to a survey at the beginning of the
+semester, it may be that the specific date and time at which they
+completed the survey is unimportant.
+
+Let's clean up a bit by removing these extraneous (for this but perhaps
+not for *every* analysis) variables. To do so, we'll use a `select()`
+"helper" function. You may recollect the `select()` function from the
+Getting Started task; it's back! As you saw in that task, we can use
+`select()` to select (in a particular order) variables in your data
+frame. This is often helpful, as there are many techniques for which
+having a focused data set can be quite helpful (we'll say more on these
+later; one such case is when you're transforming your data from "long"
+to "wide" format).
+
+In addition to what `select()` does at its core, helper functions can
+make select even more useful. Let's begin by continuing our practice of
+looking at our data; either print `survey` to the console or run the
+`glimpse()` function with the survey data (e.g., type and enter
+`glimpse(survey)` in the console) to see what variables exist in the
+file (you may need to expand your console a bit to view them all!).
+
+One helper function is relatively simple; using the `:` symbol. This
+lets us select all of the variables *in between* two variables. For
+instance, we may wish to select all of the variables between
+`student_ID` and `section`, which we can do as follows:
+
+```{r}
+survey %>% 
+  select(student_id:section)
+```
+
+The above code outputs a data frame with far fewer columns - five
+instead of 26! Just in case this is something you're thinking about now,
+the data frame that is printed above is not yet *saved* in any way; it's
+simply printed to the console. How might we save (or assign) the data
+frame? If we may want to use any of the 21 variables we did not select
+in another analysis, we might choose to assign the output a different
+name than survey---that way, both `survey` and `survey_subset` are
+present in our environment, and we can choose to use either based on our
+specific purpose.
+
+*Aside:* It is common to create subsets of data in this way; the new
+data frame can be named whatever you like, including `survey_subset` as
+well as `mickey_mouse`! Of course, like naming Google Docs files and
+data files on our computer, we often wish to choose brief, informative
+names, better yet within R if they're relatively easy to type, which
+typically means names that have only lower case letters and have no
+spaces or symbols apart from underscores (which happens to be the
+convention used by `clean_names()`.
+
+```{r}
+survey_subset <- survey %>% 
+  select(student_id:section)
+```
+
+But, back to selecting.
+
 #### [**Your Turn**]{style="color: green;"} **⤵**
+
+Below, make two modifications to the above code:
+
+1.  Select not all of the variables between `student_id` and `section`,
+    but instead all of the variables between `student_id` and `percomp`.
+2.  Assign a name other than `survey_subset` to the output. To help to
+    assign an informative name, it may be helpful to know that `int`
+    refers to a composite measure of students' self-reported interest in
+    science; `val` refers to their self-reported value for science; and.
+    `percomp` refers to their degree of confidence in doing well in
+    their science class.
+
+```{r}
+
+```
+
+After you've run the code above, take a quick peak at the data one more
+time by typing (or `glimpse()`'ing) the new data frame you've created.
+
+Another useful select helper function is the minus symbol, `-`.
+
+For instance, we can remove the `date` variable from our data set
+through the use of the following code:
+
+```{r}
+survey %>% 
+  select(-date)
+```
+
+The minus symbol (`-`) can also be combined with other functions.
+Imagine that we wanted to remove all three of the date-related
+variables---deciding that they're not relevant to our analysis. We can
+do this with the following code:
+
+```{r}
+survey %>% 
+  select(-contains("date"))
+```
+
+Contains selects (or, if it is prefaced by a minus symbol, removes) all
+variables that contain the string you specify. This can be helpful when
+specific variables in your data share a common name. For instance, you
+may analyze data from survey software that denotes questions from a
+similar group or section of your survey with a particular name or term.
+`contains()` can help you to select all of the variables that contain
+that name or term.
+
+Let's proceed to selecting a subset of the survey data to use. We need
+the `student_id` and the three variables related to the course
+(`subject`, `semester`, and `section`), as well as the three variables
+that we described above that relate to students' motivation: `int`,
+`val`, and `percomp`. We'll select those by using the colon (`:`) symbol
+as well as selecting the `student_id` variable.
+
+```{r}
+survey_to_join <- survey %>% 
+  select(student_id, subject:percomp)
+```
+
+At this point, we likely have a number of different data frames in our
+environment, and that's okay! We'll focus on two from here forward:
+`joined_data` and `survey_to_join`. You are likely anticipating a
+sensible next step: Let's join these together so we have one data frame
+we can explore further!
+
+This should be a straightforward join, just like we did in the last
+learning laboratory. Let's go ahead and join the two files as follows:
+
+```{r}
+# this returns an error! Read on
+full_join(joined_data, survey_to_join)
+```
+
+Oof! That was an unexpected error. Sometimes, it is difficult to figure
+out what R is telling us when we see an error. Other times, we can begin
+to scrutinize (or Google!) the error message to gain a sense for what
+didn't work quite as we expected. Here, the error is:
+
+> Error: Can't join on \`x\$student_id\` x \`y\$student_id\` because of
+> incompatible types. ℹ \`x\$student_id\` is of type \<double\>\>. ℹ
+> \`y\$student_id\` is of type \<character\>\>.
+
+What do you think this error is telling us?? Debugging is as much an art
+(and a creative process) as it is systematic. Often, we're looking for
+hints or clues to tell us what to try out next. Do you have any hints
+about either what is not working---or what we can do? Add one or more
+below:
+
+-   
+
+You may be anticipating a way forward here. Reading this, we can see
+that one of the variables that would serve as a *key* on which we would
+join together our two data frames, `joined_data` and `survey_to_join` ,
+has "incompatible types." Recall that the join functions we are using
+like for any *key* variables to be strings. In other words, they cannot
+be numbers, but must be words. Often, though, we wish for a key to be a
+number---perhaps when an anonymous ID for a teacher or student is a
+number. In these cases, we are not out of luck, but we need to tell R
+that we want for what it thinks is a number to be a character string. In
+other words, we want to change the type of a numeric variable to be a
+character string variable.
+
+Which of the two `student_id` variables is a number? One potential way
+to determine this is to print both data frames to the console and to
+check the variables. The error also presented us with a clue,
+specifically this part:
+
+> ℹ \`x\$student_id\` is of type \<double\>\>. ℹ \`y\$student_id\` is of
+> type \<character\>\>.
+
+These are output in the order we entered them, so the first of the two
+lines above refers to the first data frame we used in the join function
+and the second line refers to the second data frame. Since we ran
+`full_join(joined_data, survey_to_join)`, `joined_data` is first and
+`survey_to_join` is second. In other words, the number that needs to be
+a character string is in the `joined_data` file. Let's change that to a
+character string by using the `mutate()` function used yesterday.
+
+```{r}
+joined_data <- joined_data %>% 
+  mutate(student_id = as.character(student_id))
+```
+
+Finally, let's try to join the data once more
+
+```{r}
+# after changing student_id to be a character string in both data frames
+# the two data frames join without an error
+full_join(joined_data, survey_to_join)
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Above, we did not save the output from the join to a new object, in part
+as we were checking to make sure the join worked as intended. Below,
+join together `joined_data` and `survey_to_join` using `full_join()`,
+assigning the name `data_to_explore` to the output.
+
+```{r}
+
+```
 
 ## 3. EXPLORE
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+We'll explore our data in two ways---by creating:
 
-## 4. MODEL
+1.  Descriptive statistics for key variables in our data
+2.  A correlation matrix for key variables that are numbers
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+Let's take these in turn.
+
+#### Creating descriptive statistics for key variables in our data
+
+asdf
+
+#### Creating a correlation matrix for key variables that are numbers
 
 ## 5. COMMUNICATE
 
-#### [**Your Turn**]{style="color: green;"} **⤵**
+In this learning lab, we covered a lot of ground, from extensively
+wrangling our data (further), joining together two data sets, and
+creating plots that depicted the relations between two variables. We
+also built on the ggplot'ting we began in the first learning lab, going
+deeper in terms of the the type of plot we created as well as how we
+styled it.
+
+Like for the first learning lab, below, add a few notes in response to
+the prompts:
+
+*One thing I took away from this learning lab*:
+
+*One thing I want to learn more about*:
+
+## Reach
+
+For this learning lab, your reach is to join together two of your own
+data sets. Even if you don't expand on this code here, gaining
+experience joining data sets with which you're familiar can be handy. If
+you do this, re-knit your document when complete or at a stopping point
+so you have a record of your work!
+
+If you do not have data you wish to join at this time, consider reading
+one of these resources on joining or that involve joining:
+
+Relational Data from the excellent R for Data Science book:
+<https://r4ds.had.co.nz/relational-data.html>
+
+Walkthrough 1: The Education Data Science Pipeline With Online Science
+Class Data from Data Science in Education Using
+R<https://datascienceineducation.com/c07.html>

@@ -1,4 +1,4 @@
-student_ID,course_ID,subject,semester,section,int,uv,percomp,tv,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,date.x,post_int,post_uv,post_tv,post_percomp,date.y,date
+student_ID,course_ID,subject,semester,section,int,val,percomp,tv,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,date.x,post_int,post_uv,post_tv,post_percomp,date.y,date
 43146,FrScA-S216-02,FrScA,S216,02,4.2,3.6666666666666665,4,3.857142857142857,4,4,4,5,4,4,4,4,3,4,2016-02-02T18:44:00Z,NA,NA,NA,NA,NA,NA
 44638,OcnA-S116-01,OcnA,S116,01,4,3,3,3.5714285714285716,4,2,2,4,4,4,4,4,3,4,2015-09-09T13:41:00Z,NA,NA,NA,NA,NA,NA
 47448,FrScA-S216-01,FrScA,S216,01,4.2,3,3,3.7142857142857144,5,3,3,4,4,3,3,4,3,4,2016-01-28T14:01:00Z,NA,NA,NA,NA,NA,NA
