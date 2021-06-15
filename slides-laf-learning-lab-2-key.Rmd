@@ -74,7 +74,7 @@ Your turn! Using the code in the code chunk above as a starting point,
 modify `read_csv()` to read in the file "log-wrangled.csv".
 
 ```{r}
-log_wrangled <- read_csv()
+log_wrangled <- read_csv(here("data", "log-wrangled.csv"))
 ```
 
 In the environment tab of your RStudio Cloud window, you should now see
@@ -152,7 +152,7 @@ task and the number?
 arguments to the function.
 
 ```{r}
-str_sub("Task 1 %54", start = 1, end = 10)
+str_sub("Task 1 %54", start = 1, end = 6)
 ```
 
 A feature of str_sub is that it not only works for a single string, but
@@ -171,7 +171,7 @@ str_sub(c("Task 1 %54",
           "Task 8 %54",
           "Task 9 %54",
           "Task 10 %54"),
-        start = 1, end = 10)
+        start = 1, end = 6)
 ```
 
 Detour complete! Let's now consider how we can use what we did above to
@@ -193,7 +193,7 @@ need to be the same data type in order to be joined together.
 
 ```{r}
 log_wrangled %>% 
-  mutate(student_id = str_sub(student_id, start = 1, end = 7)) %>% 
+  mutate(student_id = str_sub(student_id, start = 2, end = 7)) %>% 
   mutate(student_id = as.integer(student_id))
 ```
 
@@ -217,8 +217,7 @@ the previous chunk and then run the chunk.
 
 ```{r}
 log_wrangled <- log_wrangled %>% 
-  mutate(student_id = str_sub(student_id, start = 1, end = 7)) %>% 
-  # change the type of the student_id variable from a string to an integer
+  mutate(student_id = str_sub(student_id, start = 2, end = 7)) %>% 
   mutate(student_id = as.integer(student_id))
 ```
 
@@ -275,7 +274,7 @@ in, divide `var_a` by `var_b`.
 
 ```{r}
 df4 <- df4 %>% 
-  mutate()
+  mutate(var_a / var_b)
 ```
 
 **Hint**: Take a peak at your work on the last learning lab as an
@@ -304,7 +303,8 @@ others wrote!) often, so feel free to copy and paste code from other,
 similar problems to give yourself a head start.
 
 ```{r}
-
+gradebook <- gradebook %>% 
+  mutate(proportion_earned = total_points_earned / total_points_possible)
 ```
 
 Once the above step is complete, take another look at `gradebook` by
@@ -385,7 +385,7 @@ the quotation marks following `by =`. Then run the code chunk and note
 the output.
 
 ```{r}
-full_join(df5, df6, by = "")
+full_join(df5, df6, by = "name")
 ```
 
 What do you notice about the output of the `full_join()`? All
@@ -414,7 +414,7 @@ running the code below, add the same key you added above.
 #### [**Your Turn**]{style="color: green;"} **⤵**
 
 ```{r}
-left_join(df5, df6, by = "")
+left_join(df5, df6, by = "name")
 ```
 
 Different from the above, `left_join()` did not return all of the rows
@@ -430,7 +430,7 @@ function.
 
 ```{r}
 # join together the gradebook and log_wrangled
-joined_data <- full_join()
+joined_data <- full_join(gradebook, log_wrangled)
 
 joined_data
 ```
@@ -457,7 +457,7 @@ on which variables you data sets are joining.
 
 ```{r}
 # join together the gradebook and log_wrangled
-joined_data <- full_join()
+joined_data <- full_join(gradebook, log_wrangled, by = c("student_id", "Subject", "Course", "Section"))
 
 joined_data
 ```
@@ -515,7 +515,8 @@ in the last learning lab. In the code below, facet the plot by
 
 ```{r}
 ggplot(joined_data, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
-  geom_point()
+  geom_point() +
+  facet_wrap(~Subject)
 ```
 
 **Hint**: Take a peak at the code you wrote for the first learning lab
@@ -549,7 +550,10 @@ faceted plot you created in the code chunk below:
 -   `theme(legend.position = "bottom")`
 
 ```{r}
-
+ggplot(joined_data, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+  geom_point() +
+  facet_wrap(~Subject) +
+  scale_color_brewer("Enrollment Status", type = "qual", palette = 3)
 ```
 
 Once you have settled on a plot you are happy with (for now!), add a
@@ -562,7 +566,7 @@ Last, if you want, you can save the processed data set to your data
 folder using `write_csv()`.
 
 ```{r}
-
+write_csv(joined_data, here("data", "joined-data.csv"))
 ```
 
 ## 5. COMMUNICATE
