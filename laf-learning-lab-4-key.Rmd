@@ -1,0 +1,274 @@
+---
+title: "Learning Analytics Foundations Learning Lab 4"
+output:
+  html_notebook: default
+  html_document:
+    df_print: paged
+    toc: true
+  pdf_document: default
+name: ''
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+The culmination of this module involves using data from all three data
+sets---on the time students spent on the course LMS, their academic
+achievement, and their self reports---in a model, particularly, a linear
+(regression) model to understand differences in students' academic
+achievement. In addition to considering how to fit and interpret such a
+model in R, we create and tailor a report that we can share with
+collaborators and others. Let's begin!
+
+## 1. PREPARE
+
+### Packages 📦
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Below, load the {tidyverse} package.
+
+```{r}
+
+```
+
+### Data
+
+We'll load the `data-to-explore` data we worked with in the prior
+learning lab.
+
+Below, read that file, saved in the `/data` directory, and assign it the
+name `data_to_explore`.
+
+```{r}
+
+```
+
+**Hint**: Refer to how we read data files in the last few learning labs
+for a template or starting point for your code.
+
+Before we proceed, let's take a step we so often take: taking a look at
+our data. We haven't emphasized this function very much because it takes
+you as the R programmer out of your environment---it opens a new window.
+Nevertheless, it is good to have the `View()` function as a part of your
+toolkit. To view the data frame you loaded, run `View(data_to_explore)`
+in the console. Yes, the "V" is capitalized---very unusual for an R
+function. Because this function is a bit atypical in more ways than one,
+we have two recommendations concerning its use:
+
+-   Use it strictly in the console. Because it opens a new viewing
+    window, including it in an R Markdown script can cause issues when
+    rendering an HTML (or PDF) report.
+
+-   Close the viewer window that opens once you have viewed the data.
+    Keeping it open can clutter your work space a bit and can lead to
+    confusion about what data frame it was you viewed.
+
+## 2. WRANGLE
+
+We often think of wrangling as a step *prior to* exploring and modeling
+data. However, we often carry out a cycle involving wrangling,
+exploring, and modeling. For instance, we may explore our data to find
+that a variable is not prepared or cleaned how it needs to be to achieve
+our aim. Or, we may estimate a model, but find that the levels of the
+qualitative (or categorical) variables are not encoded in such a way to
+allow us to estimate the things we wish to (such as which levels differ
+from a reference group).
+
+If some of this modeling jargon is new, then you're still in the right
+spot! Let's proceed to some concrete examples of how wrangling and
+modeling, particularly, are related to one another.
+
+## 4. MODEL
+
+`data_to_explore` is a fairly large data frame, consisting of around
+1,000 observations and around 15 columns. For the purpose of this
+learning lab, let's consider the `proportion_earned` variable to be our
+dependent, or the outcome, variable.
+
+You may be new to linear regression models, or you may have a lot of
+experience. In brief, a linear regression model involves estimating the
+relationships between one or more *independent variables* with one
+dependent variable. Mathematically, it can be written like the
+following.
+
+$$
+\operatorname{dependentvar} = \beta_{0} + \beta_{1}(\operatorname{independentvar}) + \epsilon
+$$
+
+Here, the `dependentvar` is predicted by two *coefficients*, or things
+that help to explain the dependent variable. The first coefficient,
+$\beta_0$, is the intercept. This coefficient tells us what the
+estimated value of the dependent variable is when the independent
+variable (`independentvar`) is equal to 0. The other coefficient,
+$\beta_1$, or the slope, represents the association of a one-unit change
+in the independent variable in the value of the dependent variable.
+
+Let's consider a concrete example. We'll use the `lm()` function in R to
+estimate a linear regression model.
+
+The following code estimates a model in which `proportion_earned`, the
+proportion of points students earned, is the dependent variable. It is
+predicted by one independent variable, `int`, students' self-reported
+interest in science.
+
+```{r}
+lm(proportion_earned ~ int, data = data_to_explore)
+```
+
+Let's take a look at the output.
+
+We can see that the intercept is estimated at 0.53. This tells us that
+when students' interest is equal to zero, their predicted proportion of
+points earned is 0.53---not such a great grade! But, for every one-unit
+increase in students' interest in science, their estimate proportion of
+points earned was 0.055. Let's consider what the mean value is for
+students' interest.
+
+The following is some new code, but we'll elaborate on the use of
+`summarize()` later. For now, know that it's a way to create summary
+statistics such as the mean, but also the standard deviation, or the
+minimum or maximum of a value. At its core, think of `summarize()` as a
+function that returns a single value (whether it's a mean, median,
+standard deviation---whichever!) that summarizes a single column.
+
+The argument `na.rm = TRUE` tells R that it can ignore missing, or `NA`
+values, and to calculate the summary statistic using the non-missing
+values.
+
+```{r}
+data_to_explore %>% 
+  summarize(mean_interest = mean(int, na.rm = TRUE))
+```
+
+The mean value for interest is quite high. If we multiple the estimate
+relationship between interest and proportion of points
+earned---0.055---by this, the mean interest across all of the
+students---we can determine that students' estimate final grade was
+0.055 X 4.3, or 0.236, which we can add to the intercept, 0.535, which
+equals 0.771. In other words, the student with average interest in
+science earned 0.771 of possible points in the group---not associated
+with a great grade, but not bad!
+
+A linear regression model builds on this intuition by allowing us to add
+variables other than students' interest to understand and explain the
+points they earned in the course.
+
+We can add additional predictor variables by separating variables with a
+plus symbol.
+
+```{r}
+lm(proportion_earned ~ int + time_spent_hours, data = data_to_explore)
+```
+
+Let's add a third variable, this time a categorical variable, one for
+students' gender as recorded in the LMS. We note that this is a course
+variable, one inferior to one that we would have had had we asked
+students to report their gender.
+
+```{r}
+lm(proportion_earned ~ int + time_spent_hours + gender, data = data_to_explore)
+```
+
+In the output, we can see that there is now a fourth coefficient,
+`genderM`. This variable indicates the estimate difference between male
+and female students. Thus, this effect of -0.009 can be considered to be
+the "male effect" in comparison to females: Males earn an estimate
+(nearly) a 0.01 proportion points fewer than females. Imagine we want to
+consider, instead, the "female" effect.
+
+The following code treats `gender` as a factor, but makes `M`, for
+males, to be the reference group.
+
+```{r}
+data_to_explore <- data_to_explore %>% 
+  mutate(gender = as.factor(gender),
+         gender = fct_relevel(gender, "M"))
+```
+
+Then, when we estimate the model, we can see now that the estimate
+effect is `genderF`, telling us the estimated proportion of points
+female students earned relative to males. Since there were only two
+groups for gender (again, because of the way the LMS only reported
+students' genders as male or female, a serious limitation of the data
+that we would want to take care to report), the sign of the effect
+simply flipped, but if we had multiple groups, carefully choosing the
+reference group can make a difference in the interpretability of the
+model.
+
+```{r}
+lm(proportion_earned ~ int + time_spent_hours + gender, data = data_to_explore)
+```
+
+One last step. We can save the output of the function to an
+object---let's say `m1`, standing for model 1. We can then use the
+summary function to view a much more feature-rich summary of the
+estimated model.
+
+```{r}
+m1 <- lm(proportion_earned ~ int + time_spent_hours + gender, data = data_to_explore)
+summary(m1)
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵**
+
+Below, estimate at least two different regression models, viewing and
+interpreting the model results. You'll have to fill a lot in to estimate
+these models! Consider any and all of the variables, and whether you
+need to wrangle them into shape to meaningfully interpret them.
+
+```{r}
+m2 <- lm(proportion_earned ~ int + time_spent_hours + gender + val + pc, data = data_to_explore)
+summary(m2)
+```
+
+Add a note or two interpreting the above model (`m2`) next:
+
+-   
+
+```{r}
+# the * operator specifies an interaction
+m3 <- lm(proportion_earned ~ int + time_spent_hours + gender + time_spent_hours*gender, data = data_to_explore)
+summary(m3)
+```
+
+Add another or note or two interpreting the above model (`m3`) next:
+
+-   
+
+## 5. COMMUNICATE
+
+In this learning lab, we focused on modeling our data. We also discussed
+how to interpret a linear regression model, and how to interpret the
+output of one estimated within R. For some, this may be brand new, for
+others, a refresher of a topic in which you have substantial expertise.
+This is a seriously deep topic, with many future directions you may wish
+to take. You may be interested in multi-level models; estimating them in
+R is very similar to estimating a linear model; a brief tutorial in
+which you may be interested is here:
+<https://datascienceineducation.com/c13.html>
+
+To complete this learning lab, "knit" the document to HTML. View the
+file; may may notice there is now a table of contents! This is from the
+`toc: true` argument added to the very top of this file. Consider making
+other modifications to the front matter based on the options detailed
+here: <https://bookdown.org/yihui/rmarkdown/html-document.html>
+
+Good work! Below, add a few notes in response to the prompts:
+
+*One thing I took away from this learning lab*:
+
+*One thing I want to learn more about*:
+
+## Reach
+
+As a reach, consider whether you can estimate a model using your own
+data. 
+
+If interested, follow the link above to a resource on estimating a multi-level model, and read about and/or explore estimating one with your own data.
